@@ -1,0 +1,31 @@
+https://www.which.co.uk/money/mortgages-and-property/mortgage-calculators/stamp-duty-calculator-a8q0l1r8wvz7
+https://github.com/matthewrevell/stampdutycalculator/blob/master/js/main.js
+https://www.moneysavingexpert.com/mortgages/stamp-duty/
+
+https://www.moneyadviceservice.org.uk/en/articles/everything-you-need-to-know-about-stamp-duty
+https://www.moneysavingexpert.com/mortgages/mortgage-rate-calculator/
+
+https://docs.google.com/spreadsheets/d/1X4Fdi6TmMfjutfyLmt2bDY5ezWbahYhsGq4dTsTC3Dw/edit#gid=377574362
+
+first owner = bool
+second owner = bool
+price = 0
+locations = england and & Northern Ireland
+sdlt = 0
+
+if (locations == england and ireland) {
+	if (price <= 125000) {
+		if (owner_type_is_first == true){ calculate with first owner percentage}
+		else {calcultae wuth second owner}
+	}
+	else if (price >= 125001 && price <= 250000) {
+		if (owner_type_is_first == true){ calculate with first owner percentage}
+		else {calcultae wuth second owner}
+	}
+	
+}
+elif (locations == scotland){
+}
+
+elif (locations == wales){
+}
