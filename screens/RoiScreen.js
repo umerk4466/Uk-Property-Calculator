@@ -43,7 +43,7 @@ const RoiScreen = ({ navigation }) => {
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
       onSubmit={(values, actions) => {
-        // get all the filed data and calculate return on investment
+        // get all the filed data and calculate
         const annual_cash_flow =
           values.monthly_rental * 12 -
           (values.monthly_mortgage + values.other_monthly_costs) * 12;
