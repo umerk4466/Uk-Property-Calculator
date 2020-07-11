@@ -11,7 +11,6 @@ import CalculateResetButton from "../components/CalculateResetButton";
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
-
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
