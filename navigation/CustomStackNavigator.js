@@ -7,6 +7,7 @@ import { CustomTheme } from "../constants/navigation-theme";
 // import screens to add in stack
 import HomeScreen from "../screens/HomeScreen";
 import RoiScreen from "../screens/RoiScreen";
+import MortgageCalcScreen from "../screens/MortgageCalcScreen";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,10 @@ export default function CustomStackNavigator() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Roi Calculator" component={RoiScreen} />
+        <Stack.Screen
+          name="Mortgage Calculator"
+          component={MortgageCalcScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

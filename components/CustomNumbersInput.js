@@ -1,34 +1,24 @@
 import React from "react";
-// import input-field for money
-import { TextInputMask } from "react-native-masked-text";
+import { TextInput } from "react-native";
 import { View, Text, StyleSheet } from "react-native";
 import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
-// CustomMoneyInput Component
-const CustomMoneyInput = props => {
+// CustomNumberInput Component
+const CustomNumberInput = props => {
   return (
     <View>
       <Text numberOfLines={1}>{props.title}</Text>
-      <TextInputMask
+      <TextInput
         multiline={true}
         numberOfLine={1}
         blurOnSubmit={true}
-        type={"money"}
-        options={{
-          precision: 0,
-          separator: ".",
-          delimiter: ",",
-          unit: "£",
-          suffixUnit: ""
-        }}
         style={[styles.Input, globalStyle.LargeFont]}
         textAlign={"center"}
         placeholder={props.placeholder}
         keyboardType={"decimal-pad"}
         value={props.value}
         onBlur={props.onBlur}
-        includeRawValueInChangeText={true}
         onChangeText={props.onChangeText}
         {...props}
       />
@@ -39,9 +29,9 @@ const CustomMoneyInput = props => {
   );
 };
 
-export default CustomMoneyInput;
+export default CustomNumberInput;
 
-// CustomMoneyInput Component Style
+// CustomNumberInput Component Style
 const styles = StyleSheet.create({
   Input: {
     flex: 1,

@@ -21,12 +21,12 @@ export default function HomeScreen({ navigation }) {
           description="Investment Property Calculator"
         ></TouchableButton> */}
       {/* MORTGAGE CALCULATOR */}
-      {/* <TouchableButton
-          onPress={() => alert("nothing added yet")}
-          imgSource={require("../assets/HomeScreen/mortgage.png")}
-          title="Mortgage Calculator"
-          description="How much will you pay a month"
-        ></TouchableButton> */}
+      <TouchableButton
+        onPress={() => navigation.navigate("Mortgage Calculator")}
+        imgSource={require("../assets/HomeScreen/mortgage.png")}
+        title="Mortgage Calculator"
+        description="Find monthly mortgage payments"
+      ></TouchableButton>
       {/* AREA CALCULATOR */}
       {/* <TouchableButton
           onPress={() => navigation.navigate("Price Per Area")}
