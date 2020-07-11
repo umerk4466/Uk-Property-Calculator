@@ -11,6 +11,9 @@ import CalculateResetButton from "../components/CalculateResetButton";
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
+// import function to set message on the header button
+import SetHeaderMessage from "../constants/SetHeaderMessage";
+
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
@@ -23,9 +26,11 @@ const ValidatorSchema = yup.object({
   initial_deposit: YupErrorMessages
 });
 
-const RoiScreen = () => {
+const RoiScreen = ({ navigation }) => {
   // define ref variable, for automatic scrolling
   const scrollRef = React.useRef();
+  // imported function to add right button on the header
+  SetHeaderMessage(navigation, "jajsajiasjia");
   return (
     <Formik
       initialValues={{
