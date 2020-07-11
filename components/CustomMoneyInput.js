@@ -51,12 +51,13 @@ export default CustomMoneyInput;
 // CustomMoneyInput Component Style
 const styles = StyleSheet.create({
   Input: {
+    flex: 1,
+    height: 30,
     marginTop: 5,
     marginBottom: 4,
     borderWidth: 0.6,
     borderRadius: 2,
-    borderColor: Colors.BoxContainerBorderColor,
-    flex: 1
+    borderColor: Colors.BoxContainerBorderColor
   },
   InputTextError: {
     color: Colors.ErrorColor,
