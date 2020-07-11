@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 4,
     borderWidth: 0.6,
-    borderRadius: 2,
+    borderRadius: 4,
     borderColor: Colors.BoxContainerBorderColor
   },
   InputTextError: {
