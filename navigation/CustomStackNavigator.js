@@ -15,7 +15,7 @@ export default function CustomStackNavigator() {
     <NavigationContainer theme={CustomTheme}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Roi Screen" component={RoiScreen} />
+        <Stack.Screen name="Roi Calculator" component={RoiScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

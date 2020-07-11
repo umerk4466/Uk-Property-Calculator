@@ -30,7 +30,10 @@ const RoiScreen = ({ navigation }) => {
   // define ref variable, for automatic scrolling
   const scrollRef = React.useRef();
   // imported function to add right button on the header
-  SetHeaderMessage(navigation, "jajsajiasjia");
+  SetHeaderMessage(
+    navigation,
+    "Return on Investment (ROI) measures how much money or profit is made on an investment as a percentage of the cost of that investment."
+  );
   return (
     <Formik
       initialValues={{

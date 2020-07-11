@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Alert } from "react-native";
+import { Alert } from "react-native";
 import { Icon } from "react-native-elements";
+import Colors from "../constants/colors";
 
 // function for showing right button on the header.
 const SetHeaderMessage = (navigation, message) => {
@@ -8,14 +9,14 @@ const SetHeaderMessage = (navigation, message) => {
     navigation.setOptions({
       headerRight: () => (
         <Icon
-          name="sc-telegram"
-          type="evilicon"
-          color="#517fa4"
+          name="info"
+          iconStyle={{ paddingRight: 12 }}
+          color={Colors.OnButtonColor}
           onPress={() => Alert.alert("Info", message)}
         />
       )
     });
-  }, [navigation]);
+  });
 };
 
 export default SetHeaderMessage;

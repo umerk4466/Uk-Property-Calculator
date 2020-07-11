@@ -8,7 +8,7 @@ export default function HomeScreen({ navigation }) {
     <RootComponent noPadding>
       {/* ROI CALCULATOR */}
       <TouchableButton
-        onPress={() => navigation.navigate("Roi Screen")}
+        onPress={() => navigation.navigate("Roi Calculator")}
         imgSource={require("../assets/HomeScreen/roi.png")}
         title="ROI Calculator"
         description="Return on investment"
