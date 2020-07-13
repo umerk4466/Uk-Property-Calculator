@@ -60,8 +60,8 @@ const MortgageCalcScreen = ({ navigation }) => {
         // // update the "final_result field"
         // actions.setFieldValue("final_result", annual_roi.toFixed(0));
         // // scroll to top
-        // scrollToTop(scrollRef);
-        // Keyboard.dismiss();
+        scrollToTop(scrollRef);
+        Keyboard.dismiss();
       }}
     >
       {(props) => (
