@@ -18,7 +18,6 @@ import SetHeaderMessage from "../constants/SetHeaderMessage";
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
-import { Value } from "react-native-reanimated";
 
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
