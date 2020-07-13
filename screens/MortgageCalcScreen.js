@@ -18,13 +18,14 @@ import SetHeaderMessage from "../constants/SetHeaderMessage";
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
+import { Value } from "react-native-reanimated";
 
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
   available_deposit: YupErrorMessages,
   interest_rate_percentage: YupErrorMessages,
-  mortgage_term_years: YupErrorMessages
+  mortgage_term_years: YupErrorMessages,
 });
 
 const MortgageCalcScreen = ({ navigation }) => {
@@ -42,25 +43,29 @@ const MortgageCalcScreen = ({ navigation }) => {
         available_deposit: "",
         interest_rate_percentage: "",
         mortgage_term_years: "",
-        final_result: 0
+        final_result: 0,
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
       onSubmit={(values, actions) => {
-        // get all the filed data and calculate
-        const annual_cash_flow =
-          values.property_price * 12 -
-          (values.available_deposit + values.interest_rate_percentage) * 12;
-        const annual_roi =
-          (annual_cash_flow / values.mortgage_term_years) * 100;
-        // update the "final_result field"
-        actions.setFieldValue("final_result", annual_roi.toFixed(0));
-        // scroll to top
-        scrollToTop(scrollRef);
-        Keyboard.dismiss();
+        console.log(typeof values.interest_rate_percentage);
+        console.log(typeof values.mortgage_term_years);
+        console.log(typeof values.available_deposit);
+
+        // // get all the filed data and calculate
+        // const annual_cash_flow =
+        //   values.property_price * 12 -
+        //   (values.available_deposit + values.interest_rate_percentage) * 12;
+        // const annual_roi =
+        //   (annual_cash_flow / values.mortgage_term_years) * 100;
+        // // update the "final_result field"
+        // actions.setFieldValue("final_result", annual_roi.toFixed(0));
+        // // scroll to top
+        // scrollToTop(scrollRef);
+        // Keyboard.dismiss();
       }}
     >
-      {props => (
+      {(props) => (
         <RootComponent ref={scrollRef}>
           {/* ROI result box */}
           <ResultBox
@@ -102,7 +107,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               maxLength={3}
               onBlur={props.handleBlur("interest_rate_percentage")}
               value={props.values.interest_rate_percentage}
-              onChangeText={Text => {
+              onChangeText={(Text) => {
                 props.setFieldValue("interest_rate_percentage", Text);
               }}
               error={props.errors.interest_rate_percentage}
@@ -115,7 +120,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               maxLength={2}
               onBlur={props.handleBlur("mortgage_term_years")}
               value={props.values.mortgage_term_years}
-              onChangeText={Text => {
+              onChangeText={(Text) => {
                 props.setFieldValue("mortgage_term_years", Text);
               }}
               error={props.errors.mortgage_term_years}

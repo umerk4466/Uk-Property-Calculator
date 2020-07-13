@@ -5,7 +5,7 @@ import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
 // CustomNumberInput Component
-const CustomNumberInput = props => {
+const CustomNumberInput = (props) => {
   return (
     <View>
       <Text numberOfLines={1}>{props.title}</Text>
@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     borderWidth: 0.6,
     borderRadius: 4,
-    borderColor: Colors.BoxContainerBorderColor
+    borderColor: Colors.BoxContainerBorderColor,
   },
   InputTextError: {
     color: Colors.ErrorColor,
     fontSize: 12,
-    marginBottom: 5
-  }
+    marginBottom: 5,
+  },
 });
