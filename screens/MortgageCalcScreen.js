@@ -23,7 +23,7 @@ import { Formik } from "formik";
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
   available_deposit: YupErrorMessages,
-  interest_rate_percentage: YupErrorMessages,
+  interest_rate_percentage: yup.number("ss").required(),
   mortgage_term_years: YupErrorMessages,
 });
 
