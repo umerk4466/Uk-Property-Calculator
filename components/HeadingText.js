@@ -4,7 +4,7 @@ import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
 // HeadingText Component
-const HeadingText = (props) => {
+const HeadingText = props => {
   return (
     <Text
       adjustsFontSizeToFit={true}
@@ -21,6 +21,6 @@ export default HeadingText;
 const styles = StyleSheet.create({
   HeadingTextStyle: {
     color: Colors.HeadingTextColor,
-    paddingVertical: 10,
-  },
+    paddingVertical: 10
+  }
 });
