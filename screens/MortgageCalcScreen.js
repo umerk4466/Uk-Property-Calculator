@@ -24,7 +24,7 @@ const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
   available_deposit: YupErrorMessages,
   interest_rate_percentage: yup.number("ss").required(),
-  mortgage_term_years: YupErrorMessages,
+  mortgage_term_years: YupErrorMessages
 });
 
 const MortgageCalcScreen = ({ navigation }) => {
@@ -42,7 +42,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         available_deposit: "",
         interest_rate_percentage: "",
         mortgage_term_years: "",
-        final_result: 0,
+        final_result: 0
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -64,7 +64,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         // Keyboard.dismiss();
       }}
     >
-      {(props) => (
+      {props => (
         <RootComponent ref={scrollRef}>
           {/* ROI result box */}
           <ResultBox
@@ -106,7 +106,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               maxLength={3}
               onBlur={props.handleBlur("interest_rate_percentage")}
               value={props.values.interest_rate_percentage}
-              onChangeText={(Text) => {
+              onChangeText={Text => {
                 props.setFieldValue("interest_rate_percentage", Text);
               }}
               error={props.errors.interest_rate_percentage}
@@ -119,7 +119,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               maxLength={2}
               onBlur={props.handleBlur("mortgage_term_years")}
               value={props.values.mortgage_term_years}
-              onChangeText={(Text) => {
+              onChangeText={Text => {
                 props.setFieldValue("mortgage_term_years", Text);
               }}
               error={props.errors.mortgage_term_years}
