@@ -45,7 +45,6 @@ export default CustomMoneyInput;
 const styles = StyleSheet.create({
   Input: {
     flex: 1,
-    padding: 1,
     marginTop: 3,
     marginBottom: 4,
     borderWidth: 0.6,
