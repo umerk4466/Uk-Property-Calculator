@@ -7,7 +7,7 @@ import Colors from "../constants/colors";
 const CustomSlider = props => {
   return (
     <View>
-      <Text numberOfLines={1}>
+      <Text style={{ marginTop: 5 }} numberOfLines={1}>
         {props.title} : {props.value} {props.suffix}
       </Text>
       <Slider
