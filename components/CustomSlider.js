@@ -1,6 +1,26 @@
+import React from "react";
 import { Slider } from "react-native-elements";
+import { Text, View } from "react-native";
+import Colors from "../constants/colors";
 
 // CustomSlider Component
 const CustomSlider = props => {
-  return <Slider value={props.value} onValueChange={props.onValueChange} />;
+  return (
+    <View>
+      <Text numberOfLines={1}>
+        {props.title} : {props.value} {props.suffix}
+      </Text>
+      <Slider
+        maximumTrackTintColor={Colors.BoxContainerBorderColor}
+        thumbTintColor={Colors.ButtonColor}
+        minimumValue={props.start}
+        maximumValue={props.end}
+        value={props.value}
+        onValueChange={props.onValueChange}
+        {...props}
+      />
+    </View>
+  );
 };
+
+export default CustomSlider;

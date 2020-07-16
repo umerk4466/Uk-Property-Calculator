@@ -43,7 +43,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         property_price: "",
         available_deposit: "",
         interest_rate_percentage: "",
-        mortgage_term_years: "",
+        mortgage_term_years: 2.7,
         final_result: 0
       }}
       validationSchema={ValidatorSchema}
@@ -129,10 +129,15 @@ const MortgageCalcScreen = ({ navigation }) => {
             /> */}
 
             <CustomSlider
+              title={"Interest rate"}
+              start={0}
+              end={15}
               value={props.values.mortgage_term_years}
               onValueChange={value => {
                 props.setFieldValue("mortgage_term_years", value);
               }}
+              step={0.01}
+              suffix={"%"}
             />
           </BoxWrapper>
           {/* Calculate and reset button */}
