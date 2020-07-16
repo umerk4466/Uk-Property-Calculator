@@ -1,4 +1,6 @@
 export default {
+  BackgroundColor: "#F9F9F9",
+  PrimaryColor: "#3498db",
   StatusBarColor: "#2980b9",
   ButtonColor: "#2980B9",
   OnButtonColor: "#FFFFFF",

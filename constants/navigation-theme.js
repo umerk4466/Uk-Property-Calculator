@@ -1,11 +1,13 @@
+import Colors from "../constants/colors";
+
 // custom theme for navigtor
 export const CustomTheme = {
   dark: false,
   colors: {
-    primary: "#FFFFFF", // (On Primary color)
-    background: "#F9F9F9", // (Background color)
-    card: "#3498db", // (Primary color)
-    text: "#FFFFFF", // (On Primary color)
+    primary: Colors.OnButtonColor, // (On Primary color)
+    background: Colors.BackgroundColor, // (Background color)
+    card: Colors.PrimaryColor, // (Primary color)
+    text: Colors.OnButtonColor // (On Primary color)
     // border: "#442C2E"
-  },
+  }
 };

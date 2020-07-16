@@ -139,18 +139,6 @@ const MortgageCalcScreen = ({ navigation }) => {
               step={0.01}
               suffix={"%"}
             />
-
-            <CustomSlider
-              title={"Interest rate"}
-              start={0}
-              end={15}
-              value={props.values.mortgage_term_years}
-              onValueChange={value => {
-                props.setFieldValue("mortgage_term_years", value);
-              }}
-              step={0.01}
-              suffix={"%"}
-            />
           </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
