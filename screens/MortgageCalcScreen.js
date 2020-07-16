@@ -8,6 +8,8 @@ import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
 import CustomNumbersInput from "../components/CustomNumbersInput";
 import CalculateResetButton from "../components/CalculateResetButton";
+import CustomSlider from "../components/CustomSlider";
+
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import function for scrolling to top
@@ -125,6 +127,13 @@ const MortgageCalcScreen = ({ navigation }) => {
               error={props.errors.mortgage_term_years}
               touched={props.touched.mortgage_term_years}
             /> */}
+
+            <CustomSlider
+              value={props.values.mortgage_term_years}
+              onValueChange={value => {
+                props.setFieldValue("mortgage_term_years", value);
+              }}
+            />
           </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
