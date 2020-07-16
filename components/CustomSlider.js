@@ -8,7 +8,7 @@ const CustomSlider = props => {
   return (
     <View>
       <Text style={{ marginTop: 5 }} numberOfLines={1}>
-        {props.title} : {props.value} {props.suffix}
+        {props.title} : {props.value.toFixed(1)} {props.suffix}
       </Text>
       <Slider
         maximumTrackTintColor={Colors.BoxContainerBorderColor}
@@ -16,7 +16,7 @@ const CustomSlider = props => {
         thumbTintColor={Colors.ButtonColor}
         minimumValue={props.start}
         maximumValue={props.end}
-        value={props.value}
+        value={props.value.toFixed(1)}
         onValueChange={props.onValueChange}
         {...props}
       />

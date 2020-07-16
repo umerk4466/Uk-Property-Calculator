@@ -131,12 +131,12 @@ const MortgageCalcScreen = ({ navigation }) => {
             <CustomSlider
               title={"Interest rate"}
               start={0}
-              end={15}
+              end={20}
               value={props.values.mortgage_term_years}
               onValueChange={value => {
                 props.setFieldValue("mortgage_term_years", value);
               }}
-              step={0.01}
+              step={0.1}
               suffix={"%"}
             />
           </BoxWrapper>
