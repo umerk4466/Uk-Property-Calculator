@@ -12,6 +12,7 @@ const CustomSlider = props => {
       </Text>
       <Slider
         maximumTrackTintColor={Colors.BoxContainerBorderColor}
+        minimumTrackTintColor={Colors.PrimaryColor}
         thumbTintColor={Colors.ButtonColor}
         minimumValue={props.start}
         maximumValue={props.end}
