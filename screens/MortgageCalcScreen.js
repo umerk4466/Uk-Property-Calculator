@@ -100,7 +100,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               touched={props.touched.available_deposit}
             />
             {/* Interest rate (%) field */}
-            <CustomNumbersInput
+            {/* <CustomNumbersInput
               title={"Interest rate (%)"}
               placeholder={"3.5"}
               maxLength={3}
@@ -111,9 +111,9 @@ const MortgageCalcScreen = ({ navigation }) => {
               }}
               error={props.errors.interest_rate_percentage}
               touched={props.touched.interest_rate_percentage}
-            />
+            /> */}
             {/* Initial investment field */}
-            <CustomNumbersInput
+            {/* <CustomNumbersInput
               title={"Mortgage term (years)"}
               placeholder={"25"}
               maxLength={2}
@@ -124,7 +124,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               }}
               error={props.errors.mortgage_term_years}
               touched={props.touched.mortgage_term_years}
-            />
+            /> */}
           </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
