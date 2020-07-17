@@ -18,7 +18,7 @@ const CustomSlider = props => {
         maximumValue={props.end}
         value={props.value.toFixed(1)}
         onValueChange={props.onValueChange}
-        {...props}
+        // {...props}
       />
     </View>
   );
