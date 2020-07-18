@@ -8,7 +8,8 @@ const CustomSlider = (props) => {
   return (
     <View>
       <Text style={{ marginTop: 5 }} numberOfLines={1}>
-        {props.title} : {props.value.toFixed(1)} {props.suffix}
+        {props.title} :{" "}
+        {props.floatValue ? props.value.toFixed(1) : props.value} {props.suffix}
       </Text>
       <Slider
         maximumTrackTintColor={Colors.BoxContainerBorderColor}

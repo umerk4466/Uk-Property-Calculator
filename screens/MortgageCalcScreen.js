@@ -127,17 +127,30 @@ const MortgageCalcScreen = ({ navigation }) => {
               error={props.errors.mortgage_term_years}
               touched={props.touched.mortgage_term_years}
             /> */}
-
+            {/* Interest rate (%) slider */}
             <CustomSlider
               title={"Interest rate"}
               start={0}
               end={25}
+              floatValue
               value={props.values.interest_rate_percentage}
               onValueChange={(value) => {
                 props.setFieldValue("interest_rate_percentage", value);
               }}
               step={0.1}
               suffix={"%"}
+            />
+            {/* Mortgage term (years) slider */}
+            <CustomSlider
+              title={"Mortgage term"}
+              start={0}
+              end={40}
+              value={props.values.mortgage_term_years}
+              onValueChange={(value) => {
+                props.setFieldValue("mortgage_term_years", value);
+              }}
+              step={1}
+              suffix={"years"}
             />
           </BoxWrapper>
           {/* Calculate and reset button */}
