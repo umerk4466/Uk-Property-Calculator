@@ -6,7 +6,6 @@ import ResultBox from "../components/ResultBox";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
-import CustomNumbersInput from "../components/CustomNumbersInput";
 import CalculateResetButton from "../components/CalculateResetButton";
 import CustomSlider from "../components/CustomSlider";
 
@@ -101,32 +100,6 @@ const MortgageCalcScreen = ({ navigation }) => {
               error={props.errors.available_deposit}
               touched={props.touched.available_deposit}
             />
-            {/* Interest rate (%) field */}
-            {/* <CustomNumbersInput
-              title={"Interest rate (%)"}
-              placeholder={"3.5"}
-              maxLength={3}
-              onBlur={props.handleBlur("interest_rate_percentage")}
-              value={props.values.interest_rate_percentage}
-              onChangeText={Text => {
-                props.setFieldValue("interest_rate_percentage", Text);
-              }}
-              error={props.errors.interest_rate_percentage}
-              touched={props.touched.interest_rate_percentage}
-            /> */}
-            {/* Initial investment field */}
-            {/* <CustomNumbersInput
-              title={"Mortgage term (years)"}
-              placeholder={"25"}
-              maxLength={2}
-              onBlur={props.handleBlur("mortgage_term_years")}
-              value={props.values.mortgage_term_years}
-              onChangeText={Text => {
-                props.setFieldValue("mortgage_term_years", Text);
-              }}
-              error={props.errors.mortgage_term_years}
-              touched={props.touched.mortgage_term_years}
-            /> */}
             {/* Interest rate (%) slider */}
             <CustomSlider
               title={"Interest rate"}
@@ -143,13 +116,13 @@ const MortgageCalcScreen = ({ navigation }) => {
             {/* Mortgage term (years) slider */}
             <CustomSlider
               title={"Mortgage term"}
-              start={0}
+              start={5}
               end={40}
               value={props.values.mortgage_term_years}
               onValueChange={(value) => {
                 props.setFieldValue("mortgage_term_years", value);
               }}
-              step={1}
+              step={5}
               suffix={"years"}
             />
           </BoxWrapper>
