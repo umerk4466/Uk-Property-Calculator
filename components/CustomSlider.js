@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 import Colors from "../constants/colors";
 
 // CustomSlider Component
-const CustomSlider = props => {
+const CustomSlider = (props) => {
   return (
     <View>
       <Text style={{ marginTop: 5 }} numberOfLines={1}>
@@ -16,7 +16,7 @@ const CustomSlider = props => {
         thumbTintColor={Colors.ButtonColor}
         minimumValue={props.start}
         maximumValue={props.end}
-        value={props.value.toFixed(1)}
+        value={props.value}
         onValueChange={props.onValueChange}
         {...props}
       />
