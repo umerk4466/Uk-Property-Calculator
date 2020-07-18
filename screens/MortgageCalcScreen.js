@@ -131,7 +131,7 @@ const MortgageCalcScreen = ({ navigation }) => {
             <CustomSlider
               title={"Interest rate"}
               start={0}
-              end={20}
+              end={25}
               value={props.values.interest_rate_percentage}
               onValueChange={(value) => {
                 props.setFieldValue("interest_rate_percentage", value);
