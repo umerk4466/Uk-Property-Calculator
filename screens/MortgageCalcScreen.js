@@ -48,9 +48,10 @@ const MortgageCalcScreen = ({ navigation }) => {
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
       onSubmit={(values, actions) => {
+        console.log(values.property_price);
+        console.log(values.available_deposit);
         console.log(values.interest_rate_percentage);
-        console.log(typeof values.mortgage_term_years);
-        console.log(typeof values.available_deposit);
+        console.log(values.mortgage_term_years);
 
         // // get all the filed data and calculate
         // const annual_cash_flow =
