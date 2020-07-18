@@ -25,8 +25,8 @@ import { Formik } from "formik";
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
   available_deposit: YupErrorMessages,
-  interest_rate_percentage: yup.number("s").required(),
-  mortgage_term_years: YupErrorMessages
+  // interest_rate_percentage: yup.number("s").required(),
+  // mortgage_term_years: YupErrorMessages,
 });
 
 const MortgageCalcScreen = ({ navigation }) => {
@@ -42,14 +42,14 @@ const MortgageCalcScreen = ({ navigation }) => {
       initialValues={{
         property_price: "",
         available_deposit: "",
-        interest_rate_percentage: "",
-        mortgage_term_years: 2.7,
-        final_result: 0
+        interest_rate_percentage: 2.7,
+        mortgage_term_years: 25,
+        final_result: 0,
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
       onSubmit={(values, actions) => {
-        console.log(typeof values.interest_rate_percentage);
+        console.log(values.interest_rate_percentage);
         console.log(typeof values.mortgage_term_years);
         console.log(typeof values.available_deposit);
 
@@ -66,7 +66,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         // Keyboard.dismiss();
       }}
     >
-      {props => (
+      {(props) => (
         <RootComponent ref={scrollRef}>
           {/* ROI result box */}
           <ResultBox
@@ -132,9 +132,9 @@ const MortgageCalcScreen = ({ navigation }) => {
               title={"Interest rate"}
               start={0}
               end={20}
-              value={props.values.mortgage_term_years}
-              onValueChange={value => {
-                props.setFieldValue("mortgage_term_years", value);
+              value={props.values.interest_rate_percentage}
+              onValueChange={(value) => {
+                props.setFieldValue("interest_rate_percentage", value);
               }}
               step={0.1}
               suffix={"%"}
