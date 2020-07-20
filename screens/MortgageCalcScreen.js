@@ -51,7 +51,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         console.log(values.property_price);
         console.log(values.available_deposit);
         console.log(values.interest_rate_percentage);
-        console.log(values.mortgage_term_years);
+        // console.log(values.mortgage_term_years);
 
         // // get all the filed data and calculate
         // const annual_cash_flow =
