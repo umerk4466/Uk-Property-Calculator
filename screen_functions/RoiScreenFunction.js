@@ -9,7 +9,7 @@ export const RoiScreenFunction = ({ values, actions }) => {
   const annual_roi = (annual_cash_flow / values.initial_deposit) * 100;
   // update the "final_result field"
   actions.setFieldValue("final_result", annual_roi.toFixed(0));
-  //   close the keyboard
+  // close the keyboard
   Keyboard.dismiss();
 };
 
