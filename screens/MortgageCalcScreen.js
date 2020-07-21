@@ -12,7 +12,7 @@ import CustomSlider from "../components/CustomSlider";
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
-// import screen calculation function
+// import calculation function
 import {
   MortgageCalcScreenFunction,
   ScreenMessage,
@@ -28,8 +28,6 @@ import { Formik } from "formik";
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
   available_deposit: YupErrorMessages,
-  // interest_rate_percentage: yup.number("s").required(),
-  // mortgage_term_years: YupErrorMessages,
 });
 
 const MortgageCalcScreen = ({ navigation }) => {
@@ -53,7 +51,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         console.log(values.available_deposit);
         console.log(values.interest_rate_percentage);
         console.log(values.mortgage_term_years);
-        MortgageCalcScreenFunction({ values });
+        MortgageCalcScreenFunction({ values, actions });
         // // get all the filed data and calculate
         // const annual_cash_flow =
         //   values.property_price * 12 -
