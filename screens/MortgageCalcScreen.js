@@ -49,7 +49,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         // calculation function
         MortgageCalcScreenFunction({ values, actions });
         // scroll to top
-        // scrollToTop(scrollRef);
+        scrollToTop(scrollRef);
       }}
     >
       {(props) => (
