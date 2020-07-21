@@ -49,7 +49,7 @@ const MortgageCalcScreen = ({ navigation }) => {
       enableReinitialize={true}
       onSubmit={(values, actions) => {
         console.log(values.property_price);
-        console.log(values.available_deposit);
+        // console.log(values.available_deposit);
         console.log(values.interest_rate_percentage);
         console.log(values.mortgage_term_years);
 
