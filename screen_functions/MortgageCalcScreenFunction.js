@@ -8,5 +8,5 @@ export const MortgageCalcScreenFunction = ({ values, actions }) => {
   Keyboard.dismiss();
 };
 
-// message for the screen
+// message for the screen header button
 export const ScreenMessage = "hahah";

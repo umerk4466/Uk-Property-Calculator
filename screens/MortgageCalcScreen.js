@@ -10,13 +10,13 @@ import CustomSlider from "../components/CustomSlider";
 
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
-// import function for scrolling to top
-import scrollToTop from "../constants/scroll-up";
 // import calculation function
 import {
   MortgageCalcScreenFunction,
   ScreenMessage,
 } from "../screen_functions/MortgageCalcScreenFunction";
+// import function for scrolling to top
+import scrollToTop from "../constants/scroll-up";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
 
@@ -62,7 +62,6 @@ const MortgageCalcScreen = ({ navigation }) => {
         // actions.setFieldValue("final_result", annual_roi.toFixed(0));
         // // scroll to top
         // scrollToTop(scrollRef);
-        // Keyboard.dismiss();
       }}
     >
       {(props) => (

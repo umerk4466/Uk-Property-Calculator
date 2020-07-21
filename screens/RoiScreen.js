@@ -1,5 +1,4 @@
 import React from "react";
-import { Keyboard } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
 import ResultBox from "../components/ResultBox";
@@ -9,6 +8,11 @@ import CustomMoneyInput from "../components/CustomMoneyInput";
 import CalculateResetButton from "../components/CalculateResetButton";
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
+// import calculation function
+import {
+  RoiScreenFunction,
+  ScreenMessage,
+} from "../screen_functions/RoiScreenFunction";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
 // import function to set message on the header button
@@ -23,17 +27,14 @@ const ValidatorSchema = yup.object({
   monthly_rental: YupErrorMessages,
   monthly_mortgage: YupErrorMessages,
   other_monthly_costs: YupErrorMessages,
-  initial_deposit: YupErrorMessages
+  initial_deposit: YupErrorMessages,
 });
 
 const RoiScreen = ({ navigation }) => {
   // define ref variable, for automatic scrolling
   const scrollRef = React.useRef();
   // imported function to add right button on the header
-  SetHeaderMessage(
-    navigation,
-    "Return on Investment (ROI) measures how much money or profit is made on an investment as a percentage of the cost of that investment."
-  );
+  SetHeaderMessage(navigation, ScreenMessage);
   return (
     <Formik
       initialValues={{
@@ -41,24 +42,18 @@ const RoiScreen = ({ navigation }) => {
         monthly_mortgage: "",
         other_monthly_costs: "",
         initial_deposit: "",
-        final_result: 0
+        final_result: 0,
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
       onSubmit={(values, actions) => {
-        // get all the filed data and calculate
-        const annual_cash_flow =
-          values.monthly_rental * 12 -
-          (values.monthly_mortgage + values.other_monthly_costs) * 12;
-        const annual_roi = (annual_cash_flow / values.initial_deposit) * 100;
-        // update the "final_result field"
-        actions.setFieldValue("final_result", annual_roi.toFixed(0));
+        // calculation function
+        RoiScreenFunction({ values, actions });
         // scroll to top
         scrollToTop(scrollRef);
-        Keyboard.dismiss();
       }}
     >
-      {props => (
+      {(props) => (
         <RootComponent ref={scrollRef}>
           {/* ROI result box */}
           <ResultBox
