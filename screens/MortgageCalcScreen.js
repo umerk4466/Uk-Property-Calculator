@@ -1,5 +1,4 @@
 import React from "react";
-import { Keyboard } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
 import ResultBox from "../components/ResultBox";
@@ -13,6 +12,11 @@ import CustomSlider from "../components/CustomSlider";
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
+// import screen calculation function
+import {
+  MortgageCalcScreenFunction,
+  ScreenMessage,
+} from "../screen_functions/MortgageCalcScreenFunction";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
 
@@ -32,10 +36,7 @@ const MortgageCalcScreen = ({ navigation }) => {
   // define ref variable, for automatic scrolling
   const scrollRef = React.useRef();
   // imported function to add right button on the header
-  SetHeaderMessage(
-    navigation,
-    "Return on Investment (ROI) measures how much money or profit is made on an investment as a percentage of the cost of that investment."
-  );
+  SetHeaderMessage(navigation, ScreenMessage);
   return (
     <Formik
       initialValues={{
@@ -49,10 +50,10 @@ const MortgageCalcScreen = ({ navigation }) => {
       enableReinitialize={true}
       onSubmit={(values, actions) => {
         console.log(values.property_price);
-        // console.log(values.available_deposit);
+        console.log(values.available_deposit);
         console.log(values.interest_rate_percentage);
         console.log(values.mortgage_term_years);
-
+        MortgageCalcScreenFunction({ values });
         // // get all the filed data and calculate
         // const annual_cash_flow =
         //   values.property_price * 12 -
