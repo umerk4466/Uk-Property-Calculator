@@ -7,7 +7,6 @@ import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
 import CalculateResetButton from "../components/CalculateResetButton";
 import CustomSlider from "../components/CustomSlider";
-
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
@@ -47,20 +46,9 @@ const MortgageCalcScreen = ({ navigation }) => {
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
       onSubmit={(values, actions) => {
-        console.log(values.property_price);
-        console.log(values.available_deposit);
-        console.log(values.interest_rate_percentage);
-        console.log(values.mortgage_term_years);
+        // calculation function
         MortgageCalcScreenFunction({ values, actions });
-        // // get all the filed data and calculate
-        // const annual_cash_flow =
-        //   values.property_price * 12 -
-        //   (values.available_deposit + values.interest_rate_percentage) * 12;
-        // const annual_roi =
-        //   (annual_cash_flow / values.mortgage_term_years) * 100;
-        // // update the "final_result field"
-        // actions.setFieldValue("final_result", annual_roi.toFixed(0));
-        // // scroll to top
+        // scroll to top
         // scrollToTop(scrollRef);
       }}
     >
