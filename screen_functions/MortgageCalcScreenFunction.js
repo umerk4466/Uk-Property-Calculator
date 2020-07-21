@@ -5,6 +5,7 @@ import { Keyboard } from "react-native";
 export const MortgageCalcScreenFunction = ({ values, actions }) => {
   alert(values);
   actions.setFieldValue("final_result", 10);
+  // close the keyboard
   Keyboard.dismiss();
 };
 

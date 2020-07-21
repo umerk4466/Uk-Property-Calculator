@@ -3,6 +3,7 @@ import { Keyboard } from "react-native";
 
 // function for calculation of the screen
 export const RoiScreenFunction = ({ values, actions }) => {
+  // Calculations
   const annual_cash_flow =
     values.monthly_rental * 12 -
     (values.monthly_mortgage + values.other_monthly_costs) * 12;
