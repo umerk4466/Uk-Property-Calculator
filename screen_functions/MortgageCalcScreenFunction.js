@@ -2,7 +2,7 @@ import React from "react";
 // import React from "react";
 import { Keyboard } from "react-native";
 // import model for showing result.
-import CustomModel from "../components/CustomModel";
+import CustomModal from "../components/CustomModal";
 
 // function for calculation of the screen
 export const MortgageCalcScreenFunction = ({ values, actions }) => {
@@ -11,7 +11,7 @@ export const MortgageCalcScreenFunction = ({ values, actions }) => {
   // actions.setFieldValue("final_result", 10);
   // close the keyboard
   // Keyboard.dismiss();
-  return <CustomModel></CustomModel>;
+  return <CustomModal></CustomModal>;
 };
 
 // message for the screen header button

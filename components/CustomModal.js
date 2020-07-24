@@ -11,8 +11,8 @@ import {
 import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
-// CustomModel Component
-const CustomModel = props => {
+// CustomModal Component
+const CustomModal = props => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CustomModel;
+export default CustomModal;
