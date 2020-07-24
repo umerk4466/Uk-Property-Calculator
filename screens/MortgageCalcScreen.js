@@ -54,6 +54,8 @@ const MortgageCalcScreen = ({ navigation }) => {
         MortgageCalcScreenFunction({ values, actions });
         // scroll to top
         scrollToTop(scrollRef);
+        // show model with result
+        setModalVisible(true);
       }}
     >
       {props => (
