@@ -17,7 +17,7 @@ const CustomModal = props => {
   return (
     <Modal
       animationType="slide"
-      // transparent={false}
+      transparent={false}
       isVisible={props.modalVisible}
       backdropColor={"white"}
       style={{ margin: 0 }}
