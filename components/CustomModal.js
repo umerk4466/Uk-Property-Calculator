@@ -18,7 +18,7 @@ const CustomModal = props => {
     <Modal
       animationType="slide"
       transparent={false}
-      isVisible={props.modalVisible}
+      isVisible={props.isVisible}
       backdropColor={"white"}
       style={{ margin: 0 }}
       onModalHide={() => {}}
@@ -29,9 +29,7 @@ const CustomModal = props => {
       </View>
       <TouchableHighlight
         style={{ backgroundColor: "#2196F3" }}
-        onPress={() => {
-          props.isVisibleState(!props.modalVisible);
-        }}
+        onPress={props.closeModel}
       >
         <Text>Hide Modal</Text>
       </TouchableHighlight>

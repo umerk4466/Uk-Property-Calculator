@@ -126,7 +126,9 @@ const MortgageCalcScreen = ({ navigation }) => {
           {/* Custom Modal for showing results */}
           <CustomModal
             isVisible={modalVisible}
-            isVisibleState={setModalVisible}
+            closeModel={() => {
+              setModalVisible(false);
+            }}
             textValue={"hi there"}
             message={"trying to make a basic component modal"}
           />
