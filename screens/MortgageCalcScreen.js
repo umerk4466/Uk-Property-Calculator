@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import components
 import RootComponent from "../components/RootComponent";
 import ResultBox from "../components/ResultBox";
@@ -12,7 +12,7 @@ import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
 import {
   MortgageCalcScreenFunction,
-  ScreenMessage,
+  ScreenMessage
 } from "../screen_functions/MortgageCalcScreenFunction";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
@@ -23,10 +23,12 @@ import SetHeaderMessage from "../constants/SetHeaderMessage";
 import * as yup from "yup";
 import { Formik } from "formik";
 
+import CustomModal from "../components/CustomModal";
+
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
-  available_deposit: YupErrorMessages,
+  available_deposit: YupErrorMessages
 });
 
 const MortgageCalcScreen = ({ navigation }) => {
@@ -34,6 +36,8 @@ const MortgageCalcScreen = ({ navigation }) => {
   const scrollRef = React.useRef();
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
+  // state for show or hide result Modal
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <Formik
       initialValues={{
@@ -41,7 +45,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         available_deposit: "",
         interest_rate_percentage: 2.7,
         mortgage_term_years: 25,
-        final_result: 0,
+        final_result: 0
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -52,7 +56,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         scrollToTop(scrollRef);
       }}
     >
-      {(props) => (
+      {props => (
         <RootComponent ref={scrollRef}>
           {/* ROI result box */}
           <ResultBox
@@ -94,7 +98,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               end={25}
               floatValue
               value={props.values.interest_rate_percentage}
-              onValueChange={(value) => {
+              onValueChange={value => {
                 props.setFieldValue("interest_rate_percentage", value);
               }}
               step={0.1}
@@ -106,7 +110,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               start={5}
               end={40}
               value={props.values.mortgage_term_years}
-              onValueChange={(value) => {
+              onValueChange={value => {
                 props.setFieldValue("mortgage_term_years", value);
               }}
               step={5}
@@ -119,6 +123,13 @@ const MortgageCalcScreen = ({ navigation }) => {
             calculateBtnTittle="Calculate ROI"
             onPressResetBtn={props.resetForm}
           ></CalculateResetButton>
+          {/* Custom Modal for showing results */}
+          <CustomModal
+            isVisible={modalVisible}
+            isVisibleState={setModalVisible}
+            textValue={"hi there"}
+            message={"trying to make a basic component modal"}
+          />
         </RootComponent>
       )}
     </Formik>
