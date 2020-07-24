@@ -32,8 +32,6 @@ const ValidatorSchema = yup.object({
 });
 
 const MortgageCalcScreen = ({ navigation }) => {
-  // define ref variable, for automatic scrolling
-  const scrollRef = React.useRef();
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
   // state for show or hide result Modal
@@ -52,20 +50,20 @@ const MortgageCalcScreen = ({ navigation }) => {
       onSubmit={(values, actions) => {
         // calculation function
         MortgageCalcScreenFunction({ values, actions });
-        // scroll to top
-        scrollToTop(scrollRef);
+        // // scroll to top
+        // scrollToTop(scrollRef);
         // show model with result
         setModalVisible(true);
       }}
     >
       {props => (
-        <RootComponent ref={scrollRef}>
+        <RootComponent>
           {/* ROI result box */}
-          <ResultBox
+          {/* <ResultBox
             title="Return on investment"
             result={props.values.final_result}
             sign="% p.a"
-          />
+          /> */}
           {/* Property details container */}
           <HeadingText heading="Property And Mortgage Details" />
           <BoxWrapper>
@@ -131,7 +129,7 @@ const MortgageCalcScreen = ({ navigation }) => {
             closeModel={() => {
               setModalVisible(false);
             }}
-            textValue={"hi there"}
+            textValue={props.values.mortgage_term_years}
             message={"trying to make a basic component modal"}
           />
         </RootComponent>
