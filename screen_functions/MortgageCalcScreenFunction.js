@@ -1,7 +1,7 @@
 // import React from "react";
 import { Keyboard } from "react-native";
 
-export var modalFields;
+export var modalFields = [{ fieldName: "", fieldValue: "" }];
 // function for calculation of the screen
 export const MortgageCalcScreenFunction = ({ values, actions }) => {
   // Calculations
@@ -11,8 +11,11 @@ export const MortgageCalcScreenFunction = ({ values, actions }) => {
   Keyboard.dismiss();
 
   modalFields = [
-    { fieldName: "Name is here" },
-    { fieldName: "second Name is here" },
+    { fieldName: "Name is here", fieldValue: values.mortgage_term_years },
+    {
+      fieldName: "second Name is here",
+      fieldValue: values.mortgage_term_years,
+    },
   ];
 };
 

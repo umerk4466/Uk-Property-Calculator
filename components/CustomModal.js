@@ -14,8 +14,9 @@ import Colors from "../constants/colors";
 
 // CustomModal Component
 const CustomModal = (props) => {
-  const fields = props.fields;
-  const fieldItems = fields.map((field) => <Text>{field.fieldName}</Text>);
+  const fieldItems = props.fields.map((field) => (
+    <Text key={field.fieldName}>{field.fieldName}</Text>
+  ));
   return (
     <Modal
       animationType="slide"
