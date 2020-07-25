@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 // import components
 import RootComponent from "../components/RootComponent";
-import ResultBox from "../components/ResultBox";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
@@ -13,18 +12,13 @@ import YupErrorMessages from "../constants/YupErrorMessages";
 import {
   MortgageCalcScreenFunction,
   ScreenMessage,
-  modalFields,
 } from "../screen_functions/MortgageCalcScreenFunction";
-// import function for scrolling to top
-import scrollToTop from "../constants/scroll-up";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
 
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
-
-import CustomModal from "../components/CustomModal";
 
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
@@ -35,8 +29,6 @@ const ValidatorSchema = yup.object({
 const MortgageCalcScreen = ({ navigation }) => {
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
-  // state for show or hide result Modal
-  const [modalVisible, setModalVisible] = useState(false);
   return (
     <Formik
       initialValues={{
@@ -50,22 +42,12 @@ const MortgageCalcScreen = ({ navigation }) => {
       enableReinitialize={true}
       onSubmit={(values, actions) => {
         // calculation function
-        MortgageCalcScreenFunction({ values, actions });
-        // // scroll to top
-        // scrollToTop(scrollRef);
-        // show model with result
-        setModalVisible(true);
+        MortgageCalcScreenFunction({ values, actions, navigation });
       }}
     >
       {(props) => (
         <RootComponent>
-          {/* ROI result box */}
-          {/* <ResultBox
-            title="Return on investment"
-            result={props.values.final_result}
-            sign="% p.a"
-          /> */}
-          {/* Property details container */}
+          {/* Property details heading and container */}
           <HeadingText heading="Property And Mortgage Details" />
           <BoxWrapper>
             {/*Price of the property field */}
@@ -124,14 +106,6 @@ const MortgageCalcScreen = ({ navigation }) => {
             calculateBtnTittle="Calculate ROI"
             onPressResetBtn={props.resetForm}
           ></CalculateResetButton>
-          {/* Custom Modal for showing results */}
-          <CustomModal
-            isVisible={modalVisible}
-            closeModel={() => {
-              setModalVisible(false);
-            }}
-            fields={modalFields}
-          />
         </RootComponent>
       )}
     </Formik>

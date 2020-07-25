@@ -8,6 +8,7 @@ import { CustomTheme } from "../constants/navigation-theme";
 import HomeScreen from "../screens/HomeScreen";
 import RoiScreen from "../screens/RoiScreen";
 import MortgageCalcScreen from "../screens/MortgageCalcScreen";
+import ReslutModalScreen from "../screens/ReslutModalScreen";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ export default function CustomStackNavigator() {
           name="Mortgage Calculator"
           component={MortgageCalcScreen}
         />
+        <Stack.Screen name="Results" component={ReslutModalScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
