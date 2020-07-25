@@ -16,9 +16,10 @@ export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
       fieldValue: values.mortgage_term_years,
     },
   ];
+  const fieldsBlock = [{ title: "title is this", fields: modalFields }];
 
   // navigate to the result model to show result with field array
-  navigation.navigate("Results", { modalFields });
+  navigation.navigate("Results", { fieldsBlock });
 };
 
 // message for the screen header button

@@ -18,32 +18,45 @@ import Colors from "../constants/colors";
 
 const ReslutModalScreen = ({ route, navigation }) => {
   // Get the param(fields data) //
-  const { modalFields } = route.params;
-  // Iterate the modalFields array
-  const fieldItems = modalFields.map((field) => (
-    <Text key={field.fieldTitle}>
-      {field.fieldTitle}
-      {field.fieldValue}
-    </Text>
-  ));
+  const { fieldsBlock } = route.params;
+  // Iterate the fieldsBlock array
+  const fieldItems = fieldsBlock.map(
+    (fieldBlock) => (
+      <View key={fieldBlock.title}>
+        <Text>{fieldBlock.title}</Text>
+        {fieldBlock.fields.map((field) => (
+          <Text>{field.fieldTitle}</Text>
+        ))}
+        )
+      </View>
+    )
+
+    // const fieldItems = modalFields.map((field) => (
+    //   //
+    //   <View key={field.fieldTitle}>
+    //     <BoxWrapper>
+    //       <HeadingText paddingTopNone heading="Summary" />
+    //       <View style={styles.row}>
+    //         <Text style={styles.fieldValueStyle}>{field.fieldTitle}</Text>
+    //         <Text style={styles.fieldValueStyle}>{field.fieldValue}</Text>
+    //       </View>
+    //     </BoxWrapper>
+    //     <View style={{ margin: 5 }}></View>
+    //   </View>
+  );
   return (
     <RootComponent>
-      <BoxWrapper>
-        {/* <View>{fieldItems}</View> */}
+      {fieldItems}
+      {/* <BoxWrapper>
         <HeadingText paddingTopNone heading="Summary" />
         <View style={styles.row}>
           <Text style={styles.fieldValueStyle}>Ttitle of the thing</Text>
           <Text style={styles.fieldValueStyle}>£100000</Text>
         </View>
-        <View style={styles.row}>
-          <Text style={styles.fieldValueStyle}>Ttitle of the thing</Text>
-          <Text style={styles.fieldValueStyle}>£100000</Text>
-        </View>
-      </BoxWrapper>
-
+      </BoxWrapper> */}
+      {/* 
       <BoxWrapper>
-        {/* <View>{fieldItems}</View> */}
-        <HeadingText paddingTopNone heading="Summary" />
+        <HeadingText paddingTopNone heading="Montyly Mortgages" />
         <View style={styles.row}>
           <Text style={styles.fieldValueStyle}>Ttitle of the thing</Text>
           <Text style={styles.fieldValueStyle}>£100000</Text>
@@ -52,7 +65,7 @@ const ReslutModalScreen = ({ route, navigation }) => {
           <Text style={styles.fieldValueStyle}>Ttitle of the thing</Text>
           <Text style={styles.fieldValueStyle}>£100000</Text>
         </View>
-      </BoxWrapper>
+      </BoxWrapper> */}
     </RootComponent>
   );
 };
