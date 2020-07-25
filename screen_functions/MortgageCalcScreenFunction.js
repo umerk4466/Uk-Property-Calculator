@@ -17,7 +17,7 @@ export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
     },
   ];
 
-  // navigate to the result model to show result with fields array
+  // navigate to the result model to show result with field array
   navigation.navigate("Results", { modalFields });
 };
 

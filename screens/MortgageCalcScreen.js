@@ -48,7 +48,7 @@ const MortgageCalcScreen = ({ navigation }) => {
       {(props) => (
         <RootComponent>
           {/* Property details heading and container */}
-          <HeadingText heading="Property And Mortgage Details" />
+          <HeadingText paddingTopNone heading="Property And Mortgage Details" />
           <BoxWrapper>
             {/*Price of the property field */}
             <CustomMoneyInput

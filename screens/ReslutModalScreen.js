@@ -1,4 +1,7 @@
 import React from "react";
+// import components
+import RootComponent from "../components/RootComponent";
+
 import {
   Alert,
   Modal,
@@ -13,7 +16,9 @@ import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
 const ReslutModalScreen = ({ route, navigation }) => {
+  // Get the param(fields data) //
   const { modalFields } = route.params;
+  // Iterate the modalFields array
   const fieldItems = modalFields.map((field) => (
     <Text key={field.fieldTitle}>
       {field.fieldTitle}
@@ -21,11 +26,11 @@ const ReslutModalScreen = ({ route, navigation }) => {
     </Text>
   ));
   return (
-    <View>
+    <RootComponent>
       <View>{fieldItems}</View>
 
       <Text>Hellooo model{route.params.hello}</Text>
-    </View>
+    </RootComponent>
   );
 };
 
