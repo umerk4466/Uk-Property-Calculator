@@ -15,7 +15,7 @@ import Colors from "../constants/colors";
 // CustomModal Component
 const CustomModal = (props) => {
   const fields = props.fields;
-  const fieldItems = fields.map((field) => <Text>{field}</Text>);
+  const fieldItems = fields.map((field) => <Text>{field.fieldName}</Text>);
   return (
     <Modal
       animationType="slide"
@@ -28,6 +28,8 @@ const CustomModal = (props) => {
       <View>
         <Text>{props.textValue}</Text>
         <Text>{props.message}</Text>
+        {/* <Text>{props.fields}</Text> */}
+
         {fieldItems}
       </View>
       <TouchableHighlight

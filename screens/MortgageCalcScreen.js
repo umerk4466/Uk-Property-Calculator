@@ -13,6 +13,7 @@ import YupErrorMessages from "../constants/YupErrorMessages";
 import {
   MortgageCalcScreenFunction,
   ScreenMessage,
+  modalFields,
 } from "../screen_functions/MortgageCalcScreenFunction";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
@@ -129,10 +130,11 @@ const MortgageCalcScreen = ({ navigation }) => {
             closeModel={() => {
               setModalVisible(false);
             }}
-            fields={[
-              ["Mortgages Term", props.values.mortgage_term_years],
-              ["Property Price", props.values.property_price],
-            ]}
+            fields={modalFields}
+            // fields={[
+            //   ["Mortgages Term", props.values.mortgage_term_years],
+            //   ["Property Price", props.values.property_price],
+            // ]}
             textValue={props.values.mortgage_term_years}
             message={"trying to make a basic component modal"}
           />
