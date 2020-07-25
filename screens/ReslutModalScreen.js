@@ -1,6 +1,8 @@
 import React from "react";
 // import components
 import RootComponent from "../components/RootComponent";
+import HeadingText from "../components/HeadingText";
+import BoxWrapper from "../components/BoxWrapper";
 
 import {
   Alert,
@@ -27,9 +29,10 @@ const ReslutModalScreen = ({ route, navigation }) => {
   ));
   return (
     <RootComponent>
-      <View>{fieldItems}</View>
-
-      <Text>Hellooo model{route.params.hello}</Text>
+      <HeadingText paddingTopNone heading="Summary" />
+      <BoxWrapper>
+        <View>{fieldItems}</View>
+      </BoxWrapper>
     </RootComponent>
   );
 };
