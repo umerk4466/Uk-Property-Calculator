@@ -12,7 +12,7 @@ import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
 import {
   MortgageCalcScreenFunction,
-  ScreenMessage
+  ScreenMessage,
 } from "../screen_functions/MortgageCalcScreenFunction";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
@@ -28,7 +28,7 @@ import CustomModal from "../components/CustomModal";
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
-  available_deposit: YupErrorMessages
+  available_deposit: YupErrorMessages,
 });
 
 const MortgageCalcScreen = ({ navigation }) => {
@@ -43,7 +43,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         available_deposit: "",
         interest_rate_percentage: 2.7,
         mortgage_term_years: 25,
-        final_result: 0
+        final_result: 0,
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -56,7 +56,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         setModalVisible(true);
       }}
     >
-      {props => (
+      {(props) => (
         <RootComponent>
           {/* ROI result box */}
           {/* <ResultBox
@@ -98,7 +98,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               end={25}
               floatValue
               value={props.values.interest_rate_percentage}
-              onValueChange={value => {
+              onValueChange={(value) => {
                 props.setFieldValue("interest_rate_percentage", value);
               }}
               step={0.1}
@@ -110,7 +110,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               start={5}
               end={40}
               value={props.values.mortgage_term_years}
-              onValueChange={value => {
+              onValueChange={(value) => {
                 props.setFieldValue("mortgage_term_years", value);
               }}
               step={5}
@@ -129,6 +129,10 @@ const MortgageCalcScreen = ({ navigation }) => {
             closeModel={() => {
               setModalVisible(false);
             }}
+            fields={[
+              ["Mortgages Term", props.values.mortgage_term_years],
+              ["Property Price", props.values.property_price],
+            ]}
             textValue={props.values.mortgage_term_years}
             message={"trying to make a basic component modal"}
           />

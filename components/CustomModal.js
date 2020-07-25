@@ -6,14 +6,16 @@ import {
   Text,
   TouchableHighlight,
   View,
-  Button
+  Button,
 } from "react-native";
 
 import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
 // CustomModal Component
-const CustomModal = props => {
+const CustomModal = (props) => {
+  const fields = props.fields;
+  const fieldItems = fields.map((field) => <Text>{field}</Text>);
   return (
     <Modal
       animationType="slide"
@@ -26,6 +28,7 @@ const CustomModal = props => {
       <View>
         <Text>{props.textValue}</Text>
         <Text>{props.message}</Text>
+        {fieldItems}
       </View>
       <TouchableHighlight
         style={{ backgroundColor: "#2196F3" }}
