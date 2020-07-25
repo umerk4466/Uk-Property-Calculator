@@ -15,7 +15,10 @@ import Colors from "../constants/colors";
 // CustomModal Component
 const CustomModal = (props) => {
   const fieldItems = props.fields.map((field) => (
-    <Text key={field.fieldName}>{field.fieldName}</Text>
+    <Text key={field.fieldTitle}>
+      {field.fieldTitle}
+      {field.fieldValue}
+    </Text>
   ));
   return (
     <Modal
@@ -26,13 +29,7 @@ const CustomModal = (props) => {
       style={{ margin: 0 }}
       onModalHide={() => {}}
     >
-      <View>
-        <Text>{props.textValue}</Text>
-        <Text>{props.message}</Text>
-        {/* <Text>{props.fields}</Text> */}
-
-        {fieldItems}
-      </View>
+      <View>{fieldItems}</View>
       <TouchableHighlight
         style={{ backgroundColor: "#2196F3" }}
         onPress={props.closeModel}

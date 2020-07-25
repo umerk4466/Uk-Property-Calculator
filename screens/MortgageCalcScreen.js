@@ -131,12 +131,6 @@ const MortgageCalcScreen = ({ navigation }) => {
               setModalVisible(false);
             }}
             fields={modalFields}
-            // fields={[
-            //   ["Mortgages Term", props.values.mortgage_term_years],
-            //   ["Property Price", props.values.property_price],
-            // ]}
-            textValue={props.values.mortgage_term_years}
-            message={"trying to make a basic component modal"}
           />
         </RootComponent>
       )}
