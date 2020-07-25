@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 
 // BoxWrapper Component
-const BoxWrapper = props => {
+const BoxWrapper = (props) => {
   return <View style={styles.BoxWrapperStyle}>{props.children}</View>;
 };
 
@@ -15,6 +15,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.BoxContainerColor,
     borderWidth: 0.3,
     borderColor: Colors.BoxContainerBorderColor,
-    borderRadius: 4
-  }
+    borderRadius: 4,
+  },
 });
