@@ -33,17 +33,15 @@ const ReslutModalScreen = ({ route, navigation }) => {
   //   )
 
   const fieldItems = fieldsBlock.map((field) => (
-    //
     <View key={field.title}>
       <BoxWrapper>
-        <HeadingText paddingTopNone heading="Summary" />
-        <View style={styles.row}>
-          <Text style={styles.fieldValueStyle}>{field.title}</Text>
-          <Text style={styles.fieldValueStyle}>{field.title}</Text>
-          {field.fields.map((f) => (
-            <Text>{f.fieldTitle}</Text>
-          ))}
-        </View>
+        <HeadingText paddingTopNone heading={field.title} />
+        {field.fields.map((f) => (
+          <View key={f.fieldTitle} style={styles.row}>
+            <Text style={styles.fieldStyle}>{f.fieldTitle}</Text>
+            <Text style={styles.fieldStyle}>{f.fieldValue}</Text>
+          </View>
+        ))}
       </BoxWrapper>
       <View style={{ margin: 5 }}></View>
     </View>
@@ -85,7 +83,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     minHeight: 30,
   },
-  fieldValueStyle: {
+  fieldStyle: {
     color: Colors.BodyLightColor,
   },
 });
