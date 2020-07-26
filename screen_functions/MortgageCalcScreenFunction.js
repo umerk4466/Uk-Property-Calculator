@@ -11,10 +11,10 @@ export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
   // array of the fileds to use in the modal to show the results
   const modalFields = [
     { fieldTitle: "Name is here", fieldValue: values.mortgage_term_years },
-    {
-      fieldTitle: "second Name is here",
-      fieldValue: values.mortgage_term_years,
-    },
+    // {
+    //   fieldTitle: "second Name is here",
+    //   fieldValue: values.mortgage_term_years,
+    // },
   ];
   const fieldsBlock = [{ title: "title is this", fields: modalFields }];
 
