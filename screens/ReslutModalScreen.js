@@ -17,29 +17,17 @@ import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
 const ReslutModalScreen = ({ route, navigation }) => {
-  // Get the param(fields data) //
-  const { fieldsBlock } = route.params;
-  console.log(fieldsBlock);
-  // Iterate the fieldsBlock array
-  // const fieldItems = fieldsBlock.map(
-  //   (fieldBlock) => (
-  //     <View>
-  //       <Text>{fieldBlock.title}</Text>
-  //       {/* {fieldBlock.fields.map((field) => (
-  //         <Text>{field.fieldTitle}</Text>
-  //       ))} */}
-  //       )
-  //     </View>
-  //   )
-
-  const fieldItems = fieldsBlock.map((field) => (
-    <View key={field.title}>
+  // Get the param(all fields and container) //
+  const { fieldsBlockContainer } = route.params;
+  // Iterate fields blocks
+  const fieldsBlocks = fieldsBlockContainer.map((fieldsBlock) => (
+    <View key={fieldsBlock.title}>
       <BoxWrapper>
-        <HeadingText paddingTopNone heading={field.title} />
-        {field.fields.map((f) => (
-          <View key={f.fieldTitle} style={styles.row}>
-            <Text style={styles.fieldStyle}>{f.fieldTitle}</Text>
-            <Text style={styles.fieldStyle}>{f.fieldValue}</Text>
+        <HeadingText paddingTopNone heading={fieldsBlock.title} />
+        {fieldsBlock.fields.map((fields) => (
+          <View key={fields.fieldTitle} style={styles.row}>
+            <Text style={styles.fieldStyle}>{fields.fieldTitle}</Text>
+            <Text style={styles.fieldStyle}>{fields.fieldValue}</Text>
           </View>
         ))}
       </BoxWrapper>
@@ -48,7 +36,7 @@ const ReslutModalScreen = ({ route, navigation }) => {
   ));
   return (
     <RootComponent>
-      {fieldItems}
+      {fieldsBlocks}
       {/* <BoxWrapper>
         <HeadingText paddingTopNone heading="Summary" />
         <View style={styles.row}>
