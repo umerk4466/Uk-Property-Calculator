@@ -3,10 +3,9 @@ import { Keyboard } from "react-native";
 
 // function for calculation of the screen
 export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
+  Keyboard.dismiss();
   // Calculations
   actions.setFieldValue("final_result", 10);
-  // close the keyboard
-  Keyboard.dismiss();
 
   // arrays of the fileds to use in the modal to show the results
   // summary block fields
@@ -21,13 +20,11 @@ export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
     { fieldTitle: "Repayments", fieldValue: values.mortgage_term_years },
     { fieldTitle: "Interest Only", fieldValue: values.mortgage_term_years },
   ];
-
   // make array which contains all the block to show in the result modal
   const fieldsBlockContainer = [
     { title: "Summary", fields: summaryBlockFields },
     { title: "Monthly Mortgage", fields: resultBlockFields },
   ];
-
   // navigate to the result model to show result with array of all block of fields
   navigation.navigate("Results", { fieldsBlockContainer });
 };

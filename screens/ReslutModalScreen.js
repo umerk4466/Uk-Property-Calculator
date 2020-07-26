@@ -16,8 +16,18 @@ const ReslutModalScreen = ({ route, navigation }) => {
         <HeadingText paddingTopNone heading={fieldsBlock.title} />
         {fieldsBlock.fields.map((fields) => (
           <View key={fields.fieldTitle} style={styles.row}>
-            <Text style={styles.fieldStyle}>{fields.fieldTitle}</Text>
-            <Text style={styles.fieldStyle}>{fields.fieldValue}</Text>
+            <Text
+              numberOfLines={1}
+              style={[styles.fieldStyle, styles.fieldTitle]}
+            >
+              {fields.fieldTitle}
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={[styles.fieldStyle, styles.fieldValue]}
+            >
+              {fields.fieldValue}
+            </Text>
           </View>
         ))}
       </BoxWrapper>
@@ -41,4 +51,6 @@ const styles = StyleSheet.create({
   fieldStyle: {
     color: Colors.BodyLightColor,
   },
+  fieldTitle: { width: "70%", textAlign: "left" },
+  fieldValue: { width: "30%", textAlign: "right" },
 });
