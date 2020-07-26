@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
   fieldStyle: {
     color: Colors.BodyLightColor,
   },
-  fieldTitle: { width: "70%", textAlign: "left" },
-  fieldValue: { width: "30%", textAlign: "right" },
+  fieldTitle: { width: "60%", textAlign: "left" },
+  fieldValue: { width: "40%", textAlign: "right" },
 });
