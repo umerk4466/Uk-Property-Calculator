@@ -25,11 +25,11 @@ export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
   const resultBlockFields = [
     {
       fieldTitle: "Repayment Mortgage",
-      fieldValue: values.mortgage_term_years,
+      fieldValue: values.repayment_mortgage,
     },
     {
       fieldTitle: "Interest-only Mortgage",
-      fieldValue: values.mortgage_term_years,
+      fieldValue: values.interest_only_mortgage,
     },
   ];
   // make array which contains all the block to show in the result modal

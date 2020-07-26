@@ -36,7 +36,8 @@ const MortgageCalcScreen = ({ navigation }) => {
         available_deposit: "",
         interest_rate_percentage: 2.7,
         mortgage_term_years: 25,
-        final_result: 0,
+        repayment_mortgage: 0,
+        interest_only_mortgage: 0,
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
