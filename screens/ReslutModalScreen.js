@@ -1,19 +1,9 @@
 import React from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View,
-  Button,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
-
-import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
 const ReslutModalScreen = ({ route, navigation }) => {
@@ -31,33 +21,10 @@ const ReslutModalScreen = ({ route, navigation }) => {
           </View>
         ))}
       </BoxWrapper>
-      <View style={{ margin: 5 }}></View>
+      <View style={{ marginVertical: 5 }}></View>
     </View>
   ));
-  return (
-    <RootComponent>
-      {fieldsBlocks}
-      {/* <BoxWrapper>
-        <HeadingText paddingTopNone heading="Summary" />
-        <View style={styles.row}>
-          <Text style={styles.fieldValueStyle}>Ttitle of the thing</Text>
-          <Text style={styles.fieldValueStyle}>£100000</Text>
-        </View>
-      </BoxWrapper> */}
-      {/* 
-      <BoxWrapper>
-        <HeadingText paddingTopNone heading="Montyly Mortgages" />
-        <View style={styles.row}>
-          <Text style={styles.fieldValueStyle}>Ttitle of the thing</Text>
-          <Text style={styles.fieldValueStyle}>£100000</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.fieldValueStyle}>Ttitle of the thing</Text>
-          <Text style={styles.fieldValueStyle}>£100000</Text>
-        </View>
-      </BoxWrapper> */}
-    </RootComponent>
-  );
+  return <RootComponent>{fieldsBlocks}</RootComponent>;
 };
 
 export default ReslutModalScreen;

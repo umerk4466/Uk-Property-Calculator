@@ -11,25 +11,24 @@ export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
   // arrays of the fileds to use in the modal to show the results
   // summary block fields
   const summaryBlockFields = [
-    { fieldTitle: "Name is here", fieldValue: values.mortgage_term_years },
-    {
-      fieldTitle: "second Name is here",
-      fieldValue: values.mortgage_term_years,
-    },
+    { fieldTitle: "Property Price", fieldValue: values.mortgage_term_years },
+    { fieldTitle: "Desposit", fieldValue: values.mortgage_term_years },
+    { fieldTitle: "Interest Rate (%)", fieldValue: values.mortgage_term_years },
+    { fieldTitle: "Mortgage Term", fieldValue: values.mortgage_term_years },
   ];
   // Result block fields
   const resultBlockFields = [
-    { fieldTitle: "Name is here", fieldValue: values.mortgage_term_years },
-    {
-      fieldTitle: "second Name is here",
-      fieldValue: values.mortgage_term_years,
-    },
-  ];
-  const fieldsBlockContainer = [
-    { title: "Summary", fields: resultBlockFields },
+    { fieldTitle: "Repayments", fieldValue: values.mortgage_term_years },
+    { fieldTitle: "Interest Only", fieldValue: values.mortgage_term_years },
   ];
 
-  // navigate to the result model to show result with field array
+  // make array which contains all the block to show in the result modal
+  const fieldsBlockContainer = [
+    { title: "Summary", fields: summaryBlockFields },
+    { title: "Monthly Mortgage", fields: resultBlockFields },
+  ];
+
+  // navigate to the result model to show result with array of all block of fields
   navigation.navigate("Results", { fieldsBlockContainer });
 };
 
