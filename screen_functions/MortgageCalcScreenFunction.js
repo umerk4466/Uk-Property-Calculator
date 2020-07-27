@@ -5,8 +5,10 @@ import { Keyboard } from "react-native";
 export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
   Keyboard.dismiss();
   // Calculations
-  actions.setFieldValue("final_result", 10);
 
+  // make result fields
+  const interest_only =
+    values.interest_rate_percentage / values.mortgage_term_years;
   // arrays of the fileds to use in the modal to show the results
   // summary block fields
   const summaryBlockFields = [
@@ -29,7 +31,7 @@ export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
     },
     {
       fieldTitle: "Interest-only Mortgage",
-      fieldValue: values.interest_only_mortgage,
+      fieldValue: "£" + interest_only.toFixed(2),
     },
   ];
   // make array which contains all the block to show in the result modal
