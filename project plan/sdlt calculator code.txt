@@ -29,3 +29,10 @@ elif (locations == scotland){
 
 elif (locations == wales){
 }
+
+
+
+
+
+
+https://www.which.co.uk/money/mortgages-and-property/mortgage-calculators

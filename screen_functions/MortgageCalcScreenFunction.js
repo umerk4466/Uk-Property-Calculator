@@ -53,4 +53,5 @@ export const MortgageCalcScreenFunction = ({ values, navigation }) => {
 };
 
 // message for the screen header button
-export const ScreenMessage = "hahah";
+export const ScreenMessage =
+  "Mortgage Calculator give you a rough idea of what your monthly payments could be for various types of mortgage, like (Repayments and Interest-only). ";
