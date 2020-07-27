@@ -2,14 +2,20 @@
 import { Keyboard } from "react-native";
 
 // function for calculation of the screen
-export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
+export const MortgageCalcScreenFunction = ({ values, navigation }) => {
   Keyboard.dismiss();
   // Calculations
+  let loan_amount = values.property_price - values.available_deposit;
+  let interest = values.interest_rate_percentage / 1200;
+  let term_in_months = values.mortgage_term_years * 12;
+  // interest only mortgage formula
+  const interest_only = loan_amount * interest;
+  // repayment mortgage formula
+  const repayment_mortgage =
+    (loan_amount * interest) /
+    (1 - Math.pow(1 / (1 + interest), term_in_months));
 
-  // make result fields
-  const interest_only =
-    values.interest_rate_percentage / values.mortgage_term_years;
-  // arrays of the fileds to use in the modal to show the results
+  // make arrays to use in the modal to show the results
   // summary block fields
   const summaryBlockFields = [
     { fieldTitle: "Property Price", fieldValue: "£" + values.property_price },
@@ -27,7 +33,7 @@ export const MortgageCalcScreenFunction = ({ values, actions, navigation }) => {
   const resultBlockFields = [
     {
       fieldTitle: "Repayment Mortgage",
-      fieldValue: values.repayment_mortgage,
+      fieldValue: "£" + repayment_mortgage.toFixed(2),
     },
     {
       fieldTitle: "Interest-only Mortgage",
