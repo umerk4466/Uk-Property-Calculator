@@ -4,8 +4,11 @@ import { Keyboard } from "react-native";
 // function for calculation of the screen
 export const MortgageCalcScreenFunction = ({ values, navigation }) => {
   Keyboard.dismiss();
-  // Calculations
-  let loan_amount = values.property_price - values.available_deposit;
+  // varibale for Calculations
+  let loan_amount =
+    values.property_price > values.available_deposit
+      ? values.property_price - values.available_deposit
+      : 0;
   let interest = values.interest_rate_percentage / 1200;
   let term_in_months = values.mortgage_term_years * 12;
   // interest only mortgage formula
@@ -42,7 +45,7 @@ export const MortgageCalcScreenFunction = ({ values, navigation }) => {
   ];
   // make array which contains all the block to show in the result modal
   const fieldsBlockContainer = [
-    { title: "Summary", fields: summaryBlockFields },
+    { title: "Loan Summary", fields: summaryBlockFields },
     { title: "Monthly Payments", fields: resultBlockFields },
   ];
   // navigate to the result model to show result with array of all block of fields
