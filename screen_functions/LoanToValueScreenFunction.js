@@ -15,4 +15,5 @@ export const LoanToValueScreenFunction = ({ values, actions }) => {
 };
 
 // message for the screen header button
-export const ScreenMessage = "Ltv";
+export const ScreenMessage =
+  "Loan-to-value (LTV) is the ratio of mortgage to property value, indicated as a percentage. For example, if you're buying a £100,000 property with a £10,000 (10%) deposit, you'll need a 90% LTV mortgage. This calculator will help you to find what mortgage Loan to Value you'll have to borrow";

@@ -53,12 +53,12 @@ const LoanToValueScreen = ({ navigation }) => {
         <RootComponent ref={scrollRef}>
           {/* ROI result box */}
           <ResultBox
-            title="Your LTV (loan to value) is HJHJHJHJ"
+            title="Your LTV (loan to value) is"
             result={props.values.final_result}
             sign="%"
           />
           {/* Property details container */}
-          <HeadingText heading="Property and Loan details" />
+          <HeadingText heading="Property and loan details" />
           <BoxWrapper>
             {/* Property price field */}
             <CustomMoneyInput
