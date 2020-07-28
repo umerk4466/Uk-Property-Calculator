@@ -9,6 +9,8 @@ import HomeScreen from "../screens/HomeScreen";
 import RoiScreen from "../screens/RoiScreen";
 import MortgageCalcScreen from "../screens/MortgageCalcScreen";
 import LoanToValueScreen from "../screens/LoanToValueScreen";
+import MortgageBorrowScreen from "../screens/MortgageBorrowScreen";
+
 import ReslutModalScreen from "../screens/ReslutModalScreen";
 
 const Stack = createStackNavigator();
@@ -24,6 +26,10 @@ export default function CustomStackNavigator() {
           component={MortgageCalcScreen}
         />
         <Stack.Screen name="LTV Calculator" component={LoanToValueScreen} />
+        <Stack.Screen
+          name="Borrowing Calculator"
+          component={MortgageBorrowScreen}
+        />
 
         <Stack.Screen name="Results" component={ReslutModalScreen} />
       </Stack.Navigator>

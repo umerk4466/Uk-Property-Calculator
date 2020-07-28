@@ -41,6 +41,13 @@ export default function HomeScreen({ navigation }) {
         title="LTV Calculator"
         description="Loan to Value you'll have to borrow"
       ></TouchableButton>
+      {/* Borrowing CALCULATOR */}
+      <TouchableButton
+        onPress={() => navigation.navigate("Borrowing Calculator")}
+        imgSource={require("../assets/HomeScreen/mortgage.png")}
+        title="Borrowing Calculator"
+        description="How much mortgage I can get"
+      ></TouchableButton>
     </RootComponent>
   );
 }
