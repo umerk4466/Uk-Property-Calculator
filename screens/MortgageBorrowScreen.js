@@ -34,12 +34,12 @@ const MortgageBorrowScreen = ({ navigation }) => {
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
   // .......................................
-  const [second_applicant, set_second_applicant] = useState(true);
+  const [second_applicant, set_second_applicant] = useState(false);
   return (
     <Formik
       initialValues={{
         first_person_income: "",
-        second_person_income: 0,
+        second_person_income: second_applicant == true ? "" : 0,
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -50,6 +50,8 @@ const MortgageBorrowScreen = ({ navigation }) => {
     >
       {(props) => (
         <RootComponent>
+          <HeadingText paddingTopNone heading="How Much Can I Borrow" />
+
           {/* Annual income heading and container */}
           <HeadingText paddingTopNone heading="Annual income details" />
           <BoxWrapper>
