@@ -8,6 +8,7 @@ import { CustomTheme } from "../constants/navigation-theme";
 import HomeScreen from "../screens/HomeScreen";
 import RoiScreen from "../screens/RoiScreen";
 import MortgageCalcScreen from "../screens/MortgageCalcScreen";
+import LoanToValueScreen from "../screens/LoanToValueScreen";
 import ReslutModalScreen from "../screens/ReslutModalScreen";
 
 const Stack = createStackNavigator();
@@ -17,11 +18,13 @@ export default function CustomStackNavigator() {
     <NavigationContainer theme={CustomTheme}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Roi Calculator" component={RoiScreen} />
+        <Stack.Screen name="ROI Calculator" component={RoiScreen} />
         <Stack.Screen
           name="Mortgage Calculator"
           component={MortgageCalcScreen}
         />
+        <Stack.Screen name="LTV Calculator" component={LoanToValueScreen} />
+
         <Stack.Screen name="Results" component={ReslutModalScreen} />
       </Stack.Navigator>
     </NavigationContainer>

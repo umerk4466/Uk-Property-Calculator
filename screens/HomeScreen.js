@@ -8,7 +8,7 @@ export default function HomeScreen({ navigation }) {
     <RootComponent noPadding>
       {/* ROI CALCULATOR */}
       <TouchableButton
-        onPress={() => navigation.navigate("Roi Calculator")}
+        onPress={() => navigation.navigate("ROI Calculator")}
         imgSource={require("../assets/HomeScreen/roi.png")}
         title="ROI Calculator"
         description="Return on investment"
@@ -34,6 +34,13 @@ export default function HomeScreen({ navigation }) {
           title="Area Calculator"
           description="Price to Sqmetre/Sqfoot"
         ></TouchableButton> */}
+      {/* LTV CALCULATOR */}
+      <TouchableButton
+        onPress={() => navigation.navigate("LTV Calculator")}
+        imgSource={require("../assets/HomeScreen/affordability.png")}
+        title="LTV Calculator"
+        description="Loan to Value you'll have to borrow"
+      ></TouchableButton>
     </RootComponent>
   );
 }

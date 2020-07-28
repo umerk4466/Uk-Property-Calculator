@@ -4,10 +4,12 @@ import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
 // ResultBox Component
-const ResultBox = props => {
+const ResultBox = (props) => {
   return (
     <View style={styles.ResultsViewContainer}>
-      <Text style={globalStyle.LargeFont}> {props.title} </Text>
+      <Text numberOfLines={1} style={globalStyle.LargeFont}>
+        {props.title}
+      </Text>
       <Text style={globalStyle.LargeFont}>
         {props.result} {props.sign}
       </Text>
@@ -26,6 +28,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 0.3,
     borderColor: Colors.BoxContainerBorderColor,
-    borderRadius: 4
-  }
+    borderRadius: 4,
+  },
 });
