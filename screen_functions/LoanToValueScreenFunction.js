@@ -3,15 +3,16 @@ import { Keyboard } from "react-native";
 
 // function for calculation of the screen
 export const LoanToValueScreenFunction = ({ values, actions }) => {
-  // Calculations
-  //   const annual_cash_flow =
-  //     values.monthly_rental * 12 -
-  //     (values.monthly_mortgage + values.other_monthly_costs) * 12;
-  //   const annual_roi = (annual_cash_flow / values.initial_deposit) * 100;
-  //   // update the "final_result field"
-  //   actions.setFieldValue("final_result", annual_roi.toFixed(0));
-  // close the keyboard
   Keyboard.dismiss();
+  // Calculations
+  let mortgage_needed =
+    values.property_price > values.deposit
+      ? values.property_price - values.deposit
+      : 0;
+  let ltv = mortgage_needed / values.property_price;
+  const result = ltv * 100;
+  // set result
+  actions.setFieldValue("final_result", result.toFixed(1));
 };
 
 // message for the screen header button

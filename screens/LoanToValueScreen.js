@@ -58,7 +58,7 @@ const LoanToValueScreen = ({ navigation }) => {
             sign="%"
           />
           {/* Property details container */}
-          <HeadingText heading="Property and loan details" />
+          <HeadingText heading="Property and deposit details" />
           <BoxWrapper>
             {/* Property price field */}
             <CustomMoneyInput
