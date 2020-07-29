@@ -7,7 +7,7 @@ import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
 import CalculateResetButton from "../components/CalculateResetButton";
-import CustomCheckBox from "../components/CustomCheckBox";
+import CustomRadioBoxes from "../components/CustomRadioBoxes";
 
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
@@ -26,23 +26,19 @@ import { Formik } from "formik";
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   first_person_income: YupErrorMessages,
-  second_person_income: YupErrorMessages.test(
-    "is 0",
-    "2nd Person's income connot be 0",
-    (value) => value != 0
-  ),
+  second_person_income: YupErrorMessages,
 });
 
 const MortgageBorrowScreen = ({ navigation }) => {
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
   // .......................................
-  const [second_applicant, set_second_applicant] = useState(false);
+  const [one_applicant, set_one_applicant] = useState(true);
   return (
     <Formik
       initialValues={{
         first_person_income: "",
-        second_person_income: second_applicant == true ? "" : 0,
+        second_person_income: one_applicant == true ? 0 : "",
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -53,9 +49,18 @@ const MortgageBorrowScreen = ({ navigation }) => {
     >
       {(props) => (
         <RootComponent>
-          <HeadingText paddingTopNone heading="How Much Can I Borrow" />
+          <HeadingText paddingTopNone heading="How many applicants?" />
+          {/* /////////////////////////////////////////// */}
+          <CustomRadioBoxes
+            firstTitle="One Applicant"
+            selectFirst={one_applicant}
+            onFirstPress={() => set_one_applicant(true)}
+            secondTitle="Two Applicants"
+            onSecondPress={() => set_one_applicant(false)}
+          ></CustomRadioBoxes>
+          {/* /////////////////////////////////////////// */}
           {/* Annual income heading and container */}
-          <HeadingText paddingTopNone heading="Annual income details" />
+          <HeadingText heading="Annual income details" />
           <BoxWrapper>
             {/* first_person_income field */}
             <CustomMoneyInput
@@ -70,7 +75,7 @@ const MortgageBorrowScreen = ({ navigation }) => {
               touched={props.touched.first_person_income}
             />
             {/* second_person_income field */}
-            {second_applicant == true ? (
+            {one_applicant == false ? (
               <CustomMoneyInput
                 title={"2nd person's annual income (before tax)"}
                 placeholder={"£30,000"}
@@ -84,20 +89,6 @@ const MortgageBorrowScreen = ({ navigation }) => {
               />
             ) : null}
           </BoxWrapper>
-          {/* /////////////////////////////////////////// */}
-          <Button
-            title="Press me"
-            onPress={() => set_second_applicant(!second_applicant)}
-          />
-
-          <CustomCheckBox
-            title1="One Applicant"
-            checked1={second_applicant}
-            onPress1={() => set_second_applicant(false)}
-            title2="Two Applicants"
-            onPress2={() => set_second_applicant(true)}
-          ></CustomCheckBox>
-          {/* /////////////////////////////////////////// */}
           {/* Calculate and reset button */}
           <CalculateResetButton
             onPressCalculateBtn={props.handleSubmit}
