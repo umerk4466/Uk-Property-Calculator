@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Button } from "react-native";
+
 // import components
 import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
 import CalculateResetButton from "../components/CalculateResetButton";
+import CustomCheckBox from "../components/CustomCheckBox";
+
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
@@ -51,7 +54,6 @@ const MortgageBorrowScreen = ({ navigation }) => {
       {(props) => (
         <RootComponent>
           <HeadingText paddingTopNone heading="How Much Can I Borrow" />
-
           {/* Annual income heading and container */}
           <HeadingText paddingTopNone heading="Annual income details" />
           <BoxWrapper>
@@ -87,6 +89,14 @@ const MortgageBorrowScreen = ({ navigation }) => {
             title="Press me"
             onPress={() => set_second_applicant(!second_applicant)}
           />
+
+          <CustomCheckBox
+            title1="One Applicant"
+            checked1={second_applicant}
+            onPress1={() => set_second_applicant(false)}
+            title2="Two Applicants"
+            onPress2={() => set_second_applicant(true)}
+          ></CustomCheckBox>
           {/* /////////////////////////////////////////// */}
           {/* Calculate and reset button */}
           <CalculateResetButton
