@@ -4,7 +4,7 @@ import { Keyboard } from "react-native";
 // function for calculation of the screen
 export const MortgageBorrowScreenFunction = ({ values, navigation }) => {
   Keyboard.dismiss();
-  alert("jsj");
+  alert(values.first_person_income + values.second_person_income);
   // varibale for Calculations
   //   let loan_amount =
   //     values.property_price > values.available_deposit
