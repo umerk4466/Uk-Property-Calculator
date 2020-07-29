@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { CheckBox } from "react-native-elements";
 import { StyleSheet, View } from "react-native";
 import Colors from "../constants/colors";
@@ -12,6 +12,8 @@ const CustomRadioBoxes = (props) => {
         title={props.firstTitle}
         checkedIcon="dot-circle-o"
         uncheckedIcon="circle-o"
+        checkedColor={Colors.ButtonColor}
+        uncheckedColor={Colors.BoxContainerBorderColor}
         checked={props.selectFirst == true ? true : false}
         onPress={props.onFirstPress}
       />
@@ -20,6 +22,8 @@ const CustomRadioBoxes = (props) => {
         title={props.secondTitle}
         checkedIcon="dot-circle-o"
         uncheckedIcon="circle-o"
+        checkedColor={Colors.ButtonColor}
+        uncheckedColor={Colors.BoxContainerBorderColor}
         checked={props.selectFirst == true ? false : true}
         onPress={props.onSecondPress}
       />
@@ -28,15 +32,15 @@ const CustomRadioBoxes = (props) => {
 };
 
 export default CustomRadioBoxes;
+
 // CustomRadioBoxes Component Style
 const styles = StyleSheet.create({
   CustomRadioBoxesStyle: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
-    // padding: 10,
-    backgroundColor: "red",
-    overflow: "hidden",
   },
-  checkeBoxStyle: { overflow: "hidden" },
+  checkeBoxStyle: {
+    backgroundColor: Colors.BoxContainerColor,
+  },
 });

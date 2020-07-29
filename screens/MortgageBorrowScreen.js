@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-native";
-
 // import components
 import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
@@ -32,7 +30,7 @@ const ValidatorSchema = yup.object({
 const MortgageBorrowScreen = ({ navigation }) => {
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
-  // .......................................
+  // State for changing CustomRadioBoxes
   const [one_applicant, set_one_applicant] = useState(true);
   return (
     <Formik
@@ -50,15 +48,14 @@ const MortgageBorrowScreen = ({ navigation }) => {
       {(props) => (
         <RootComponent>
           <HeadingText paddingTopNone heading="How many applicants?" />
-          {/* /////////////////////////////////////////// */}
+          {/* Custom 2 Radio Buttons */}
           <CustomRadioBoxes
-            firstTitle="One Applicant"
+            firstTitle="1 Applicant"
             selectFirst={one_applicant}
             onFirstPress={() => set_one_applicant(true)}
-            secondTitle="Two Applicants"
+            secondTitle="2 Applicants"
             onSecondPress={() => set_one_applicant(false)}
           ></CustomRadioBoxes>
-          {/* /////////////////////////////////////////// */}
           {/* Annual income heading and container */}
           <HeadingText heading="Annual income details" />
           <BoxWrapper>
