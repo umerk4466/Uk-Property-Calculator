@@ -1,5 +1,6 @@
 // import React from "react";
 import { Keyboard } from "react-native";
+import intToPound from "../constants/intToPound";
 
 // function for calculation of the screen
 export const MortgageCalcScreenFunction = ({ values, navigation }) => {
@@ -21,8 +22,14 @@ export const MortgageCalcScreenFunction = ({ values, navigation }) => {
   // make arrays to use in the modal to show the results
   // summary block fields
   const summaryBlockFields = [
-    { fieldTitle: "Property Price", fieldValue: "£" + values.property_price },
-    { fieldTitle: "Desposit", fieldValue: "£" + values.available_deposit },
+    {
+      fieldTitle: "Property Price",
+      fieldValue: intToPound(values.property_price),
+    },
+    {
+      fieldTitle: "Desposit",
+      fieldValue: intToPound(values.available_deposit),
+    },
     {
       fieldTitle: "Interest Rate (%)",
       fieldValue: values.interest_rate_percentage.toFixed(1) + " %",
@@ -36,11 +43,11 @@ export const MortgageCalcScreenFunction = ({ values, navigation }) => {
   const resultBlockFields = [
     {
       fieldTitle: "Repayment Mortgage",
-      fieldValue: "£" + repayment_mortgage.toFixed(2),
+      fieldValue: intToPound(repayment_mortgage.toFixed(2)),
     },
     {
       fieldTitle: "Interest-only Mortgage",
-      fieldValue: "£" + interest_only.toFixed(2),
+      fieldValue: intToPound(interest_only.toFixed(2)),
     },
   ];
   // make array which contains all the block to show in the result modal

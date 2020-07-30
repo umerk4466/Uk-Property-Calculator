@@ -27,11 +27,11 @@ export const MortgageBorrowScreenFunction = ({ values, navigation }) => {
   const resultBlockFields = [
     {
       fieldTitle: "Minimum could borrow",
-      fieldValue: intToPound(min_can_borrow),
+      fieldValue: intToPound(min_can_borrow.toFixed(0)),
     },
     {
       fieldTitle: "Maximum could borrow",
-      fieldValue: intToPound(max_can_borrow),
+      fieldValue: intToPound(max_can_borrow.toFixed(0)),
     },
   ];
   // make array which contains all the block to show in the result modal
