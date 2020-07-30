@@ -1,5 +1,6 @@
 // import React from "react";
 import { Keyboard } from "react-native";
+import intToPound from "../constants/intToPound";
 
 // function for calculation of the screen
 export const MortgageBorrowScreenFunction = ({ values, navigation }) => {
@@ -15,7 +16,7 @@ export const MortgageBorrowScreenFunction = ({ values, navigation }) => {
   const summaryBlockFields = [
     {
       fieldTitle: "Your Annual Income",
-      fieldValue: "£" + values.first_person_income,
+      fieldValue: intToPound(values.first_person_income),
     },
     {
       fieldTitle: "2nd Person Income",
