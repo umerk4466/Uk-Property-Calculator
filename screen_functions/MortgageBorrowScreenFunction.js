@@ -20,18 +20,18 @@ export const MortgageBorrowScreenFunction = ({ values, navigation }) => {
     },
     {
       fieldTitle: "2nd Person Income",
-      fieldValue: "£" + values.second_person_income,
+      fieldValue: intToPound(values.second_person_income),
     },
   ];
   // Result block fields
   const resultBlockFields = [
     {
       fieldTitle: "Minimum could borrow",
-      fieldValue: "£" + min_can_borrow.toFixed(0),
+      fieldValue: intToPound(min_can_borrow),
     },
     {
       fieldTitle: "Maximum could borrow",
-      fieldValue: "£" + max_can_borrow.toFixed(0),
+      fieldValue: intToPound(max_can_borrow),
     },
   ];
   // make array which contains all the block to show in the result modal
