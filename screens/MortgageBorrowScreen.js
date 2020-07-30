@@ -89,7 +89,7 @@ const MortgageBorrowScreen = ({ navigation }) => {
           {/* Calculate and reset button */}
           <CalculateResetButton
             onPressCalculateBtn={props.handleSubmit}
-            calculateBtnTittle="Calculate ROI"
+            calculateBtnTittle="Calculate"
             onPressResetBtn={props.resetForm}
           ></CalculateResetButton>
         </RootComponent>
