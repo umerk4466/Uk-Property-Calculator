@@ -11,13 +11,12 @@ import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
 import {
   LoanToValueScreenFunction,
-  ScreenMessage,
+  ScreenMessage
 } from "../screen_functions/LoanToValueScreenFunction";
 // import function for scrolling to top
 import scrollToTop from "../constants/scroll-up";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
-
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
@@ -25,7 +24,7 @@ import { Formik } from "formik";
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
-  deposit: YupErrorMessages,
+  deposit: YupErrorMessages
 });
 
 const LoanToValueScreen = ({ navigation }) => {
@@ -38,7 +37,7 @@ const LoanToValueScreen = ({ navigation }) => {
       initialValues={{
         property_price: "",
         deposit: "",
-        final_result: 0,
+        final_result: 0
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -49,7 +48,7 @@ const LoanToValueScreen = ({ navigation }) => {
         scrollToTop(scrollRef);
       }}
     >
-      {(props) => (
+      {props => (
         <RootComponent ref={scrollRef}>
           {/* ROI result box */}
           <ResultBox
