@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { View } from "react-native";
+
 // import components
 import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
@@ -28,21 +30,29 @@ const ValidatorSchema = yup.object({
   property_full_price: YupErrorMessages,
   monthly_rent: YupErrorMessages,
   other_monthly_income: YupErrorMessages,
-  deposit: YupErrorMessages
+  deposit: YupErrorMessages,
+  mortgage_value_fee: YupErrorMessages,
+  mortgage_arrangement_fee: YupErrorMessages,
+  mortgage_booking_fee: YupErrorMessages,
+  mortgage_broker_fee: YupErrorMessages
 });
 
 const BtlCalcScreen = ({ navigation }) => {
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
   // State for changing CustomRadioBoxes
-  const [mortgage, set_mortgage] = useState(true);
+  const [use_mortgage, set_mortgage] = useState(true);
   return (
     <Formik
       initialValues={{
         property_full_price: "",
         monthly_rent: "",
         other_monthly_income: 0,
-        deposit: ""
+        deposit: "",
+        mortgage_value_fee: use_mortgage == true ? "" : 0,
+        mortgage_arrangement_fee: use_mortgage == true ? "" : 0,
+        mortgage_booking_fee: use_mortgage == true ? "" : 0,
+        mortgage_broker_fee: use_mortgage == true ? "" : 0
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -105,6 +115,42 @@ const BtlCalcScreen = ({ navigation }) => {
               error={props.errors.deposit}
               touched={props.touched.deposit}
             />
+            {/* Radio button for mortgage fields selection */}
+            <CustomRadioBoxes
+              firstTitle="Mortgage"
+              selectFirst={use_mortgage}
+              onFirstPress={() => set_mortgage(true)}
+              secondTitle="No Mortgage"
+              onSecondPress={() => set_mortgage(false)}
+            ></CustomRadioBoxes>
+            {use_mortgage == true ? (
+              <View>
+                {/* Mortgage valuation fee Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Mortgage valuation fee"}
+                  placeholder={"£400"}
+                  onBlur={props.handleBlur("mortgage_value_fee")}
+                  value={props.values.mortgage_value_fee}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("mortgage_value_fee", rawText);
+                  }}
+                  error={props.errors.mortgage_value_fee}
+                  touched={props.touched.mortgage_value_fee}
+                />
+                {/* Mortgage arrangement fee Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Arrangement fee"}
+                  placeholder={"£2,000"}
+                  onBlur={props.handleBlur("mortgage_arrangement_fee")}
+                  value={props.values.mortgage_arrangement_fee}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("mortgage_arrangement_fee", rawText);
+                  }}
+                  error={props.errors.mortgage_arrangement_fee}
+                  touched={props.touched.mortgage_arrangement_fee}
+                />
+              </View>
+            ) : null}
           </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
