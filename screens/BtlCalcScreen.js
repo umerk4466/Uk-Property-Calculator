@@ -1,93 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
 // import components
 import RootComponent from "../components/RootComponent";
-import ResultBox from "../components/ResultBox";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
 import CalculateResetButton from "../components/CalculateResetButton";
+import CustomRadioBoxes from "../components/CustomRadioBoxes";
+
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
 import {
-  BtlCalcFunction,
+  BtlCalcScreenFunction,
   ScreenMessage
-} from "../screen_functions/BtlCalcFunction";
-// import function for scrolling to top
-import scrollToTop from "../constants/scroll-up";
+} from "../screen_functions/BtlCalcScreenFunction";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
+
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
 
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
-  property_price: YupErrorMessages,
-  deposit: YupErrorMessages
+  first_person_income: YupErrorMessages,
+  second_person_income: YupErrorMessages
 });
 
 const BtlCalcScreen = ({ navigation }) => {
-  // define ref variable, for automatic scrolling
-  const scrollRef = React.useRef();
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
+  // State for changing CustomRadioBoxes
+  const [one_applicant, set_one_applicant] = useState(true);
   return (
     <Formik
       initialValues={{
-        property_price: "",
-        deposit: "",
-        final_result: 0
+        first_person_income: "",
+        second_person_income: one_applicant == true ? 0 : ""
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
       onSubmit={(values, actions) => {
         // calculation function
-        BtlCalcFunction({ values, actions });
-        // scroll to top
-        scrollToTop(scrollRef);
+        BtlCalcScreenFunction({ values, navigation });
       }}
     >
       {props => (
-        <RootComponent ref={scrollRef}>
-          {/* ROI result box */}
-          <ResultBox
-            title="Your LTV (loan to value) is"
-            result={props.values.final_result}
-            sign="%"
-          />
-          {/* Property details container */}
-          <HeadingText heading="Property and deposit details" />
+        <RootComponent>
+          <HeadingText paddingTopNone heading="How many applicants?" />
+          {/* Custom 2 Radio Buttons */}
+          <CustomRadioBoxes
+            firstTitle="1 Applicant"
+            selectFirst={one_applicant}
+            onFirstPress={() => set_one_applicant(true)}
+            secondTitle="2 Applicants"
+            onSecondPress={() => set_one_applicant(false)}
+          ></CustomRadioBoxes>
+          {/* Annual income heading and container */}
+          <HeadingText heading="Annual income details" />
           <BoxWrapper>
-            {/* Property price field */}
+            {/* first_person_income field */}
             <CustomMoneyInput
-              title={"Price of the property you plan to buy?"}
-              placeholder={"£250,000"}
-              onBlur={props.handleBlur("property_price")}
-              value={props.values.property_price}
+              title={"Your annual income (before tax)"}
+              placeholder={"£20,00"}
+              onBlur={props.handleBlur("first_person_income")}
+              value={props.values.first_person_income}
               onChangeText={(maskedText, rawText) => {
-                props.setFieldValue("property_price", rawText);
+                props.setFieldValue("first_person_income", rawText);
               }}
-              error={props.errors.property_price}
-              touched={props.touched.property_price}
+              error={props.errors.first_person_income}
+              touched={props.touched.first_person_income}
             />
-            {/* Deposit field */}
-            <CustomMoneyInput
-              title={"How much deposit you have?"}
-              placeholder={"£30,000"}
-              onBlur={props.handleBlur("deposit")}
-              value={props.values.deposit}
-              onChangeText={(maskedText, rawText) => {
-                props.setFieldValue("deposit", rawText);
-              }}
-              error={props.errors.deposit}
-              touched={props.touched.deposit}
-            />
+            {/* second_person_income field */}
+            {one_applicant == false ? (
+              <CustomMoneyInput
+                title={"2nd person's annual income (before tax)"}
+                placeholder={"£30,000"}
+                onBlur={props.handleBlur("second_person_income")}
+                value={props.values.second_person_income}
+                onChangeText={(maskedText, rawText) => {
+                  props.setFieldValue("second_person_income", rawText);
+                }}
+                error={props.errors.second_person_income}
+                touched={props.touched.second_person_income}
+              />
+            ) : null}
           </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
             onPressCalculateBtn={props.handleSubmit}
-            calculateBtnTittle="Calculate LTV"
+            calculateBtnTittle="Calculate"
             onPressResetBtn={props.resetForm}
           ></CalculateResetButton>
         </RootComponent>
