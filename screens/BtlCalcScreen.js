@@ -34,7 +34,15 @@ const ValidatorSchema = yup.object({
   mortgage_value_fee: YupErrorMessages,
   mortgage_arrangement_fee: YupErrorMessages,
   mortgage_booking_fee: YupErrorMessages,
-  mortgage_broker_fee: YupErrorMessages
+  mortgage_broker_fee: YupErrorMessages,
+  solicitor_fee: YupErrorMessages,
+  survey_fee: YupErrorMessages,
+  conveyancing_fee: YupErrorMessages,
+  land_registry_fee: YupErrorMessages,
+  stamp_duty: YupErrorMessages,
+  initial_refurbishment: YupErrorMessages,
+  void_holding_costs: YupErrorMessages,
+  other_purchase_costs: YupErrorMessages
 });
 
 const BtlCalcScreen = ({ navigation }) => {
@@ -52,7 +60,15 @@ const BtlCalcScreen = ({ navigation }) => {
         mortgage_value_fee: use_mortgage == true ? "" : 0,
         mortgage_arrangement_fee: use_mortgage == true ? "" : 0,
         mortgage_booking_fee: use_mortgage == true ? "" : 0,
-        mortgage_broker_fee: use_mortgage == true ? "" : 0
+        mortgage_broker_fee: use_mortgage == true ? "" : 0,
+        solicitor_fee: "",
+        survey_fee: "",
+        conveyancing_fee: "",
+        land_registry_fee: "",
+        stamp_duty: "",
+        initial_refurbishment: "",
+        void_holding_costs: "",
+        other_purchase_costs: 0
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -117,7 +133,7 @@ const BtlCalcScreen = ({ navigation }) => {
             />
             {/* Radio button for mortgage fields selection */}
             <CustomRadioBoxes
-              firstTitle="Use Mortgage"
+              firstTitle="Mortgage"
               selectFirst={use_mortgage}
               onFirstPress={() => set_mortgage(true)}
               secondTitle="No Mortgage"
@@ -175,6 +191,102 @@ const BtlCalcScreen = ({ navigation }) => {
                 />
               </View>
             ) : null}
+            {/* Solicitor Field */}
+            <CustomSingleRowMoneyInput
+              title={"Solicitor fee"}
+              placeholder={"£800"}
+              onBlur={props.handleBlur("solicitor_fee")}
+              value={props.values.solicitor_fee}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("solicitor_fee", rawText);
+              }}
+              error={props.errors.solicitor_fee}
+              touched={props.touched.solicitor_fee}
+            />
+            {/* Survey Field */}
+            <CustomSingleRowMoneyInput
+              title={"Survey fee"}
+              placeholder={"£700"}
+              onBlur={props.handleBlur("survey_fee")}
+              value={props.values.survey_fee}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("survey_fee", rawText);
+              }}
+              error={props.errors.survey_fee}
+              touched={props.touched.survey_fee}
+            />
+            {/* Conveyancing Field */}
+            <CustomSingleRowMoneyInput
+              title={"Conveyancing fee"}
+              placeholder={"£1,000"}
+              onBlur={props.handleBlur("conveyancing_fee")}
+              value={props.values.conveyancing_fee}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("conveyancing_fee", rawText);
+              }}
+              error={props.errors.conveyancing_fee}
+              touched={props.touched.conveyancing_fee}
+            />
+            {/* Land registry Field */}
+            <CustomSingleRowMoneyInput
+              title={"Land registry fee"}
+              placeholder={"£500"}
+              onBlur={props.handleBlur("land_registry_fee")}
+              value={props.values.land_registry_fee}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("land_registry_fee", rawText);
+              }}
+              error={props.errors.land_registry_fee}
+              touched={props.touched.land_registry_fee}
+            />
+            {/* Stamp duty Field */}
+            <CustomSingleRowMoneyInput
+              title={"Stamp duty"}
+              placeholder={"£2,500"}
+              onBlur={props.handleBlur("stamp_duty")}
+              value={props.values.stamp_duty}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("stamp_duty", rawText);
+              }}
+              error={props.errors.stamp_duty}
+              touched={props.touched.stamp_duty}
+            />
+            {/* Initial refurbishment Field */}
+            <CustomSingleRowMoneyInput
+              title={"Initial refurbishment "}
+              placeholder={"£1,500"}
+              onBlur={props.handleBlur("initial_refurbishment")}
+              value={props.values.initial_refurbishment}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("initial_refurbishment", rawText);
+              }}
+              error={props.errors.initial_refurbishment}
+              touched={props.touched.initial_refurbishment}
+            />
+            {/* Void/Holding cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Void/Holding costs "}
+              placeholder={"£1,000"}
+              onBlur={props.handleBlur("void_holding_costs")}
+              value={props.values.void_holding_costs}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("void_holding_costs", rawText);
+              }}
+              error={props.errors.void_holding_costs}
+              touched={props.touched.void_holding_costs}
+            />
+            {/* Other Purchase cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Other purchase costs "}
+              placeholder={"£500"}
+              onBlur={props.handleBlur("other_purchase_costs")}
+              value={props.values.other_purchase_costs}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("other_purchase_costs", rawText);
+              }}
+              error={props.errors.other_purchase_costs}
+              touched={props.touched.other_purchase_costs}
+            />
           </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
