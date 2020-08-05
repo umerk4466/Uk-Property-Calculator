@@ -48,44 +48,8 @@ const BtlCalcScreen = ({ navigation }) => {
       {props => (
         <RootComponent>
           <HeadingText paddingTopNone heading="How many applicants?" />
-          {/* Custom 2 Radio Buttons */}
-          <CustomRadioBoxes
-            firstTitle="1 Applicant"
-            selectFirst={one_applicant}
-            onFirstPress={() => set_one_applicant(true)}
-            secondTitle="2 Applicants"
-            onSecondPress={() => set_one_applicant(false)}
-          ></CustomRadioBoxes>
-          {/* Annual income heading and container */}
-          <HeadingText heading="Annual income details" />
-          <BoxWrapper>
-            {/* first_person_income field */}
-            <CustomMoneyInput
-              title={"Your annual income (before tax)"}
-              placeholder={"£20,00"}
-              onBlur={props.handleBlur("first_person_income")}
-              value={props.values.first_person_income}
-              onChangeText={(maskedText, rawText) => {
-                props.setFieldValue("first_person_income", rawText);
-              }}
-              error={props.errors.first_person_income}
-              touched={props.touched.first_person_income}
-            />
-            {/* second_person_income field */}
-            {one_applicant == false ? (
-              <CustomMoneyInput
-                title={"2nd person's annual income (before tax)"}
-                placeholder={"£30,000"}
-                onBlur={props.handleBlur("second_person_income")}
-                value={props.values.second_person_income}
-                onChangeText={(maskedText, rawText) => {
-                  props.setFieldValue("second_person_income", rawText);
-                }}
-                error={props.errors.second_person_income}
-                touched={props.touched.second_person_income}
-              />
-            ) : null}
-          </BoxWrapper>
+
+          <BoxWrapper></BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
             onPressCalculateBtn={props.handleSubmit}
