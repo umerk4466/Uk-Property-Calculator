@@ -4,6 +4,8 @@ import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
+import CustomSingleRowMoneyInput from "../components/CustomSingleRowMoneyInput";
+
 import CalculateResetButton from "../components/CalculateResetButton";
 import CustomRadioBoxes from "../components/CustomRadioBoxes";
 
@@ -48,8 +50,19 @@ const BtlCalcScreen = ({ navigation }) => {
       {props => (
         <RootComponent>
           <HeadingText paddingTopNone heading="How many applicants?" />
-
-          <BoxWrapper></BoxWrapper>
+          <BoxWrapper>
+            <CustomSingleRowMoneyInput
+              title={"Price of the property "}
+              placeholder={"£125,000"}
+              onBlur={props.handleBlur("first_person_income")}
+              value={props.values.first_person_income}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("first_person_income", rawText);
+              }}
+              error={props.errors.first_person_income}
+              touched={props.touched.first_person_income}
+            />
+          </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
             onPressCalculateBtn={props.handleSubmit}
