@@ -25,20 +25,24 @@ import { Formik } from "formik";
 
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
-  first_person_income: YupErrorMessages,
-  second_person_income: YupErrorMessages
+  property_full_price: YupErrorMessages,
+  monthly_rent: YupErrorMessages,
+  other_monthly_income: YupErrorMessages,
+  deposit: YupErrorMessages
 });
 
 const BtlCalcScreen = ({ navigation }) => {
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
   // State for changing CustomRadioBoxes
-  const [one_applicant, set_one_applicant] = useState(true);
+  const [mortgage, set_mortgage] = useState(true);
   return (
     <Formik
       initialValues={{
-        first_person_income: "",
-        second_person_income: one_applicant == true ? 0 : ""
+        property_full_price: "",
+        monthly_rent: "",
+        other_monthly_income: 0,
+        deposit: ""
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -49,18 +53,57 @@ const BtlCalcScreen = ({ navigation }) => {
     >
       {props => (
         <RootComponent>
-          <HeadingText paddingTopNone heading="How many applicants?" />
+          <HeadingText paddingTopNone heading="Property Details" />
           <BoxWrapper>
+            {/* Property Full Price */}
             <CustomSingleRowMoneyInput
-              title={"Price of the property "}
+              title={"Property full price"}
               placeholder={"£125,000"}
-              onBlur={props.handleBlur("first_person_income")}
-              value={props.values.first_person_income}
+              onBlur={props.handleBlur("property_full_price")}
+              value={props.values.property_full_price}
               onChangeText={(maskedText, rawText) => {
-                props.setFieldValue("first_person_income", rawText);
+                props.setFieldValue("property_full_price", rawText);
               }}
-              error={props.errors.first_person_income}
-              touched={props.touched.first_person_income}
+              error={props.errors.property_full_price}
+              touched={props.touched.property_full_price}
+            />
+            {/* Monthly rent field */}
+            <CustomSingleRowMoneyInput
+              title={"Monthly rent (Estimated)"}
+              placeholder={"£1000"}
+              onBlur={props.handleBlur("monthly_rent")}
+              value={props.values.monthly_rent}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("monthly_rent", rawText);
+              }}
+              error={props.errors.monthly_rent}
+              touched={props.touched.monthly_rent}
+            />
+            {/* Other Monthly Income field */}
+            <CustomSingleRowMoneyInput
+              title={"Other monthly income"}
+              onBlur={props.handleBlur("other_monthly_income")}
+              value={props.values.other_monthly_income}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("other_monthly_income", rawText);
+              }}
+              error={props.errors.other_monthly_income}
+              touched={props.touched.other_monthly_income}
+            />
+          </BoxWrapper>
+          <HeadingText heading="Purchase Costs" />
+          <BoxWrapper>
+            {/* Deposit Field */}
+            <CustomSingleRowMoneyInput
+              title={"Deposit"}
+              placeholder={"£31,000"}
+              onBlur={props.handleBlur("deposit")}
+              value={props.values.deposit}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("deposit", rawText);
+              }}
+              error={props.errors.deposit}
+              touched={props.touched.deposit}
             />
           </BoxWrapper>
           {/* Calculate and reset button */}
