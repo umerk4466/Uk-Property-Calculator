@@ -117,7 +117,7 @@ const BtlCalcScreen = ({ navigation }) => {
             />
             {/* Radio button for mortgage fields selection */}
             <CustomRadioBoxes
-              firstTitle="Mortgage"
+              firstTitle="Use Mortgage"
               selectFirst={use_mortgage}
               onFirstPress={() => set_mortgage(true)}
               secondTitle="No Mortgage"
@@ -127,7 +127,7 @@ const BtlCalcScreen = ({ navigation }) => {
               <View>
                 {/* Mortgage valuation fee Field */}
                 <CustomSingleRowMoneyInput
-                  title={"Mortgage valuation fee"}
+                  title={"Mtge valuation fee"}
                   placeholder={"£400"}
                   onBlur={props.handleBlur("mortgage_value_fee")}
                   value={props.values.mortgage_value_fee}
@@ -139,7 +139,7 @@ const BtlCalcScreen = ({ navigation }) => {
                 />
                 {/* Mortgage arrangement fee Field */}
                 <CustomSingleRowMoneyInput
-                  title={"Arrangement fee"}
+                  title={"Mtge Arrangement fee"}
                   placeholder={"£2,000"}
                   onBlur={props.handleBlur("mortgage_arrangement_fee")}
                   value={props.values.mortgage_arrangement_fee}
@@ -148,6 +148,30 @@ const BtlCalcScreen = ({ navigation }) => {
                   }}
                   error={props.errors.mortgage_arrangement_fee}
                   touched={props.touched.mortgage_arrangement_fee}
+                />
+                {/* Mortgage Booking fee Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Mtge Booking fee"}
+                  placeholder={"£150"}
+                  onBlur={props.handleBlur("mortgage_booking_fee")}
+                  value={props.values.mortgage_booking_fee}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("mortgage_booking_fee", rawText);
+                  }}
+                  error={props.errors.mortgage_booking_fee}
+                  touched={props.touched.mortgage_booking_fee}
+                />
+                {/* Mortgage broker fee Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Mtge broker fee"}
+                  placeholder={"£150"}
+                  onBlur={props.handleBlur("mortgage_broker_fee")}
+                  value={props.values.mortgage_broker_fee}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("mortgage_broker_fee", rawText);
+                  }}
+                  error={props.errors.mortgage_broker_fee}
+                  touched={props.touched.mortgage_broker_fee}
                 />
               </View>
             ) : null}
