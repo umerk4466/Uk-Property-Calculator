@@ -13,6 +13,13 @@ export default function HomeScreen({ navigation }) {
         title="ROI Calculator"
         description="Return on investment"
       ></TouchableButton>
+      {/* BTL CALCULATOR */}
+      <TouchableButton
+        onPress={() => navigation.navigate("BTL Calculator")}
+        imgSource={require("../assets/HomeScreen/roi.png")}
+        title="BTL Calculator"
+        description="Buy To Let Calculations"
+      ></TouchableButton>
       {/* Net Rental Yield Calculator */}
       {/* <TouchableButton
           onPress={() => navigation.navigate("Net Rental Yield")}

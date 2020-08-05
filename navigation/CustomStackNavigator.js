@@ -21,6 +21,7 @@ export default function CustomStackNavigator() {
     <NavigationContainer theme={CustomTheme}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="BTL Calculator" component={BtlCalcScreen} />
         <Stack.Screen name="ROI Calculator" component={RoiScreen} />
         <Stack.Screen
           name="Mortgage Calculator"
@@ -31,7 +32,6 @@ export default function CustomStackNavigator() {
           name="Borrowing Calculator"
           component={MortgageBorrowScreen}
         />
-        <Stack.Screen name="BTL Calculator" component={BtlCalcScreen} />
 
         <Stack.Screen name="Results" component={ReslutModalScreen} />
       </Stack.Navigator>
