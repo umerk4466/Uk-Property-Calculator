@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) {
       {/* BTL CALCULATOR */}
       <TouchableButton
         onPress={() => navigation.navigate("BTL Calculator")}
-        imgSource={require("../assets/HomeScreen/roi.png")}
+        imgSource={require("../assets/HomeScreen/pound.png")}
         title="BTL Calculator"
         description="Buy To Let Calculations"
       ></TouchableButton>
