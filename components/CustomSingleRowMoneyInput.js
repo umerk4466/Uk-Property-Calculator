@@ -5,11 +5,20 @@ import { View, Text, StyleSheet } from "react-native";
 import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
+// **************************
+import { Icon } from "react-native-elements";
+
 // CustomSingleRowMoneyInput Component
 const CustomSingleRowMoneyInput = props => {
   return (
     <View>
       <View style={styles.RowInputStyle}>
+        <Icon
+          name="info"
+          iconStyle={{ marginRight: 8 }}
+          // color={Colors.OnButtonColor}
+          onPress={() => alert("Info")}
+        />
         <Text numberOfLines={1} style={styles.InputTextStyle}>
           {props.title}
         </Text>
