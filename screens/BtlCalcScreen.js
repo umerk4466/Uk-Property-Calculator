@@ -119,6 +119,14 @@ const BtlCalcScreen = ({ navigation }) => {
             />
           </BoxWrapper>
           <HeadingText heading="Purchase Costs" />
+          {/* Radio button for mortgage fields selection */}
+          <CustomRadioBoxes
+            firstTitle="Mortgage"
+            selectFirst={use_mortgage}
+            onFirstPress={() => set_mortgage(true)}
+            secondTitle="No Mortgage"
+            onSecondPress={() => set_mortgage(false)}
+          ></CustomRadioBoxes>
           <BoxWrapper>
             {/* Deposit Field */}
             <CustomSingleRowMoneyInput
@@ -132,14 +140,6 @@ const BtlCalcScreen = ({ navigation }) => {
               error={props.errors.deposit}
               touched={props.touched.deposit}
             />
-            {/* Radio button for mortgage fields selection */}
-            <CustomRadioBoxes
-              firstTitle="Mortgage"
-              selectFirst={use_mortgage}
-              onFirstPress={() => set_mortgage(true)}
-              secondTitle="No Mortgage"
-              onSecondPress={() => set_mortgage(false)}
-            ></CustomRadioBoxes>
             {use_mortgage == true ? (
               <View>
                 {/* Mortgage valuation fee Field */}
