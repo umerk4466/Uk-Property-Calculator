@@ -15,8 +15,8 @@ const CustomSingleRowMoneyInput = props => {
       <View style={styles.RowInputStyle}>
         <Icon
           name="info"
-          iconStyle={{ marginRight: 8 }}
-          // color={Colors.OnButtonColor}
+          iconStyle={{ marginRight: 10 }}
+          color={Colors.OnButtonColor}
           onPress={() => alert("Info")}
         />
         <Text numberOfLines={1} style={styles.InputTextStyle}>
@@ -56,7 +56,7 @@ export default CustomSingleRowMoneyInput;
 
 // CustomSingleRowMoneyInput Component Style
 const styles = StyleSheet.create({
-  InputTextStyle: { width: "55%" },
+  InputTextStyle: { width: "50%" },
   Input: {
     flex: 1,
     marginTop: 3,

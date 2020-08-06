@@ -95,7 +95,7 @@ const BtlCalcScreen = ({ navigation }) => {
             />
             {/* Monthly rent field */}
             <CustomSingleRowMoneyInput
-              title={"Monthly rent (Estimated)"}
+              title={"Monthly rent"}
               placeholder={"£1000"}
               onBlur={props.handleBlur("monthly_rent")}
               value={props.values.monthly_rent}
