@@ -7,21 +7,25 @@ import Colors from "../constants/colors";
 
 // **************************
 import { Icon } from "react-native-elements";
-
+import { Alert } from "react-native";
 // CustomSingleRowMoneyInput Component
 const CustomSingleRowMoneyInput = props => {
   return (
     <View>
       <View style={styles.RowInputStyle}>
-        <Icon
-          name="info"
-          iconStyle={{ marginRight: 10 }}
-          color={Colors.OnButtonColor}
-          onPress={() => alert("Info")}
-        />
-        <Text numberOfLines={1} style={styles.InputTextStyle}>
-          {props.title}
-        </Text>
+        <View style={styles.InputTextStyle}>
+          <Text numberOfLines={1} onPress={() => Alert.alert("Info", "aj")}>
+            {props.title} !
+          </Text>
+          {/* {props.helpText ? (
+            <Icon
+              name="info"
+              iconStyle={{ marginHorizontal: 5 }}
+              color={Colors.BodyLightColor}
+              onPress={() => Alert.alert("Info", "aj")}
+            />
+          ) : null} */}
+        </View>
         <TextInputMask
           multiline={true}
           numberOfLine={1}
@@ -56,7 +60,7 @@ export default CustomSingleRowMoneyInput;
 
 // CustomSingleRowMoneyInput Component Style
 const styles = StyleSheet.create({
-  InputTextStyle: { width: "50%" },
+  InputTextStyle: { width: "50%", flexDirection: "row" },
   Input: {
     flex: 1,
     marginTop: 3,
