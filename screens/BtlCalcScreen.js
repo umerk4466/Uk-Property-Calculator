@@ -84,6 +84,7 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Property Full Price */}
             <CustomSingleRowMoneyInput
               title={"Property full price"}
+              helpText={"All TH"}
               placeholder={"£125,000"}
               onBlur={props.handleBlur("property_full_price")}
               value={props.values.property_full_price}
@@ -95,9 +96,8 @@ const BtlCalcScreen = ({ navigation }) => {
             />
             {/* Monthly rent field */}
             <CustomSingleRowMoneyInput
-              title={"Monthly rent of the pro"}
+              title={"Monthly rent"}
               placeholder={"£1000"}
-              helpText={"ahha ahhaha hahah"}
               onBlur={props.handleBlur("monthly_rent")}
               value={props.values.monthly_rent}
               onChangeText={(maskedText, rawText) => {

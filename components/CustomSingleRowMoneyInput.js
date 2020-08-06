@@ -4,28 +4,32 @@ import { TextInputMask } from "react-native-masked-text";
 import { View, Text, StyleSheet } from "react-native";
 import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
-
-// **************************
-import { Icon } from "react-native-elements";
 import { Alert } from "react-native";
+import { Icon } from "react-native-elements";
+
 // CustomSingleRowMoneyInput Component
 const CustomSingleRowMoneyInput = props => {
   return (
     <View>
       <View style={styles.RowInputStyle}>
-        <View style={styles.InputTextStyle}>
-          <Text numberOfLines={1} onPress={() => Alert.alert("Info", "aj")}>
-            {props.title} !
-          </Text>
-          {/* {props.helpText ? (
+        {props.helpText ? (
+          <View style={styles.InputHelpTextStyle}>
+            <Text numberOfLines={1} style={{ maxWidth: "80%" }}>
+              {props.title}
+            </Text>
             <Icon
               name="info"
               iconStyle={{ marginHorizontal: 5 }}
               color={Colors.BodyLightColor}
-              onPress={() => Alert.alert("Info", "aj")}
+              size={20}
+              onPress={() => Alert.alert("Info", props.helpText)}
             />
-          ) : null} */}
-        </View>
+          </View>
+        ) : (
+          <Text numberOfLines={1} style={styles.InputTextStyle}>
+            {props.title}
+          </Text>
+        )}
         <TextInputMask
           multiline={true}
           numberOfLine={1}
@@ -60,7 +64,12 @@ export default CustomSingleRowMoneyInput;
 
 // CustomSingleRowMoneyInput Component Style
 const styles = StyleSheet.create({
-  InputTextStyle: { width: "50%", flexDirection: "row" },
+  InputHelpTextStyle: {
+    width: "55%",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  InputTextStyle: { width: "55%" },
   Input: {
     flex: 1,
     marginTop: 3,
