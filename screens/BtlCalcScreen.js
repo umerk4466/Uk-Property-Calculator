@@ -118,15 +118,16 @@ const BtlCalcScreen = ({ navigation }) => {
               touched={props.touched.other_monthly_income}
             />
           </BoxWrapper>
-          <HeadingText heading="Purchase Costs" />
+          <HeadingText heading="Are you using mortgage ?" />
           {/* Radio button for mortgage fields selection */}
           <CustomRadioBoxes
-            firstTitle="Mortgage"
+            firstTitle="Yes I am"
             selectFirst={use_mortgage}
             onFirstPress={() => set_mortgage(true)}
-            secondTitle="No Mortgage"
+            secondTitle="No I am not"
             onSecondPress={() => set_mortgage(false)}
           ></CustomRadioBoxes>
+          <HeadingText heading="Purchase Costs" />
           <BoxWrapper>
             {/* Deposit Field */}
             <CustomSingleRowMoneyInput
