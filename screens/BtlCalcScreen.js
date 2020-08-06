@@ -27,9 +27,11 @@ import { Formik } from "formik";
 
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
+  // property details
   property_full_price: YupErrorMessages,
   monthly_rent: YupErrorMessages,
   other_monthly_income: YupErrorMessages,
+  // purchase costs
   deposit: YupErrorMessages,
   mortgage_value_fee: YupErrorMessages,
   mortgage_arrangement_fee: YupErrorMessages,
@@ -42,7 +44,26 @@ const ValidatorSchema = yup.object({
   stamp_duty: YupErrorMessages,
   initial_refurbishment: YupErrorMessages,
   void_holding_costs: YupErrorMessages,
-  other_purchase_costs: YupErrorMessages
+  other_purchase_costs: YupErrorMessages,
+  // Annually Recurring Costs
+  buildings_insurance: YupErrorMessages,
+  contents_insurance: YupErrorMessages,
+  landlord_liability_insurance: YupErrorMessages,
+  rent_insurance: YupErrorMessages,
+  ground_rent: YupErrorMessages,
+  service_charge: YupErrorMessages,
+  redecorate_costs: YupErrorMessages,
+  annual_regulatory_safety_costs: YupErrorMessages,
+  other_annual_costs: YupErrorMessages,
+  // Monthly Recurring Costs
+  monthly_mortgages_payments: YupErrorMessages,
+  self_management_costs: YupErrorMessages,
+  gas_electricity_bills: YupErrorMessages,
+  water_bill: YupErrorMessages,
+  counsel_tax: YupErrorMessages,
+  tv_licence_broadband_etc: YupErrorMessages,
+  parking_permit_charges: YupErrorMessages,
+  other_monthly_costs: YupErrorMessages
 });
 
 const BtlCalcScreen = ({ navigation }) => {
@@ -53,9 +74,11 @@ const BtlCalcScreen = ({ navigation }) => {
   return (
     <Formik
       initialValues={{
+        // property details
         property_full_price: "",
         monthly_rent: "",
         other_monthly_income: 0,
+        // purchase costs
         deposit: "",
         mortgage_value_fee: use_mortgage == true ? "" : 0,
         mortgage_arrangement_fee: use_mortgage == true ? "" : 0,
@@ -68,7 +91,29 @@ const BtlCalcScreen = ({ navigation }) => {
         stamp_duty: "",
         initial_refurbishment: "",
         void_holding_costs: "",
-        other_purchase_costs: 0
+        other_purchase_costs: 0,
+        // Annually Recurring Costs
+        buildings_insurance: "",
+        contents_insurance: 0,
+        landlord_liability_insurance: "",
+        rent_insurance: 0,
+        maintenance_costs_percentage: 0.0,
+        ground_rent: "",
+        service_charge: "",
+        void_period_percentage: 0.0,
+        redecorate_costs: "",
+        annual_regulatory_safety_costs: "",
+        other_annual_costs: 0,
+        // Monthly Recurring Costs
+        monthly_mortgages_payments: use_mortgage == true ? "" : 0,
+        letting_agent_percentage: 0.0,
+        self_management_costs: "",
+        gas_electricity_bills: "",
+        water_bill: "",
+        counsel_tax: "",
+        tv_licence_broadband_etc: "",
+        parking_permit_charges: "",
+        other_monthly_costs: ""
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -118,7 +163,7 @@ const BtlCalcScreen = ({ navigation }) => {
               touched={props.touched.other_monthly_income}
             />
           </BoxWrapper>
-          <HeadingText heading="Are you using mortgage ?" />
+          <HeadingText heading="Are you using mortgage?" />
           {/* Radio button for mortgage fields selection */}
           <CustomRadioBoxes
             firstTitle="Yes I am"
@@ -290,6 +335,8 @@ const BtlCalcScreen = ({ navigation }) => {
               touched={props.touched.other_purchase_costs}
             />
           </BoxWrapper>
+          <HeadingText heading="Annually Recurring Costs" />
+          <BoxWrapper></BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
             onPressCalculateBtn={props.handleSubmit}
