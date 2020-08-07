@@ -470,6 +470,35 @@ const BtlCalcScreen = ({ navigation }) => {
               touched={props.touched.other_annual_costs}
             />
           </BoxWrapper>
+          <HeadingText heading="Monthly Recurring Costs" />
+          <BoxWrapper>
+            {/* Monthly Mortgages Payments Field */}
+            {use_mortgage == true ? (
+              <CustomSingleRowMoneyInput
+                title={"Monthly mortgages Payments"}
+                placeholder={"£205"}
+                onBlur={props.handleBlur("monthly_mortgages_payments")}
+                value={props.values.monthly_mortgages_payments}
+                onChangeText={(maskedText, rawText) => {
+                  props.setFieldValue("monthly_mortgages_payments", rawText);
+                }}
+                error={props.errors.monthly_mortgages_payments}
+                touched={props.touched.monthly_mortgages_payments}
+              />
+            ) : null}
+            {/* Other Monthly Costs Field */}
+            <CustomSingleRowMoneyInput
+              title={"Other monthly costs"}
+              placeholder={"£15"}
+              onBlur={props.handleBlur("other_monthly_costs")}
+              value={props.values.other_monthly_costs}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("other_monthly_costs", rawText);
+              }}
+              error={props.errors.other_monthly_costs}
+              touched={props.touched.other_monthly_costs}
+            />
+          </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
             onPressCalculateBtn={props.handleSubmit}
