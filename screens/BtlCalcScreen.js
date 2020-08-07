@@ -111,11 +111,11 @@ const BtlCalcScreen = ({ navigation }) => {
         monthly_mortgages_payments: use_mortgage == true ? "" : 0,
         letting_agent_percentage: 0.0,
         self_management_costs: manage_myself == true ? "" : 0,
-        gas_electricity_bills: tenant_pay_bills == true ? "" : 0,
-        water_bill: tenant_pay_bills == true ? "" : 0,
-        counsel_tax: tenant_pay_bills == true ? "" : 0,
-        tv_licence_broadband_etc: tenant_pay_bills == true ? "" : 0,
-        parking_permit_charges: tenant_pay_bills == true ? "" : 0,
+        gas_electricity_bills: tenant_pay_bills == false ? "" : 0,
+        water_bill: tenant_pay_bills == false ? "" : 0,
+        counsel_tax: tenant_pay_bills == false ? "" : 0,
+        tv_licence_broadband_etc: tenant_pay_bills == false ? "" : 0,
+        parking_permit_charges: tenant_pay_bills == false ? "" : 0,
         other_monthly_costs: 0,
       }}
       validationSchema={ValidatorSchema}
@@ -584,7 +584,7 @@ const BtlCalcScreen = ({ navigation }) => {
                 touched={props.touched.letting_agent_percentage}
               />
             )}
-            {tenant_pay_bills == true ? (
+            {tenant_pay_bills == false ? (
               <View>
                 {/* Gas and electricity bills Field */}
                 <CustomSingleRowMoneyInput
