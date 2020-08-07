@@ -27,42 +27,42 @@ import { Formik } from "formik";
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   // property details
-  property_full_price: YupErrorMessages,
-  monthly_rent: YupErrorMessages,
-  other_monthly_income: YupErrorMessages,
-  // purchase costs
-  deposit: YupErrorMessages,
-  mortgage_value_fee: YupErrorMessages,
-  mortgage_arrangement_fee: YupErrorMessages,
-  mortgage_booking_fee: YupErrorMessages,
-  mortgage_broker_fee: YupErrorMessages,
-  solicitor_fee: YupErrorMessages,
-  survey_fee: YupErrorMessages,
-  conveyancing_fee: YupErrorMessages,
-  land_registry_fee: YupErrorMessages,
-  stamp_duty: YupErrorMessages,
-  initial_refurbishment: YupErrorMessages,
-  void_holding_costs: YupErrorMessages,
-  other_purchase_costs: YupErrorMessages,
-  // Annually Recurring Costs
-  buildings_insurance: YupErrorMessages,
-  contents_insurance: YupErrorMessages,
-  landlord_liability_insurance: YupErrorMessages,
-  rent_insurance: YupErrorMessages,
-  ground_rent: YupErrorMessages,
-  service_charge: YupErrorMessages,
-  redecorate_costs: YupErrorMessages,
-  annual_regulatory_safety_costs: YupErrorMessages,
-  other_annual_costs: YupErrorMessages,
-  // Monthly Recurring Costs
-  monthly_mortgages_payments: YupErrorMessages,
-  self_management_costs: YupErrorMessages,
-  gas_electricity_bills: YupErrorMessages,
-  water_bill: YupErrorMessages,
-  counsel_tax: YupErrorMessages,
-  tv_licence_broadband_etc: YupErrorMessages,
-  parking_permit_charges: YupErrorMessages,
-  other_monthly_costs: YupErrorMessages,
+  // property_full_price: YupErrorMessages,
+  // monthly_rent: YupErrorMessages,
+  // other_monthly_income: YupErrorMessages,
+  // // purchase costs
+  // deposit: YupErrorMessages,
+  // mortgage_value_fee: YupErrorMessages,
+  // mortgage_arrangement_fee: YupErrorMessages,
+  // mortgage_booking_fee: YupErrorMessages,
+  // mortgage_broker_fee: YupErrorMessages,
+  // solicitor_fee: YupErrorMessages,
+  // survey_fee: YupErrorMessages,
+  // conveyancing_fee: YupErrorMessages,
+  // land_registry_fee: YupErrorMessages,
+  // stamp_duty: YupErrorMessages,
+  // initial_refurbishment: YupErrorMessages,
+  // void_holding_costs: YupErrorMessages,
+  // other_purchase_costs: YupErrorMessages,
+  // // Annually Recurring Costs
+  // buildings_insurance: YupErrorMessages,
+  // contents_insurance: YupErrorMessages,
+  // landlord_liability_insurance: YupErrorMessages,
+  // rent_insurance: YupErrorMessages,
+  // ground_rent: YupErrorMessages,
+  // service_charge: YupErrorMessages,
+  // redecorate_costs: YupErrorMessages,
+  // annual_regulatory_safety_costs: YupErrorMessages,
+  // other_annual_costs: YupErrorMessages,
+  // // Monthly Recurring Costs
+  // monthly_mortgages_payments: YupErrorMessages,
+  // self_management_costs: YupErrorMessages,
+  // gas_electricity_bills: YupErrorMessages,
+  // water_bill: YupErrorMessages,
+  // counsel_tax: YupErrorMessages,
+  // tv_licence_broadband_etc: YupErrorMessages,
+  // parking_permit_charges: YupErrorMessages,
+  // other_monthly_costs: YupErrorMessages,
 });
 
 const BtlCalcScreen = ({ navigation }) => {
@@ -119,6 +119,7 @@ const BtlCalcScreen = ({ navigation }) => {
       onSubmit={(values, actions) => {
         // calculation function
         BtlCalcScreenFunction({ values, navigation });
+        alert(values.maintenance_costs_percentage);
       }}
     >
       {(props) => (
