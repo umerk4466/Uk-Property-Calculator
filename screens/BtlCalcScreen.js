@@ -6,7 +6,6 @@ import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomSingleRowMoneyInput from "../components/CustomSingleRowMoneyInput";
-import CustomSingleRowPercentageInput from "../components/CustomSingleRowPercentageInput";
 
 import CalculateResetButton from "../components/CalculateResetButton";
 import CustomRadioBoxes from "../components/CustomRadioBoxes";
@@ -97,7 +96,7 @@ const BtlCalcScreen = ({ navigation }) => {
         contents_insurance: 0,
         landlord_liability_insurance: "",
         rent_insurance: 0,
-        maintenance_costs_percentage: "",
+        maintenance_costs_percentage: 0.0,
         ground_rent: "",
         service_charge: "",
         void_period_percentage: 0.0,
@@ -338,13 +337,13 @@ const BtlCalcScreen = ({ navigation }) => {
           <HeadingText heading="Annually Recurring Costs" />
           <BoxWrapper>
             {/* Maintenance costs Field */}
-            <CustomSingleRowPercentageInput
+            <CustomSingleRowMoneyInput
+              percentageField
               title={"Maintenance costs"}
-              placeholder={"1%"}
               onBlur={props.handleBlur("maintenance_costs_percentage")}
               value={props.values.maintenance_costs_percentage}
-              onChangeText={(text) => {
-                props.setFieldValue("maintenance_costs_percentage", text);
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("maintenance_costs_percentage", rawText);
               }}
               error={props.errors.maintenance_costs_percentage}
               touched={props.touched.maintenance_costs_percentage}

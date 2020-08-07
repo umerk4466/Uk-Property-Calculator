@@ -8,7 +8,7 @@ import { Alert } from "react-native";
 import { Icon } from "react-native-elements";
 
 // CustomSingleRowMoneyInput Component
-const CustomSingleRowMoneyInput = props => {
+const CustomSingleRowMoneyInput = (props) => {
   return (
     <View>
       <View style={styles.RowInputStyle}>
@@ -36,11 +36,11 @@ const CustomSingleRowMoneyInput = props => {
           blurOnSubmit={true}
           type={"money"}
           options={{
-            precision: 0,
+            precision: props.percentageField ? 1 : 0,
             separator: ".",
             delimiter: ",",
-            unit: "£",
-            suffixUnit: ""
+            unit: props.percentageField ? "" : "£",
+            suffixUnit: props.percentageField ? "%" : "",
           }}
           style={[styles.Input, globalStyle.LargeFont]}
           textAlign={"center"}
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   InputHelpTextStyle: {
     width: "55%",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   InputTextStyle: { width: "55%" },
   Input: {
@@ -78,15 +78,15 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: Colors.BoxContainerBorderColor,
     marginLeft: 10,
-    width: "45%"
+    width: "45%",
   },
   InputTextError: {
     color: Colors.ErrorColor,
     fontSize: 12,
-    marginBottom: 5
+    marginBottom: 5,
   },
   RowInputStyle: {
     flexDirection: "row",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 });
