@@ -49,6 +49,7 @@ const ValidatorSchema = yup.object({
   contents_insurance: YupErrorMessages,
   landlord_liability_insurance: YupErrorMessages,
   rent_insurance: YupErrorMessages,
+  annual_maintenance_costs: YupErrorMessages,
   ground_rent: YupErrorMessages,
   service_charge: YupErrorMessages,
   redecorate_costs: YupErrorMessages,
@@ -387,6 +388,7 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Maintenance costs Field */}
             <CustomSingleRowMoneyInput
               title={"Maintenance costs"}
+              placeholder={"£1,250"}
               onBlur={props.handleBlur("annual_maintenance_costs")}
               value={props.values.annual_maintenance_costs}
               onChangeText={(maskedText, rawText) => {
