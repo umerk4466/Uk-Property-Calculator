@@ -248,7 +248,7 @@ const BtlCalcScreen = ({ navigation }) => {
                 <CustomSingleRowMoneyInput
                   title={"Mtge broker fee"}
                   helpText={
-                    "Add mortgage broker fees which usually starts from £500."
+                    "Add mortgage broker fees which usually starts from £150."
                   }
                   placeholder={"£150"}
                   onBlur={props.handleBlur("mortgage_broker_fee")}
