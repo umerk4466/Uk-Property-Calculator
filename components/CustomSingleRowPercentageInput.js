@@ -31,7 +31,6 @@ const CustomSingleRowPercentageInput = (props) => {
           </Text>
         )}
         <TextInput
-          inlineImageLeft="favicon.png"
           inlineImagePadding={100}
           multiline={true}
           numberOfLine={1}
