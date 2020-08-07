@@ -71,6 +71,9 @@ const BtlCalcScreen = ({ navigation }) => {
   SetHeaderMessage(navigation, ScreenMessage);
   // State for changing CustomRadioBoxes
   const [use_mortgage, set_mortgage] = useState(true);
+  const [manage_myself, set_manage_myself] = useState(false);
+  const [tenant_pay_bills, set_tenant_pay_bills] = useState(true);
+
   return (
     <Formik
       initialValues={{
@@ -107,13 +110,13 @@ const BtlCalcScreen = ({ navigation }) => {
         // Monthly Recurring Costs
         monthly_mortgages_payments: use_mortgage == true ? "" : 0,
         letting_agent_percentage: 0.0,
-        self_management_costs: "",
-        gas_electricity_bills: "",
-        water_bill: "",
-        counsel_tax: "",
-        tv_licence_broadband_etc: "",
-        parking_permit_charges: "",
-        other_monthly_costs: "",
+        self_management_costs: manage_myself == true ? "" : 0,
+        gas_electricity_bills: tenant_pay_bills == true ? "" : 0,
+        water_bill: tenant_pay_bills == true ? "" : 0,
+        counsel_tax: tenant_pay_bills == true ? "" : 0,
+        tv_licence_broadband_etc: tenant_pay_bills == true ? "" : 0,
+        parking_permit_charges: tenant_pay_bills == true ? "" : 0,
+        other_monthly_costs: 0,
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -470,6 +473,24 @@ const BtlCalcScreen = ({ navigation }) => {
               touched={props.touched.other_annual_costs}
             />
           </BoxWrapper>
+          <HeadingText heading="Who will manage the property?" />
+          {/* Radio button for monthly costs fields */}
+          <CustomRadioBoxes
+            firstTitle="Myself"
+            selectFirst={manage_myself}
+            onFirstPress={() => set_manage_myself(true)}
+            secondTitle="Letting Agent"
+            onSecondPress={() => set_manage_myself(false)}
+          ></CustomRadioBoxes>
+          <HeadingText heading="Who will pay household bills?" />
+          {/* Radio button for monthly costs fields */}
+          <CustomRadioBoxes
+            firstTitle="Tenants"
+            selectFirst={tenant_pay_bills}
+            onFirstPress={() => set_tenant_pay_bills(true)}
+            secondTitle="Landlord"
+            onSecondPress={() => set_tenant_pay_bills(false)}
+          ></CustomRadioBoxes>
           <HeadingText heading="Monthly Recurring Costs" />
           <BoxWrapper>
             {/* Monthly Mortgages Payments Field */}
@@ -485,6 +506,96 @@ const BtlCalcScreen = ({ navigation }) => {
                 error={props.errors.monthly_mortgages_payments}
                 touched={props.touched.monthly_mortgages_payments}
               />
+            ) : null}
+            {/* All self management costs Field */}
+            {manage_myself == true ? (
+              <CustomSingleRowMoneyInput
+                title={"Self management costs"}
+                placeholder={"£15"}
+                onBlur={props.handleBlur("self_management_costs")}
+                value={props.values.self_management_costs}
+                onChangeText={(maskedText, rawText) => {
+                  props.setFieldValue("self_management_costs", rawText);
+                }}
+                error={props.errors.self_management_costs}
+                touched={props.touched.self_management_costs}
+              />
+            ) : (
+              <CustomSingleRowMoneyInput
+                percentageField
+                title={"Letting agent fees"}
+                onBlur={props.handleBlur("letting_agent_percentage")}
+                value={props.values.letting_agent_percentage}
+                onChangeText={(maskedText, rawText) => {
+                  props.setFieldValue("letting_agent_percentage", rawText);
+                }}
+                error={props.errors.letting_agent_percentage}
+                touched={props.touched.letting_agent_percentage}
+              />
+            )}
+            {tenant_pay_bills == true ? (
+              <View>
+                {/* Gas and electricity bills Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Gas and electricity bills"}
+                  placeholder={"£45"}
+                  onBlur={props.handleBlur("gas_electricity_bills")}
+                  value={props.values.gas_electricity_bills}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("gas_electricity_bills", rawText);
+                  }}
+                  error={props.errors.gas_electricity_bills}
+                  touched={props.touched.gas_electricity_bills}
+                />
+                {/* Water bill Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Water bill"}
+                  placeholder={"£15"}
+                  onBlur={props.handleBlur("water_bill")}
+                  value={props.values.water_bill}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("water_bill", rawText);
+                  }}
+                  error={props.errors.water_bill}
+                  touched={props.touched.water_bill}
+                />
+                {/* Counsel tax Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Counsel tax"}
+                  placeholder={"£113"}
+                  onBlur={props.handleBlur("counsel_tax")}
+                  value={props.values.counsel_tax}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("counsel_tax", rawText);
+                  }}
+                  error={props.errors.counsel_tax}
+                  touched={props.touched.counsel_tax}
+                />
+                {/* Tv licence, Broadband, phone bills Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Broadband, Tv, phone bills"}
+                  placeholder={"£40"}
+                  onBlur={props.handleBlur("tv_licence_broadband_etc")}
+                  value={props.values.tv_licence_broadband_etc}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("tv_licence_broadband_etc", rawText);
+                  }}
+                  error={props.errors.tv_licence_broadband_etc}
+                  touched={props.touched.tv_licence_broadband_etc}
+                />
+                {/* parking permit charges Field */}
+                <CustomSingleRowMoneyInput
+                  title={"Parking permit charges"}
+                  placeholder={"£25"}
+                  onBlur={props.handleBlur("parking_permit_charges")}
+                  value={props.values.parking_permit_charges}
+                  onChangeText={(maskedText, rawText) => {
+                    props.setFieldValue("parking_permit_charges", rawText);
+                  }}
+                  error={props.errors.parking_permit_charges}
+                  touched={props.touched.parking_permit_charges}
+                />
+              </View>
             ) : null}
             {/* Other Monthly Costs Field */}
             <CustomSingleRowMoneyInput
