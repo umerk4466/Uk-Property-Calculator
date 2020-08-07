@@ -27,42 +27,42 @@ import { Formik } from "formik";
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   // property details
-  // property_full_price: YupErrorMessages,
-  // monthly_rent: YupErrorMessages,
-  // other_monthly_income: YupErrorMessages,
-  // // purchase costs
-  // deposit: YupErrorMessages,
-  // mortgage_value_fee: YupErrorMessages,
-  // mortgage_arrangement_fee: YupErrorMessages,
-  // mortgage_booking_fee: YupErrorMessages,
-  // mortgage_broker_fee: YupErrorMessages,
-  // solicitor_fee: YupErrorMessages,
-  // survey_fee: YupErrorMessages,
-  // conveyancing_fee: YupErrorMessages,
-  // land_registry_fee: YupErrorMessages,
-  // stamp_duty: YupErrorMessages,
-  // initial_refurbishment: YupErrorMessages,
-  // void_holding_costs: YupErrorMessages,
-  // other_purchase_costs: YupErrorMessages,
-  // // Annually Recurring Costs
-  // buildings_insurance: YupErrorMessages,
-  // contents_insurance: YupErrorMessages,
-  // landlord_liability_insurance: YupErrorMessages,
-  // rent_insurance: YupErrorMessages,
-  // ground_rent: YupErrorMessages,
-  // service_charge: YupErrorMessages,
-  // redecorate_costs: YupErrorMessages,
-  // annual_regulatory_safety_costs: YupErrorMessages,
-  // other_annual_costs: YupErrorMessages,
-  // // Monthly Recurring Costs
-  // monthly_mortgages_payments: YupErrorMessages,
-  // self_management_costs: YupErrorMessages,
-  // gas_electricity_bills: YupErrorMessages,
-  // water_bill: YupErrorMessages,
-  // counsel_tax: YupErrorMessages,
-  // tv_licence_broadband_etc: YupErrorMessages,
-  // parking_permit_charges: YupErrorMessages,
-  // other_monthly_costs: YupErrorMessages,
+  property_full_price: YupErrorMessages,
+  monthly_rent: YupErrorMessages,
+  other_monthly_income: YupErrorMessages,
+  // purchase costs
+  deposit: YupErrorMessages,
+  mortgage_value_fee: YupErrorMessages,
+  mortgage_arrangement_fee: YupErrorMessages,
+  mortgage_booking_fee: YupErrorMessages,
+  mortgage_broker_fee: YupErrorMessages,
+  solicitor_fee: YupErrorMessages,
+  survey_fee: YupErrorMessages,
+  conveyancing_fee: YupErrorMessages,
+  land_registry_fee: YupErrorMessages,
+  stamp_duty: YupErrorMessages,
+  initial_refurbishment: YupErrorMessages,
+  void_holding_costs: YupErrorMessages,
+  other_purchase_costs: YupErrorMessages,
+  // Annually Recurring Costs
+  buildings_insurance: YupErrorMessages,
+  contents_insurance: YupErrorMessages,
+  landlord_liability_insurance: YupErrorMessages,
+  rent_insurance: YupErrorMessages,
+  ground_rent: YupErrorMessages,
+  service_charge: YupErrorMessages,
+  redecorate_costs: YupErrorMessages,
+  annual_regulatory_safety_costs: YupErrorMessages,
+  other_annual_costs: YupErrorMessages,
+  // Monthly Recurring Costs
+  monthly_mortgages_payments: YupErrorMessages,
+  self_management_costs: YupErrorMessages,
+  gas_electricity_bills: YupErrorMessages,
+  water_bill: YupErrorMessages,
+  counsel_tax: YupErrorMessages,
+  tv_licence_broadband_etc: YupErrorMessages,
+  parking_permit_charges: YupErrorMessages,
+  other_monthly_costs: YupErrorMessages,
 });
 
 const BtlCalcScreen = ({ navigation }) => {
@@ -119,7 +119,6 @@ const BtlCalcScreen = ({ navigation }) => {
       onSubmit={(values, actions) => {
         // calculation function
         BtlCalcScreenFunction({ values, navigation });
-        alert(values.maintenance_costs_percentage);
       }}
     >
       {(props) => (
@@ -337,6 +336,54 @@ const BtlCalcScreen = ({ navigation }) => {
           </BoxWrapper>
           <HeadingText heading="Annually Recurring Costs" />
           <BoxWrapper>
+            {/* Buildings insurance cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Buildings insurance"}
+              placeholder={"£163"}
+              onBlur={props.handleBlur("buildings_insurance")}
+              value={props.values.buildings_insurance}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("buildings_insurance", rawText);
+              }}
+              error={props.errors.buildings_insurance}
+              touched={props.touched.buildings_insurance}
+            />
+            {/* Contents insurance  cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Contents insurance "}
+              placeholder={"£139"}
+              onBlur={props.handleBlur("contents_insurance")}
+              value={props.values.contents_insurance}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("contents_insurance", rawText);
+              }}
+              error={props.errors.contents_insurance}
+              touched={props.touched.contents_insurance}
+            />
+            {/* Landlord liability Insurance cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Landlord liability Insurance"}
+              placeholder={"£170"}
+              onBlur={props.handleBlur("landlord_liability_insurance")}
+              value={props.values.landlord_liability_insurance}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("landlord_liability_insurance", rawText);
+              }}
+              error={props.errors.landlord_liability_insurance}
+              touched={props.touched.landlord_liability_insurance}
+            />
+            {/* Rent insurance cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Rent insurance"}
+              placeholder={"£96"}
+              onBlur={props.handleBlur("rent_insurance")}
+              value={props.values.rent_insurance}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("rent_insurance", rawText);
+              }}
+              error={props.errors.rent_insurance}
+              touched={props.touched.rent_insurance}
+            />
             {/* Maintenance costs Field */}
             <CustomSingleRowMoneyInput
               percentageField
@@ -348,6 +395,78 @@ const BtlCalcScreen = ({ navigation }) => {
               }}
               error={props.errors.maintenance_costs_percentage}
               touched={props.touched.maintenance_costs_percentage}
+            />
+            {/* Ground rent cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Ground rent"}
+              placeholder={"£2,200"}
+              onBlur={props.handleBlur("ground_rent")}
+              value={props.values.ground_rent}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("ground_rent", rawText);
+              }}
+              error={props.errors.ground_rent}
+              touched={props.touched.ground_rent}
+            />
+            {/* Service charge cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Service charge"}
+              placeholder={"£1,200"}
+              onBlur={props.handleBlur("service_charge")}
+              value={props.values.service_charge}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("service_charge", rawText);
+              }}
+              error={props.errors.service_charge}
+              touched={props.touched.service_charge}
+            />
+            {/* Void period Field */}
+            <CustomSingleRowMoneyInput
+              percentageField
+              title={"Void period"}
+              onBlur={props.handleBlur("void_period_percentage")}
+              value={props.values.void_period_percentage}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("void_period_percentage", rawText);
+              }}
+              error={props.errors.void_period_percentage}
+              touched={props.touched.void_period_percentage}
+            />
+            {/* Redecorate Costs cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Redecorate costs"}
+              placeholder={"£300"}
+              onBlur={props.handleBlur("redecorate_costs")}
+              value={props.values.redecorate_costs}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("redecorate_costs", rawText);
+              }}
+              error={props.errors.redecorate_costs}
+              touched={props.touched.redecorate_costs}
+            />
+            {/* Annual Regulatory safety cost Field */}
+            <CustomSingleRowMoneyInput
+              title={"Regulatory safety checks"}
+              placeholder={"£196"}
+              onBlur={props.handleBlur("annual_regulatory_safety_costs")}
+              value={props.values.annual_regulatory_safety_costs}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("annual_regulatory_safety_costs", rawText);
+              }}
+              error={props.errors.annual_regulatory_safety_costs}
+              touched={props.touched.annual_regulatory_safety_costs}
+            />
+            {/* Other Annual Costs Field */}
+            <CustomSingleRowMoneyInput
+              title={"Other annual costs"}
+              placeholder={"£100"}
+              onBlur={props.handleBlur("other_annual_costs")}
+              value={props.values.other_annual_costs}
+              onChangeText={(maskedText, rawText) => {
+                props.setFieldValue("other_annual_costs", rawText);
+              }}
+              error={props.errors.other_annual_costs}
+              touched={props.touched.other_annual_costs}
             />
           </BoxWrapper>
           {/* Calculate and reset button */}
