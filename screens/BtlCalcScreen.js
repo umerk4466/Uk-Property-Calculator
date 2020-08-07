@@ -5,8 +5,8 @@ import { View } from "react-native";
 import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
-import CustomMoneyInput from "../components/CustomMoneyInput";
 import CustomSingleRowMoneyInput from "../components/CustomSingleRowMoneyInput";
+import CustomSingleRowPercentageInput from "../components/CustomSingleRowPercentageInput";
 
 import CalculateResetButton from "../components/CalculateResetButton";
 import CustomRadioBoxes from "../components/CustomRadioBoxes";
@@ -16,7 +16,7 @@ import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
 import {
   BtlCalcScreenFunction,
-  ScreenMessage
+  ScreenMessage,
 } from "../screen_functions/BtlCalcScreenFunction";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
@@ -63,7 +63,7 @@ const ValidatorSchema = yup.object({
   counsel_tax: YupErrorMessages,
   tv_licence_broadband_etc: YupErrorMessages,
   parking_permit_charges: YupErrorMessages,
-  other_monthly_costs: YupErrorMessages
+  other_monthly_costs: YupErrorMessages,
 });
 
 const BtlCalcScreen = ({ navigation }) => {
@@ -97,7 +97,7 @@ const BtlCalcScreen = ({ navigation }) => {
         contents_insurance: 0,
         landlord_liability_insurance: "",
         rent_insurance: 0,
-        maintenance_costs_percentage: 0.0,
+        maintenance_costs_percentage: "",
         ground_rent: "",
         service_charge: "",
         void_period_percentage: 0.0,
@@ -113,7 +113,7 @@ const BtlCalcScreen = ({ navigation }) => {
         counsel_tax: "",
         tv_licence_broadband_etc: "",
         parking_permit_charges: "",
-        other_monthly_costs: ""
+        other_monthly_costs: "",
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -122,7 +122,7 @@ const BtlCalcScreen = ({ navigation }) => {
         BtlCalcScreenFunction({ values, navigation });
       }}
     >
-      {props => (
+      {(props) => (
         <RootComponent>
           <HeadingText paddingTopNone heading="Property Details" />
           <BoxWrapper>
@@ -336,7 +336,20 @@ const BtlCalcScreen = ({ navigation }) => {
             />
           </BoxWrapper>
           <HeadingText heading="Annually Recurring Costs" />
-          <BoxWrapper></BoxWrapper>
+          <BoxWrapper>
+            {/* Maintenance costs Field */}
+            <CustomSingleRowPercentageInput
+              title={"Maintenance costs"}
+              placeholder={"1%"}
+              onBlur={props.handleBlur("maintenance_costs_percentage")}
+              value={props.values.maintenance_costs_percentage}
+              onChangeText={(text) => {
+                props.setFieldValue("maintenance_costs_percentage", text);
+              }}
+              error={props.errors.maintenance_costs_percentage}
+              touched={props.touched.maintenance_costs_percentage}
+            />
+          </BoxWrapper>
           {/* Calculate and reset button */}
           <CalculateResetButton
             onPressCalculateBtn={props.handleSubmit}
