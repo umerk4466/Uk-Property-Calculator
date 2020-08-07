@@ -96,7 +96,7 @@ const BtlCalcScreen = ({ navigation }) => {
         contents_insurance: 0,
         landlord_liability_insurance: "",
         rent_insurance: 0,
-        maintenance_costs_percentage: 0.0,
+        annual_maintenance_costs: "",
         ground_rent: "",
         service_charge: "",
         void_period_percentage: 0.0,
@@ -386,15 +386,14 @@ const BtlCalcScreen = ({ navigation }) => {
             />
             {/* Maintenance costs Field */}
             <CustomSingleRowMoneyInput
-              percentageField
               title={"Maintenance costs"}
-              onBlur={props.handleBlur("maintenance_costs_percentage")}
-              value={props.values.maintenance_costs_percentage}
+              onBlur={props.handleBlur("annual_maintenance_costs")}
+              value={props.values.annual_maintenance_costs}
               onChangeText={(maskedText, rawText) => {
-                props.setFieldValue("maintenance_costs_percentage", rawText);
+                props.setFieldValue("annual_maintenance_costs", rawText);
               }}
-              error={props.errors.maintenance_costs_percentage}
-              touched={props.touched.maintenance_costs_percentage}
+              error={props.errors.annual_maintenance_costs}
+              touched={props.touched.annual_maintenance_costs}
             />
             {/* Ground rent cost Field */}
             <CustomSingleRowMoneyInput
