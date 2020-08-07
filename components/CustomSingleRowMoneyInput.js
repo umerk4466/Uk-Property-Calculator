@@ -14,7 +14,7 @@ const CustomSingleRowMoneyInput = (props) => {
       <View style={styles.RowInputStyle}>
         {props.helpText ? (
           <View style={styles.InputHelpTextStyle}>
-            <Text numberOfLines={1} style={{ maxWidth: "80%" }}>
+            <Text numberOfLines={1} style={{ width: "80%" }}>
               {props.title}
             </Text>
             <Icon

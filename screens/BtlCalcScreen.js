@@ -132,7 +132,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Property Full Price */}
             <CustomSingleRowMoneyInput
               title={"Property full price"}
-              helpText={"All TH"}
+              helpText={
+                "Full price of the property, the offer which seller agreed to accept from you."
+              }
               placeholder={"£125,000"}
               onBlur={props.handleBlur("property_full_price")}
               value={props.values.property_full_price}
@@ -157,6 +159,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Other Monthly Income field */}
             <CustomSingleRowMoneyInput
               title={"Other monthly income"}
+              helpText={
+                "Enter any other monthly income like income generated from gerage, parking space etc."
+              }
               onBlur={props.handleBlur("other_monthly_income")}
               value={props.values.other_monthly_income}
               onChangeText={(maskedText, rawText) => {
@@ -179,7 +184,10 @@ const BtlCalcScreen = ({ navigation }) => {
           <BoxWrapper>
             {/* Deposit Field */}
             <CustomSingleRowMoneyInput
-              title={"Deposit"}
+              title={"Deposit (Initial Investment)"}
+              helpText={
+                "Enter initial investment, the money which you will add in the deal as a deposit."
+              }
               placeholder={"£31,000"}
               onBlur={props.handleBlur("deposit")}
               value={props.values.deposit}
@@ -194,6 +202,9 @@ const BtlCalcScreen = ({ navigation }) => {
                 {/* Mortgage valuation fee Field */}
                 <CustomSingleRowMoneyInput
                   title={"Mtge valuation fee"}
+                  helpText={
+                    "Add mortgage valuation fee which usually is about £400."
+                  }
                   placeholder={"£400"}
                   onBlur={props.handleBlur("mortgage_value_fee")}
                   value={props.values.mortgage_value_fee}
@@ -206,6 +217,9 @@ const BtlCalcScreen = ({ navigation }) => {
                 {/* Mortgage arrangement fee Field */}
                 <CustomSingleRowMoneyInput
                   title={"Mtge Arrangement fee"}
+                  helpText={
+                    "Add mortgage arrangement fees which usually is between £1000 - £2000 or more."
+                  }
                   placeholder={"£2,000"}
                   onBlur={props.handleBlur("mortgage_arrangement_fee")}
                   value={props.values.mortgage_arrangement_fee}
@@ -218,6 +232,9 @@ const BtlCalcScreen = ({ navigation }) => {
                 {/* Mortgage Booking fee Field */}
                 <CustomSingleRowMoneyInput
                   title={"Mtge Booking fee"}
+                  helpText={
+                    "Add mortgage booking fee which usually is about £150."
+                  }
                   placeholder={"£150"}
                   onBlur={props.handleBlur("mortgage_booking_fee")}
                   value={props.values.mortgage_booking_fee}
@@ -230,6 +247,9 @@ const BtlCalcScreen = ({ navigation }) => {
                 {/* Mortgage broker fee Field */}
                 <CustomSingleRowMoneyInput
                   title={"Mtge broker fee"}
+                  helpText={
+                    "Add mortgage broker fees which usually starts from £500."
+                  }
                   placeholder={"£150"}
                   onBlur={props.handleBlur("mortgage_broker_fee")}
                   value={props.values.mortgage_broker_fee}
@@ -304,6 +324,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Initial refurbishment Field */}
             <CustomSingleRowMoneyInput
               title={"Initial refurbishment "}
+              helpText={
+                "Add initial refurbishment costs and also consider about (Removal costs, Furniture and extras)."
+              }
               placeholder={"£1,500"}
               onBlur={props.handleBlur("initial_refurbishment")}
               value={props.values.initial_refurbishment}
@@ -315,7 +338,10 @@ const BtlCalcScreen = ({ navigation }) => {
             />
             {/* Void/Holding cost Field */}
             <CustomSingleRowMoneyInput
-              title={"Void/Holding costs "}
+              title={"Void/Holding costs"}
+              helpText={
+                "Add Void/Holding costs, the cost which I will be paying until property is rented. Also consider utility cost (gas, electricity and counsel tax), Mortgage payments, insurances etc."
+              }
               placeholder={"£1,000"}
               onBlur={props.handleBlur("void_holding_costs")}
               value={props.values.void_holding_costs}
@@ -328,6 +354,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Other Purchase cost Field */}
             <CustomSingleRowMoneyInput
               title={"Other purchase costs "}
+              helpText={
+                "Add other purchase costs and also consider (estate agent, deal sources) fees etc."
+              }
               placeholder={"£500"}
               onBlur={props.handleBlur("other_purchase_costs")}
               value={props.values.other_purchase_costs}
@@ -355,6 +384,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Contents insurance  cost Field */}
             <CustomSingleRowMoneyInput
               title={"Contents insurance "}
+              helpText={
+                "Add contents insurance if you will have on this property."
+              }
               placeholder={"£139"}
               onBlur={props.handleBlur("contents_insurance")}
               value={props.values.contents_insurance}
@@ -367,6 +399,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Landlord liability Insurance cost Field */}
             <CustomSingleRowMoneyInput
               title={"Landlord liability Insurance"}
+              helpText={
+                "Add landlord liability insurance if you will have on this property."
+              }
               placeholder={"£170"}
               onBlur={props.handleBlur("landlord_liability_insurance")}
               value={props.values.landlord_liability_insurance}
@@ -391,6 +426,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Maintenance costs Field */}
             <CustomSingleRowMoneyInput
               title={"Maintenance costs"}
+              helpText={
+                "Add annual maintenance costs, One popular rule says that 1% of the purchase price of your home should be set aside each year for ongoing maintenance."
+              }
               placeholder={"£1,250"}
               onBlur={props.handleBlur("annual_maintenance_costs")}
               value={props.values.annual_maintenance_costs}
@@ -439,6 +477,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Redecorate Costs cost Field */}
             <CustomSingleRowMoneyInput
               title={"Redecorate costs"}
+              helpText={
+                "Add annual redecorate costs, also include (Cleaning costs, Gardening costs)."
+              }
               placeholder={"£300"}
               onBlur={props.handleBlur("redecorate_costs")}
               value={props.values.redecorate_costs}
@@ -451,6 +492,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {/* Annual Regulatory safety cost Field */}
             <CustomSingleRowMoneyInput
               title={"Regulatory safety checks"}
+              helpText={
+                "Add annual costs of regulatory safety certificates/checks such as (Gas Safety Certificate, EPC, Fire safety checks) etc."
+              }
               placeholder={"£196"}
               onBlur={props.handleBlur("annual_regulatory_safety_costs")}
               value={props.values.annual_regulatory_safety_costs}
@@ -497,6 +541,7 @@ const BtlCalcScreen = ({ navigation }) => {
             {use_mortgage == true ? (
               <CustomSingleRowMoneyInput
                 title={"Monthly mortgages Payments"}
+                helpText={"Add monthly mortgage payments."}
                 placeholder={"£205"}
                 onBlur={props.handleBlur("monthly_mortgages_payments")}
                 value={props.values.monthly_mortgages_payments}
@@ -511,6 +556,9 @@ const BtlCalcScreen = ({ navigation }) => {
             {manage_myself == true ? (
               <CustomSingleRowMoneyInput
                 title={"Self management costs"}
+                helpText={
+                  "Add all self management costs such as (advertising costs, Landlord association costs) etc or any other costs which will be used to help in renting property."
+                }
                 placeholder={"£15"}
                 onBlur={props.handleBlur("self_management_costs")}
                 value={props.values.self_management_costs}
@@ -524,6 +572,9 @@ const BtlCalcScreen = ({ navigation }) => {
               <CustomSingleRowMoneyInput
                 percentageField
                 title={"Letting agent fees"}
+                helpText={
+                  "Add monthly letting agent fee also consider extra hidden fees such as (Exit fees, extra Marketing charges, evicting fee, deposit protection fee) etc."
+                }
                 onBlur={props.handleBlur("letting_agent_percentage")}
                 value={props.values.letting_agent_percentage}
                 onChangeText={(maskedText, rawText) => {
@@ -538,6 +589,7 @@ const BtlCalcScreen = ({ navigation }) => {
                 {/* Gas and electricity bills Field */}
                 <CustomSingleRowMoneyInput
                   title={"Gas and electricity bills"}
+                  helpText={"Add monthly bills of Gas and Electricity."}
                   placeholder={"£45"}
                   onBlur={props.handleBlur("gas_electricity_bills")}
                   value={props.values.gas_electricity_bills}
@@ -574,6 +626,9 @@ const BtlCalcScreen = ({ navigation }) => {
                 {/* Tv licence, Broadband, phone bills Field */}
                 <CustomSingleRowMoneyInput
                   title={"Broadband, Tv, phone bills"}
+                  helpText={
+                    "Add monthly costs of Tv licence, Broadband, phone bills etc."
+                  }
                   placeholder={"£40"}
                   onBlur={props.handleBlur("tv_licence_broadband_etc")}
                   value={props.values.tv_licence_broadband_etc}
@@ -586,6 +641,7 @@ const BtlCalcScreen = ({ navigation }) => {
                 {/* parking permit charges Field */}
                 <CustomSingleRowMoneyInput
                   title={"Parking permit charges"}
+                  helpText={"Add parking permit charges if apply."}
                   placeholder={"£25"}
                   onBlur={props.handleBlur("parking_permit_charges")}
                   value={props.values.parking_permit_charges}
