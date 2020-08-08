@@ -54,6 +54,12 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
     total_investment /
     (monthly_cashflow * 12)
   ).toFixed(0);
+  let year1 = monthly_cashflow * 12 - total_investment;
+  let year2 = year1 + monthly_cashflow * 12;
+  let year3 = year2 + monthly_cashflow * 12;
+  let year4 = year3 + monthly_cashflow * 12;
+  let year5 = year4 + monthly_cashflow * 12;
+
   // make arrays to use in the modal to show the results
   // summary block fields
   const summaryBlockFields = [
@@ -77,8 +83,12 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
       fieldValue: roi.toFixed(2) + " %",
     },
     {
-      fieldTitle: "Monthly cash flow",
+      fieldTitle: "Net monthly cash flow",
       fieldValue: intToPound(monthly_cashflow),
+    },
+    {
+      fieldTitle: "Net annual cash flow",
+      fieldValue: intToPound(monthly_cashflow * 12),
     },
     {
       fieldTitle: "Invested money back",
@@ -90,19 +100,31 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
   ];
   const yearlyReturnFields = [
     {
-      fieldTitle: "Annual cash flow",
-      fieldValue: intToPound(monthly_cashflow * 12),
+      fieldTitle: "Year 1 Cumulative",
+      fieldValue: intToPound(year1),
     },
     {
-      fieldTitle: "1 Year profit",
-      fieldValue: intToPound(monthly_cashflow * 12 - total_investment),
+      fieldTitle: "Year 2 Cumulative",
+      fieldValue: intToPound(year2),
+    },
+    {
+      fieldTitle: "Year 3 Cumulative",
+      fieldValue: intToPound(year3),
+    },
+    {
+      fieldTitle: "Year 4 Cumulative",
+      fieldValue: intToPound(year4),
+    },
+    {
+      fieldTitle: "Year 5 Cumulative",
+      fieldValue: intToPound(year5),
     },
   ];
   // make array which contains all the block to show in the result modal
   const fieldsBlockContainer = [
     { title: "Investment Summary", fields: summaryBlockFields },
     { title: "Investent Returns", fields: investmentReturnFields },
-    { title: "Yearly Returns", fields: yearlyReturnFields },
+    { title: "5 years Cumulative", fields: yearlyReturnFields },
   ];
   // navigate to the result model to show result with array of all block of fields
   navigation.navigate("Results", { fieldsBlockContainer });
