@@ -186,7 +186,7 @@ const BtlCalcScreen = ({ navigation }) => {
             <CustomSingleRowMoneyInput
               title={"Deposit (Initial Investment)"}
               helpText={
-                "Enter initial investment, the money which you will add in the deal as a deposit."
+                "Enter initial investment (Deposit), the money which you will add in the deal as a deposit."
               }
               placeholder={"£31,000"}
               onBlur={props.handleBlur("deposit")}
