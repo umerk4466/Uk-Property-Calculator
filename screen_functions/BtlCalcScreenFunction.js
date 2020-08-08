@@ -76,11 +76,26 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
       fieldTitle: "Monthly cash flow",
       fieldValue: intToPound(monthly_cashflow),
     },
+    {
+      fieldTitle: "Invested money will return in",
+      fieldValue: (total_investment / (+monthly_cashflow * 12)).toFixed(0),
+    },
+  ];
+  const yearlyReturnFields = [
+    {
+      fieldTitle: "Annual cash flow",
+      fieldValue: intToPound(monthly_cashflow * 12),
+    },
+    {
+      fieldTitle: "1 Year profit",
+      fieldValue: intToPound(monthly_cashflow * 12 - total_investment),
+    },
   ];
   // make array which contains all the block to show in the result modal
   const fieldsBlockContainer = [
     { title: "Investment Summary", fields: summaryBlockFields },
     { title: "Investent Returns", fields: investmentReturnFields },
+    { title: "Yearly Returns", fields: yearlyReturnFields },
   ];
   // navigate to the result model to show result with array of all block of fields
   navigation.navigate("Results", { fieldsBlockContainer });
