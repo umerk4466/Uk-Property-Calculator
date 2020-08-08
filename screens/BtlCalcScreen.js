@@ -6,10 +6,8 @@ import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomSingleRowMoneyInput from "../components/CustomSingleRowMoneyInput";
-
 import CalculateResetButton from "../components/CalculateResetButton";
 import CustomRadioBoxes from "../components/CustomRadioBoxes";
-
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
@@ -19,7 +17,6 @@ import {
 } from "../screen_functions/BtlCalcScreenFunction";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
-
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
