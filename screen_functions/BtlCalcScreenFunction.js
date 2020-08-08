@@ -1,6 +1,7 @@
 // import React from "react";
 import { Keyboard } from "react-native";
 import intToPound from "../constants/intToPound";
+import percentageToNum from "../constants/percentageToNum";
 
 // function for calculation of the screen
 export const BtlCalcScreenFunction = ({ values, navigation }) => {
@@ -22,7 +23,17 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
     values.other_purchase_costs;
   const annual_income =
     (values.monthly_rent + values.other_monthly_income) * 12;
-
+  const annual_expenses =
+    values.buildings_insurance +
+    values.contents_insurance +
+    values.landlord_liability_insurance +
+    values.rent_insurance +
+    values.annual_maintenance_costs +
+    values.ground_rent +
+    values.service_charge +
+    values.redecorate_costs +
+    values.annual_regulatory_safety_costs +
+    values.other_annual_costs;
   // make arrays to use in the modal to show the results
   // summary block fields
   const summaryBlockFields = [
