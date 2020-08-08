@@ -47,7 +47,8 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
     values.other_annual_costs +
     monthly_expenses * 12;
 
-  const roi = (annual_income - total_annual_expenses) / total_investment;
+  const roi =
+    ((annual_income - total_annual_expenses) / total_investment) * 100;
   const monthly_cashflow = (annual_income - total_annual_expenses) / 12;
   // make arrays to use in the modal to show the results
   // summary block fields
