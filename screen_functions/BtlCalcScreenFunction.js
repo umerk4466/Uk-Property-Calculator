@@ -59,7 +59,10 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
   let year3 = year2 + monthly_cashflow * 12;
   let year4 = year3 + monthly_cashflow * 12;
   let year5 = year4 + monthly_cashflow * 12;
-
+  let loanToValue =
+    ((values.property_full_price - values.deposit) /
+      values.property_full_price) *
+    100;
   // make arrays to use in the modal to show the results
   // summary block fields
   const summaryBlockFields = [
@@ -79,7 +82,7 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
   // Result block fields
   const investmentReturnFields = [
     {
-      fieldTitle: "Return on investment",
+      fieldTitle: "Return on investment (ROI)",
       fieldValue: roi.toFixed(2) + " %",
     },
     {
@@ -95,49 +98,55 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
       fieldValue:
         investment_recovery_years > 0
           ? "In " + investment_recovery_years + " years"
-          : "Never",
+          : "None",
     },
   ];
   const yearlyReturnFields = [
     {
-      fieldTitle: "Year 1",
+      fieldTitle: "First Year",
       fieldValue: intToPound(year1),
     },
     {
-      fieldTitle: "Year 2",
+      fieldTitle: "Second Year",
       fieldValue: intToPound(year2),
     },
     {
-      fieldTitle: "Year 3",
+      fieldTitle: "Third Year",
       fieldValue: intToPound(year3),
     },
     {
-      fieldTitle: "Year 4",
+      fieldTitle: "Fourth Year",
       fieldValue: intToPound(year4),
     },
     {
-      fieldTitle: "Year 5",
+      fieldTitle: "Fifth Year",
       fieldValue: intToPound(year5),
     },
   ];
   const vacantRunningFields = [
     {
-      fieldTitle: "Monthly vacant runnig costs",
+      fieldTitle: "Monthly runnig costs",
       fieldValue: intToPound(total_annual_expenses / 12),
     },
     {
-      fieldTitle: "Yearly vacant runnig costs",
+      fieldTitle: "Yearly runnig costs",
       fieldValue: intToPound(total_annual_expenses),
     },
   ];
   const emergencyfundsFields = [
     {
       fieldTitle: "Minimum (recommended)",
-      fieldValue: intToPound(total_annual_expenses * 6),
+      fieldValue: intToPound((total_annual_expenses / 12) * 6),
     },
     {
       fieldTitle: "Maximum (recommended)",
       fieldValue: intToPound(total_annual_expenses),
+    },
+  ];
+  const loanToValueFields = [
+    {
+      fieldTitle: "Your LTV is",
+      fieldValue: loanToValue.toFixed(2),
     },
   ];
   // make array which contains all the block to show in the result modal
@@ -145,8 +154,9 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
     { title: "Investment Summary", fields: summaryBlockFields },
     { title: "Investent Returns", fields: investmentReturnFields },
     { title: "Cumulative Returns", fields: yearlyReturnFields },
-    { title: "Vacant Running Costs", fields: vacantRunningFields },
+    { title: "Vacant Property Running Costs", fields: vacantRunningFields },
     { title: "Emergency Funds Should Have", fields: emergencyfundsFields },
+    { title: "Loan-to-value (LTV)", fields: loanToValueFields },
   ];
   // navigate to the result model to show result with array of all block of fields
   navigation.navigate("Results", { fieldsBlockContainer });
