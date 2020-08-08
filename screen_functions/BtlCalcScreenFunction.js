@@ -47,44 +47,42 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
     values.other_annual_costs +
     monthly_expenses * 12;
 
-  alert(
-    "annual_income " +
-      annual_income +
-      " total_annual_expenses " +
-      total_annual_expenses +
-      " total_investment " +
-      total_investment
-  );
+  const roi = (annual_income - total_annual_expenses) / total_investment;
+  const monthly_cashflow = (annual_income - total_annual_expenses) / 12;
   // make arrays to use in the modal to show the results
   // summary block fields
-  // const summaryBlockFields = [
-  //   {
-  //     fieldTitle: "Your Annual Income",
-  //     fieldValue: intToPound(values.first_person_income),
-  //   },
-  //   {
-  //     fieldTitle: "2nd Person Income",
-  //     fieldValue: intToPound(values.second_person_income),
-  //   },
-  // ];
-  // // Result block fields
-  // const resultBlockFields = [
-  //   {
-  //     fieldTitle: "Minimum could borrow",
-  //     fieldValue: intToPound(min_can_borrow.toFixed(0)),
-  //   },
-  //   {
-  //     fieldTitle: "Maximum could borrow",
-  //     fieldValue: intToPound(max_can_borrow.toFixed(0)),
-  //   },
-  // ];
-  // // make array which contains all the block to show in the result modal
-  // const fieldsBlockContainer = [
-  //   { title: "Annual Income Summary", fields: summaryBlockFields },
-  //   { title: "Mortgage Can Borrow", fields: resultBlockFields },
-  // ];
-  // // navigate to the result model to show result with array of all block of fields
-  // navigation.navigate("Results", { fieldsBlockContainer });
+  const summaryBlockFields = [
+    {
+      fieldTitle: "Total investment",
+      fieldValue: intToPound(total_investment),
+    },
+    {
+      fieldTitle: "Annual income",
+      fieldValue: intToPound(annual_income),
+    },
+    {
+      fieldTitle: "Annual expenses",
+      fieldValue: intToPound(total_annual_expenses),
+    },
+  ];
+  // Result block fields
+  const investmentReturnFields = [
+    {
+      fieldTitle: "Return on investment",
+      fieldValue: roi.toFixed(2) + " %",
+    },
+    {
+      fieldTitle: "Monthly cash flow",
+      fieldValue: intToPound(monthly_cashflow),
+    },
+  ];
+  // make array which contains all the block to show in the result modal
+  const fieldsBlockContainer = [
+    { title: "Investment Summary", fields: summaryBlockFields },
+    { title: "Investent Returns", fields: investmentReturnFields },
+  ];
+  // navigate to the result model to show result with array of all block of fields
+  navigation.navigate("Results", { fieldsBlockContainer });
 };
 
 // message for the screen header button

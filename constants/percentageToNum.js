@@ -1,6 +1,9 @@
+import { number } from "yup";
+
 // function which will convert return number of the given percentageToNum
 const percentageToNum = (percent, total) => {
-  return ((percent / 100) * total).toFixed(2);
+  let number = (percent / 100) * total;
+  return parseFloat(number);
 };
 
 export default percentageToNum;
