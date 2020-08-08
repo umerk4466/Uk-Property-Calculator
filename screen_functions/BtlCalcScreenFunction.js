@@ -100,31 +100,53 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
   ];
   const yearlyReturnFields = [
     {
-      fieldTitle: "Year 1 Cumulative",
+      fieldTitle: "Year 1",
       fieldValue: intToPound(year1),
     },
     {
-      fieldTitle: "Year 2 Cumulative",
+      fieldTitle: "Year 2",
       fieldValue: intToPound(year2),
     },
     {
-      fieldTitle: "Year 3 Cumulative",
+      fieldTitle: "Year 3",
       fieldValue: intToPound(year3),
     },
     {
-      fieldTitle: "Year 4 Cumulative",
+      fieldTitle: "Year 4",
       fieldValue: intToPound(year4),
     },
     {
-      fieldTitle: "Year 5 Cumulative",
+      fieldTitle: "Year 5",
       fieldValue: intToPound(year5),
+    },
+  ];
+  const vacantRunningFields = [
+    {
+      fieldTitle: "Monthly vacant runnig costs",
+      fieldValue: intToPound(total_annual_expenses / 12),
+    },
+    {
+      fieldTitle: "Yearly vacant runnig costs",
+      fieldValue: intToPound(total_annual_expenses),
+    },
+  ];
+  const emergencyfundsFields = [
+    {
+      fieldTitle: "Minimum (recommended)",
+      fieldValue: intToPound(total_annual_expenses * 6),
+    },
+    {
+      fieldTitle: "Maximum (recommended)",
+      fieldValue: intToPound(total_annual_expenses),
     },
   ];
   // make array which contains all the block to show in the result modal
   const fieldsBlockContainer = [
     { title: "Investment Summary", fields: summaryBlockFields },
     { title: "Investent Returns", fields: investmentReturnFields },
-    { title: "5 years Cumulative", fields: yearlyReturnFields },
+    { title: "Cumulative Returns", fields: yearlyReturnFields },
+    { title: "Vacant Running Costs", fields: vacantRunningFields },
+    { title: "Emergency Funds Should Have", fields: emergencyfundsFields },
   ];
   // navigate to the result model to show result with array of all block of fields
   navigation.navigate("Results", { fieldsBlockContainer });
