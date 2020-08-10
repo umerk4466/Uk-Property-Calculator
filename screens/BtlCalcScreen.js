@@ -124,7 +124,34 @@ const BtlCalcScreen = ({ navigation }) => {
     >
       {(props) => (
         <RootComponent>
-          <HeadingText paddingTopNone heading="Property Details" />
+          <HeadingText paddingTopNone heading="Are you using mortgage?" />
+          {/* Radio button for mortgage fields selection */}
+          <CustomRadioBoxes
+            firstTitle="Yes I am"
+            selectFirst={use_mortgage}
+            onFirstPress={() => set_mortgage(true)}
+            secondTitle="No I am not"
+            onSecondPress={() => set_mortgage(false)}
+          ></CustomRadioBoxes>
+          <HeadingText heading="Who will manage the property?" />
+          {/* Radio button for monthly costs fields */}
+          <CustomRadioBoxes
+            firstTitle="Myself"
+            selectFirst={manage_myself}
+            onFirstPress={() => set_manage_myself(true)}
+            secondTitle="Letting Agent"
+            onSecondPress={() => set_manage_myself(false)}
+          ></CustomRadioBoxes>
+          <HeadingText heading="Who will pay household bills?" />
+          {/* Radio button for monthly costs fields */}
+          <CustomRadioBoxes
+            firstTitle="Tenants"
+            selectFirst={tenant_pay_bills}
+            onFirstPress={() => set_tenant_pay_bills(true)}
+            secondTitle="Landlord"
+            onSecondPress={() => set_tenant_pay_bills(false)}
+          ></CustomRadioBoxes>
+          <HeadingText heading="Property Details" />
           <BoxWrapper>
             {/* Property Full Price */}
             <CustomSingleRowMoneyInput
@@ -168,15 +195,6 @@ const BtlCalcScreen = ({ navigation }) => {
               touched={props.touched.other_monthly_income}
             />
           </BoxWrapper>
-          <HeadingText heading="Are you using mortgage?" />
-          {/* Radio button for mortgage fields selection */}
-          <CustomRadioBoxes
-            firstTitle="Yes I am"
-            selectFirst={use_mortgage}
-            onFirstPress={() => set_mortgage(true)}
-            secondTitle="No I am not"
-            onSecondPress={() => set_mortgage(false)}
-          ></CustomRadioBoxes>
           <HeadingText heading="Purchase Costs" />
           <BoxWrapper>
             {/* Deposit Field */}
@@ -514,24 +532,6 @@ const BtlCalcScreen = ({ navigation }) => {
               touched={props.touched.other_annual_costs}
             />
           </BoxWrapper>
-          <HeadingText heading="Who will manage the property?" />
-          {/* Radio button for monthly costs fields */}
-          <CustomRadioBoxes
-            firstTitle="Myself"
-            selectFirst={manage_myself}
-            onFirstPress={() => set_manage_myself(true)}
-            secondTitle="Letting Agent"
-            onSecondPress={() => set_manage_myself(false)}
-          ></CustomRadioBoxes>
-          <HeadingText heading="Who will pay household bills?" />
-          {/* Radio button for monthly costs fields */}
-          <CustomRadioBoxes
-            firstTitle="Tenants"
-            selectFirst={tenant_pay_bills}
-            onFirstPress={() => set_tenant_pay_bills(true)}
-            secondTitle="Landlord"
-            onSecondPress={() => set_tenant_pay_bills(false)}
-          ></CustomRadioBoxes>
           <HeadingText heading="Monthly Recurring Costs" />
           <BoxWrapper>
             {/* Monthly Mortgages Payments Field */}

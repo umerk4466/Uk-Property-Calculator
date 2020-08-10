@@ -42,5 +42,6 @@ const styles = StyleSheet.create({
   },
   checkeBoxStyle: {
     backgroundColor: Colors.BoxContainerColor,
+    padding: 8,
   },
 });
