@@ -98,7 +98,7 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
       fieldValue:
         investment_recovery_years > 0
           ? "In " + investment_recovery_years + " years"
-          : "None",
+          : "Infinity",
     },
   ];
   const yearlyReturnFields = [
@@ -146,13 +146,19 @@ export const BtlCalcScreenFunction = ({ values, navigation }) => {
   const loanToValueFields = [
     {
       fieldTitle: "Your LTV is",
-      fieldValue: loanToValue.toFixed(2),
+      fieldValue: loanToValue.toFixed(0) + " %",
+    },
+    {
+      fieldTitle: "Loan amount",
+      fieldValue: intToPound(
+        percentageToNum(loanToValue, values.property_full_price)
+      ),
     },
   ];
   // make array which contains all the block to show in the result modal
   const fieldsBlockContainer = [
     { title: "Investment Summary", fields: summaryBlockFields },
-    { title: "Investent Returns", fields: investmentReturnFields },
+    { title: "Investment Returns", fields: investmentReturnFields },
     { title: "Cumulative Returns", fields: yearlyReturnFields },
     { title: "Vacant Property Running Costs", fields: vacantRunningFields },
     { title: "Emergency Funds Should Have", fields: emergencyfundsFields },
