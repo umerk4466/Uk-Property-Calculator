@@ -4,7 +4,7 @@
 // import ResultBox from "../components/ResultBox";
 // import HeadingText from "../components/HeadingText";
 // import BoxWrapper from "../components/BoxWrapper";
-// import CustomMoneyInput from "../components/CustomMoneyInput";
+import CustomMoneyInput from "../components/CustomMoneyInput";
 // import CalculateResetButton from "../components/CalculateResetButton";
 // // import error messages for the fields
 // import YupErrorMessages from "../constants/YupErrorMessages";
@@ -102,17 +102,663 @@ import React, { useEffect, useState } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 
 const LoanToValueScreen = ({ navigation }) => {
-  const [animating, setAnimating] = useState(true);
+  // state for leader gif
+  const [isLoading, setIsLoading] = useState(true);
+  // change state of the loading gif once component is loaded
   useEffect(() => {
-    setAnimating(false);
+    setIsLoading(false);
   });
-
-  return (
-    <View>
-      <Text>screen</Text>
-      <ActivityIndicator size="large" animating={animating} />
-    </View>
-  );
+  if (isLoading) {
+    return <ActivityIndicator size="large" animating={isLoading} />;
+  } else {
+    return (
+      <View>
+        <View>
+          <Text>scrssseen</Text>
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+          <CustomMoneyInput
+            title={"How much deposit you have?"}
+            placeholder={"£30,000"}
+            value={"k"}
+            onChangeText={(maskedText, rawText) => {
+              alert("ja");
+            }}
+            error={"s"}
+            touched={"props.touched.deposit"}
+          />
+        </View>
+      </View>
+    );
+  }
 };
 
 export default LoanToValueScreen;

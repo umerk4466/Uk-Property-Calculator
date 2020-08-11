@@ -1,6 +1,9 @@
 import React from "react";
 // import stack Navigator
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 // import custom theme for navigator
 import { CustomTheme } from "../constants/navigation-theme";
@@ -21,10 +24,7 @@ export default function CustomStackNavigator() {
     <NavigationContainer theme={CustomTheme}>
       <Stack.Navigator
         screenOptions={{
-          headerTintColor: "white",
-          headerStyle: { backgroundColor: "tomato" },
-          gestureDirection: "horizontal",
-          gestureEnabled: true,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />
