@@ -99,7 +99,8 @@ import CustomMoneyInput from "../components/CustomMoneyInput";
 // export default LoanToValueScreen;
 
 import React, { useEffect, useState } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text } from "react-native";
+import CustomLoader from "../components/CustomLoader";
 
 const LoanToValueScreen = ({ navigation }) => {
   // state for leader gif
@@ -109,7 +110,7 @@ const LoanToValueScreen = ({ navigation }) => {
     setIsLoading(false);
   });
   if (isLoading) {
-    return <ActivityIndicator size="large" animating={isLoading} />;
+    return <CustomLoader />;
   } else {
     return (
       <View>
