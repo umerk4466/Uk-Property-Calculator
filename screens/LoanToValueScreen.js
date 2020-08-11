@@ -115,4 +115,4 @@ const LoanToValueScreen = ({ navigation }) => {
   );
 };
 
-// export default LoanToValueScreen;
+export default LoanToValueScreen;
