@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, InteractionManager } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
+import CustomLoader from "../components/CustomLoader";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import Colors from "../constants/colors";
@@ -34,7 +35,15 @@ const ReslutModalScreen = ({ route, navigation }) => {
       <View style={{ marginVertical: 5 }}></View>
     </View>
   ));
-  return <RootComponent>{fieldsBlocks}</RootComponent>;
+  // state for loader gif
+  const [isLoading, setIsLoading] = React.useState(true);
+  InteractionManager.runAfterInteractions(() => setIsLoading(false));
+  // return component
+  if (isLoading) {
+    return <CustomLoader />;
+  } else {
+    return <RootComponent>{fieldsBlocks}</RootComponent>;
+  }
 };
 
 export default ReslutModalScreen;
