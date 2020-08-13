@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View } from "react-native";
-
+import { View, InteractionManager } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
+import CustomLoader from "../components/CustomLoader";
 import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomSingleRowMoneyInput from "../components/CustomSingleRowMoneyInput";
