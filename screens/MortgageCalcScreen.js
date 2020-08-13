@@ -1,4 +1,5 @@
 import React from "react";
+import { InteractionManager } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
 import HeadingText from "../components/HeadingText";
@@ -11,11 +12,10 @@ import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
 import {
   MortgageCalcScreenFunction,
-  ScreenMessage
+  ScreenMessage,
 } from "../screen_functions/MortgageCalcScreenFunction";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
-
 // Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
@@ -23,7 +23,7 @@ import { Formik } from "formik";
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
-  available_deposit: YupErrorMessages
+  available_deposit: YupErrorMessages,
 });
 
 const MortgageCalcScreen = ({ navigation }) => {
@@ -35,7 +35,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         property_price: "",
         available_deposit: "",
         interest_rate_percentage: 2.7,
-        mortgage_term_years: 25
+        mortgage_term_years: 25,
       }}
       validationSchema={ValidatorSchema}
       enableReinitialize={true}
@@ -44,7 +44,7 @@ const MortgageCalcScreen = ({ navigation }) => {
         MortgageCalcScreenFunction({ values, navigation });
       }}
     >
-      {props => (
+      {(props) => (
         <RootComponent>
           {/* Property details heading and container */}
           <HeadingText paddingTopNone heading="Property and mortgage details" />
@@ -80,7 +80,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               end={25}
               floatValue
               value={props.values.interest_rate_percentage}
-              onValueChange={value => {
+              onValueChange={(value) => {
                 props.setFieldValue("interest_rate_percentage", value);
               }}
               step={0.1}
@@ -92,7 +92,7 @@ const MortgageCalcScreen = ({ navigation }) => {
               start={5}
               end={40}
               value={props.values.mortgage_term_years}
-              onValueChange={value => {
+              onValueChange={(value) => {
                 props.setFieldValue("mortgage_term_years", value);
               }}
               step={5}
