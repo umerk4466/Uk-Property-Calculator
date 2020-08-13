@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import Colors from "../constants/colors";
 
 // CustomLoader Component
@@ -7,6 +7,7 @@ const CustomLoader = () => {
   return (
     <View style={styles.CustomLoaderStyle}>
       <ActivityIndicator size="large" animating={true} />
+      <Text style={{ textAlign: "center", marginTop: 5 }}>Loading...</Text>
     </View>
   );
 };
