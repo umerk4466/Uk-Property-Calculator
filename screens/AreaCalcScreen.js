@@ -1,5 +1,5 @@
 import React from "react";
-import { InteractionManager } from "react-native";
+import { InteractionManager, Text } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
 import CustomLoader from "../components/CustomLoader";
@@ -7,6 +7,7 @@ import HeadingText from "../components/HeadingText";
 import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
 import CalculateResetButton from "../components/CalculateResetButton";
+import CustomRadioBoxes from "../components/CustomRadioBoxes";
 import CustomSlider from "../components/CustomSlider";
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
@@ -24,10 +25,13 @@ import { Formik } from "formik";
 // yub Input Fields Validator schema variable
 const ValidatorSchema = yup.object({
   property_price: YupErrorMessages,
-  available_deposit: YupErrorMessages,
+  area: YupErrorMessages,
 });
 
 const AreaCalcScreen = ({ navigation }) => {
+  // state for selection area type
+  const [isSqFoot, setIsSqFoot] = React.useState(true);
+
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
   // state for loader gif
@@ -41,9 +45,8 @@ const AreaCalcScreen = ({ navigation }) => {
       <Formik
         initialValues={{
           property_price: "",
-          available_deposit: "",
-          interest_rate_percentage: 2.7,
-          mortgage_term_years: 25,
+          area: "",
+          area_type: isSqFoot ? "sqft" : "sqmt",
         }}
         validationSchema={ValidatorSchema}
         enableReinitialize={true}
@@ -55,10 +58,7 @@ const AreaCalcScreen = ({ navigation }) => {
         {(props) => (
           <RootComponent>
             {/* Property details heading and container */}
-            <HeadingText
-              paddingTopNone
-              heading="Property and mortgage details"
-            />
+            <HeadingText paddingTopNone heading="Property and area details" />
             <BoxWrapper>
               {/*Price of the property field */}
               <CustomMoneyInput
@@ -72,48 +72,34 @@ const AreaCalcScreen = ({ navigation }) => {
                 error={props.errors.property_price}
                 touched={props.touched.property_price}
               />
-              {/* Available deposit field */}
+
+              {/*Area field */}
               <CustomMoneyInput
-                title={"Available deposit"}
-                placeholder={"£30,000"}
-                onBlur={props.handleBlur("available_deposit")}
-                value={props.values.available_deposit}
+                numberField
+                title={"Area of the property"}
+                placeholder={"75m²/ft²"}
+                onBlur={props.handleBlur("area")}
+                value={props.values.area}
                 onChangeText={(maskedText, rawText) => {
-                  props.setFieldValue("available_deposit", rawText);
+                  props.setFieldValue("area", rawText);
                 }}
-                error={props.errors.available_deposit}
-                touched={props.touched.available_deposit}
+                error={props.errors.area}
+                touched={props.touched.area}
               />
-              {/* Interest rate (%) slider */}
-              <CustomSlider
-                title={"Interest rate"}
-                start={0}
-                end={25}
-                floatValue
-                value={props.values.interest_rate_percentage}
-                onValueChange={(value) => {
-                  props.setFieldValue("interest_rate_percentage", value);
-                }}
-                step={0.1}
-                suffix={"%"}
-              />
-              {/* Mortgage term (years) slider */}
-              <CustomSlider
-                title={"Mortgage term"}
-                start={5}
-                end={40}
-                value={props.values.mortgage_term_years}
-                onValueChange={(value) => {
-                  props.setFieldValue("mortgage_term_years", value);
-                }}
-                step={5}
-                suffix={"years"}
-              />
+              <HeadingText heading="Select area type" />
+              {/* Area Type Radio Button */}
+              <CustomRadioBoxes
+                firstTitle="square foot"
+                selectFirst={isSqFoot}
+                onFirstPress={() => setIsSqFoot(true)}
+                secondTitle="square meter"
+                onSecondPress={() => setIsSqFoot(false)}
+              ></CustomRadioBoxes>
             </BoxWrapper>
             {/* Calculate and reset button */}
             <CalculateResetButton
               onPressCalculateBtn={props.handleSubmit}
-              calculateBtnTittle="Calculate Payments"
+              calculateBtnTittle="Calculate Price"
               onPressResetBtn={props.resetForm}
             ></CalculateResetButton>
           </RootComponent>

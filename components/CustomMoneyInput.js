@@ -6,7 +6,7 @@ import globalStyle from "../constants/styles";
 import Colors from "../constants/colors";
 
 // CustomMoneyInput Component
-const CustomMoneyInput = props => {
+const CustomMoneyInput = (props) => {
   return (
     <View>
       <Text numberOfLines={1}>{props.title}</Text>
@@ -16,11 +16,11 @@ const CustomMoneyInput = props => {
         blurOnSubmit={true}
         type={"money"}
         options={{
-          precision: 0,
+          precision: props.percentageField ? 1 : 0,
           separator: ".",
           delimiter: ",",
-          unit: "£",
-          suffixUnit: ""
+          unit: props.percentageField ? "" : props.numberField ? "" : "£",
+          suffixUnit: props.percentageField ? "%" : props.numberField ? "" : "",
         }}
         style={[styles.Input, globalStyle.LargeFont]}
         textAlign={"center"}
@@ -49,11 +49,11 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     borderWidth: 0.6,
     borderRadius: 4,
-    borderColor: Colors.BoxContainerBorderColor
+    borderColor: Colors.BoxContainerBorderColor,
   },
   InputTextError: {
     color: Colors.ErrorColor,
     fontSize: 12,
-    marginBottom: 5
-  }
+    marginBottom: 5,
+  },
 });

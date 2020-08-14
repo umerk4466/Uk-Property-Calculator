@@ -39,8 +39,12 @@ const CustomSingleRowMoneyInput = (props) => {
             precision: props.percentageField ? 1 : 0,
             separator: ".",
             delimiter: ",",
-            unit: props.percentageField ? "" : "£",
-            suffixUnit: props.percentageField ? "%" : "",
+            unit: props.percentageField ? "" : props.numberField ? "" : "£",
+            suffixUnit: props.percentageField
+              ? "%"
+              : props.numberField
+              ? ""
+              : "",
           }}
           style={[styles.Input, globalStyle.LargeFont]}
           textAlign={"center"}
