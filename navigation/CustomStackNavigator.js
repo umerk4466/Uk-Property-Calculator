@@ -20,7 +20,7 @@ import ReslutModalScreen from "../screens/ReslutModalScreen";
 
 const Stack = createStackNavigator();
 
-export default function CustomStackNavigator({ navigation }) {
+export default function CustomStackNavigator() {
   return (
     <NavigationContainer theme={CustomTheme}>
       <Stack.Navigator
