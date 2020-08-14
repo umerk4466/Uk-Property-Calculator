@@ -4,8 +4,12 @@ import { InteractionManager } from "react-native";
 import RootComponent from "../components/RootComponent";
 import CustomLoader from "../components/CustomLoader";
 import TouchableButton from "../components/TouchableButton";
+// import custom header button
+import homeScreenHeaderButton from "../constants/homeScreenHeaderButton";
 
 export default function HomeScreen({ navigation }) {
+  // set custom header button
+  homeScreenHeaderButton(navigation);
   // state for loader gif
   const [isLoading, setIsLoading] = React.useState(true);
   InteractionManager.runAfterInteractions(() => setIsLoading(false));

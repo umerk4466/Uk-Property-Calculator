@@ -15,6 +15,7 @@ import LoanToValueScreen from "../screens/LoanToValueScreen";
 import MortgageBorrowScreen from "../screens/MortgageBorrowScreen";
 import BtlCalcScreen from "../screens/BtlCalcScreen";
 import AreaCalcScreen from "../screens/AreaCalcScreen";
+import MenuScreen from "../screens/MenuScreen";
 
 import ReslutModalScreen from "../screens/ReslutModalScreen";
 
@@ -41,7 +42,14 @@ export default function CustomStackNavigator() {
           component={MortgageBorrowScreen}
         />
         <Stack.Screen name="Area Calculator" component={AreaCalcScreen} />
-
+        <Stack.Screen
+          name="Menu"
+          component={MenuScreen}
+          options={{
+            cardStyleInterpolator:
+              CardStyleInterpolators.forFadeFromBottomAndroid,
+          }}
+        />
         <Stack.Screen name="Results" component={ReslutModalScreen} />
       </Stack.Navigator>
     </NavigationContainer>
