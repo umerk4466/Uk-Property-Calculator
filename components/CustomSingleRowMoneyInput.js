@@ -38,7 +38,7 @@ const CustomSingleRowMoneyInput = (props) => {
           options={{
             precision: props.percentageField ? 1 : 0,
             separator: ".",
-            delimiter: props.numberField ? " " : ",",
+            delimiter: ",",
             unit: props.percentageField ? "" : props.numberField ? "" : "£",
             suffixUnit: props.percentageField
               ? "%"
