@@ -96,7 +96,7 @@ const AreaCalcScreen = ({ navigation }) => {
             {/* Calculate and reset button */}
             <CalculateResetButton
               onPressCalculateBtn={props.handleSubmit}
-              calculateBtnTittle="Calculate Price"
+              calculateBtnTittle="Calculate"
               onPressResetBtn={props.resetForm}
             ></CalculateResetButton>
           </RootComponent>
