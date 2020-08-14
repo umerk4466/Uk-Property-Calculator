@@ -1,5 +1,5 @@
 import React from "react";
-import { InteractionManager, Text } from "react-native";
+import { InteractionManager } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
 import CustomLoader from "../components/CustomLoader";
@@ -8,7 +8,6 @@ import BoxWrapper from "../components/BoxWrapper";
 import CustomMoneyInput from "../components/CustomMoneyInput";
 import CalculateResetButton from "../components/CalculateResetButton";
 import CustomRadioBoxes from "../components/CustomRadioBoxes";
-import CustomSlider from "../components/CustomSlider";
 // import error messages for the fields
 import YupErrorMessages from "../constants/YupErrorMessages";
 // import calculation function
