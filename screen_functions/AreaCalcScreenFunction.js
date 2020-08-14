@@ -6,18 +6,15 @@ import intToPound from "../constants/intToPound";
 export const AreaCalcScreenFunction = ({ values, navigation }) => {
   Keyboard.dismiss();
   // varibale for Calculations
-  let loan_amount =
-    values.property_price > values.available_deposit
-      ? values.property_price - values.available_deposit
-      : 0;
-  let interest = values.interest_rate_percentage / 1200;
-  let term_in_months = values.mortgage_term_years * 12;
-  // interest only mortgage formula
-  const interest_only = loan_amount * interest;
-  // repayment mortgage formula
-  const repayment_mortgage =
-    (loan_amount * interest) /
-    (1 - Math.pow(1 / (1 + interest), term_in_months));
+  let price_per_sqft;
+  let price_per_sqmt;
+  if (values.area_type == "ft²") {
+    price_per_sqft = values.property_price / values.area;
+    price_per_sqmt = (values.property_price / values.area) * 10.764;
+  } else {
+    price_per_sqft = values.property_price / values.area / 10.764;
+    price_per_sqmt = values.property_price / values.area;
+  }
 
   // make arrays to use in the modal to show the results
   // summary block fields
@@ -27,38 +24,29 @@ export const AreaCalcScreenFunction = ({ values, navigation }) => {
       fieldValue: intToPound(values.property_price),
     },
     {
-      fieldTitle: "Desposit",
-      fieldValue: intToPound(values.available_deposit),
-    },
-    {
-      fieldTitle: "Interest Rate (%)",
-      fieldValue: values.interest_rate_percentage.toFixed(1) + " %",
-    },
-    {
-      fieldTitle: "Mortgage Term",
-      fieldValue: values.mortgage_term_years + " years",
+      fieldTitle: "Property Area",
+      fieldValue: values.area + " " + values.area_type,
     },
   ];
   // Result block fields
   const resultBlockFields = [
     {
-      fieldTitle: "Repayment Mortgage",
-      fieldValue: intToPound(repayment_mortgage.toFixed(2)),
+      fieldTitle: "Price per ft²",
+      fieldValue: intToPound(price_per_sqft.toFixed(2)),
     },
     {
-      fieldTitle: "Interest-only Mortgage",
-      fieldValue: intToPound(interest_only.toFixed(2)),
+      fieldTitle: "Price per m²",
+      fieldValue: intToPound(price_per_sqmt.toFixed(2)),
     },
   ];
   // make array which contains all the block to show in the result modal
   const fieldsBlockContainer = [
-    { title: "Loan Summary", fields: summaryBlockFields },
-    { title: "Monthly Payments", fields: resultBlockFields },
+    { title: "Property And Area Summary", fields: summaryBlockFields },
+    { title: "Price Per Area", fields: resultBlockFields },
   ];
   // navigate to the result model to show result with array of all block of fields
   navigation.navigate("Results", { fieldsBlockContainer });
 };
 
 // message for the screen header button
-export const ScreenMessage =
-  "Mortgage Calculator give you a rough idea of what your monthly payments could be for various types of mortgage, like (Repayments and Interest-only). ";
+export const ScreenMessage = "wh";

@@ -44,7 +44,7 @@ const AreaCalcScreen = ({ navigation }) => {
         initialValues={{
           property_price: "",
           area: "",
-          area_type: isSqFoot ? "sqft" : "sqmt",
+          area_type: isSqFoot ? "ft²" : "m²",
         }}
         validationSchema={ValidatorSchema}
         enableReinitialize={true}
