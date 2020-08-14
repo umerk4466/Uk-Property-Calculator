@@ -41,7 +41,7 @@ export const AreaCalcScreenFunction = ({ values, navigation }) => {
   ];
   // make array which contains all the block to show in the result modal
   const fieldsBlockContainer = [
-    { title: "Property And Area Summary", fields: summaryBlockFields },
+    { title: "Property Summary", fields: summaryBlockFields },
     { title: "Price Per Area", fields: resultBlockFields },
   ];
   // navigate to the result model to show result with array of all block of fields
