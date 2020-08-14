@@ -18,7 +18,7 @@ const CustomMoneyInput = (props) => {
         options={{
           precision: props.percentageField ? 1 : 0,
           separator: ".",
-          delimiter: ",",
+          delimiter: props.numberField ? " " : ",",
           unit: props.percentageField ? "" : props.numberField ? "" : "£",
           suffixUnit: props.percentageField ? "%" : props.numberField ? "" : "",
         }}
