@@ -69,7 +69,7 @@ const MortgageBorrowScreen = ({ navigation }) => {
               {/* first_person_income field */}
               <CustomMoneyInput
                 title={"Your annual income (before tax)"}
-                placeholder={"£20,00"}
+                placeholder={"£20,000"}
                 onBlur={props.handleBlur("first_person_income")}
                 value={props.values.first_person_income}
                 onChangeText={(maskedText, rawText) => {

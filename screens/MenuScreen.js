@@ -5,7 +5,7 @@ import RootComponent from "../components/RootComponent";
 import CustomLoader from "../components/CustomLoader";
 import HeadingText from "../components/HeadingText";
 
-const MunuScreen = ({ navigation }) => {
+const MunuScreen = () => {
   // state for loader gif
   const [isLoading, setIsLoading] = React.useState(true);
   InteractionManager.runAfterInteractions(() => setIsLoading(false));
