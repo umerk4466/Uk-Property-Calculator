@@ -31,7 +31,6 @@ const ValidatorSchema = yup.object({
 const AreaCalcScreen = ({ navigation }) => {
   // state for selection area type
   const [isSqFoot, setIsSqFoot] = React.useState(true);
-
   // imported function to add right button on the header
   SetHeaderMessage(navigation, ScreenMessage);
   // state for loader gif
@@ -58,7 +57,16 @@ const AreaCalcScreen = ({ navigation }) => {
         {(props) => (
           <RootComponent>
             {/* Property details heading and container */}
-            <HeadingText paddingTopNone heading="Property and area details" />
+            <HeadingText paddingTopNone heading="Area type of the property" />
+            {/* Area Type Radio Button */}
+            <CustomRadioBoxes
+              firstTitle="square foot"
+              selectFirst={isSqFoot}
+              onFirstPress={() => setIsSqFoot(true)}
+              secondTitle="square meter"
+              onSecondPress={() => setIsSqFoot(false)}
+            ></CustomRadioBoxes>
+            <HeadingText heading="Property and area details" />
             <BoxWrapper>
               {/*Price of the property field */}
               <CustomMoneyInput
@@ -72,12 +80,11 @@ const AreaCalcScreen = ({ navigation }) => {
                 error={props.errors.property_price}
                 touched={props.touched.property_price}
               />
-
               {/*Area field */}
               <CustomMoneyInput
                 numberField
                 title={"Area of the property"}
-                placeholder={"75m²/ft²"}
+                placeholder={isSqFoot ? "75ft²" : "75m²"}
                 onBlur={props.handleBlur("area")}
                 value={props.values.area}
                 onChangeText={(maskedText, rawText) => {
@@ -86,15 +93,6 @@ const AreaCalcScreen = ({ navigation }) => {
                 error={props.errors.area}
                 touched={props.touched.area}
               />
-              <HeadingText heading="Select area type" />
-              {/* Area Type Radio Button */}
-              <CustomRadioBoxes
-                firstTitle="square foot"
-                selectFirst={isSqFoot}
-                onFirstPress={() => setIsSqFoot(true)}
-                secondTitle="square meter"
-                onSecondPress={() => setIsSqFoot(false)}
-              ></CustomRadioBoxes>
             </BoxWrapper>
             {/* Calculate and reset button */}
             <CalculateResetButton
