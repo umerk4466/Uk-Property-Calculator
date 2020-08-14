@@ -64,6 +64,13 @@ export default function HomeScreen({ navigation }) {
           title="Borrowing Calculator"
           description="How much mortgage I can get"
         ></TouchableButton>
+        {/* Area CALCULATOR */}
+        <TouchableButton
+          onPress={() => navigation.navigate("Area Calculator")}
+          imgSource={require("../assets/HomeScreen/area.png")}
+          title="Area Calculator"
+          description="Find price per m2/ft²"
+        ></TouchableButton>
       </RootComponent>
     );
   }

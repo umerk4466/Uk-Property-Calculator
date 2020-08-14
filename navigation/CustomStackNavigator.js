@@ -14,6 +14,7 @@ import MortgageCalcScreen from "../screens/MortgageCalcScreen";
 import LoanToValueScreen from "../screens/LoanToValueScreen";
 import MortgageBorrowScreen from "../screens/MortgageBorrowScreen";
 import BtlCalcScreen from "../screens/BtlCalcScreen";
+import AreaCalcScreen from "../screens/AreaCalcScreen";
 
 import ReslutModalScreen from "../screens/ReslutModalScreen";
 
@@ -39,6 +40,8 @@ export default function CustomStackNavigator() {
           name="Borrowing Calculator"
           component={MortgageBorrowScreen}
         />
+        <Stack.Screen name="Area Calculator" component={AreaCalcScreen} />
+
         <Stack.Screen name="Results" component={ReslutModalScreen} />
       </Stack.Navigator>
     </NavigationContainer>
