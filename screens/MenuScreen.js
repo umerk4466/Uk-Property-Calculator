@@ -1,10 +1,11 @@
 import React from "react";
-import { InteractionManager } from "react-native";
-
+import { InteractionManager, View } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
 import CustomLoader from "../components/CustomLoader";
 import HeadingText from "../components/HeadingText";
+import CustomTouchableHighlight from "../components/CustomTouchableHighlight";
+
 // import custom functions
 import CustomModalHeader from "../constants/CustomModalHeader";
 
@@ -20,7 +21,14 @@ const MunuScreen = ({ navigation }) => {
   } else {
     return (
       <RootComponent>
-        <HeadingText heading="This is menu screen" />
+        <View style={{ paddingHorizontal: 5 }}>
+          <HeadingText paddingTopNone heading="Uk Property Calculator" />
+        </View>
+        <CustomTouchableHighlight
+          title={"Feedback/ Suggestions"}
+          iconName={"home"}
+          onPress={() => alert("aka")}
+        />
       </RootComponent>
     );
   }
