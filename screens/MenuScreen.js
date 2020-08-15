@@ -1,9 +1,8 @@
 import React from "react";
-import { InteractionManager, View, Text } from "react-native";
+import { InteractionManager, Linking } from "react-native";
 // import components
 import RootComponent from "../components/RootComponent";
 import CustomLoader from "../components/CustomLoader";
-import HeadingText from "../components/HeadingText";
 import CustomTouchableHighlight from "../components/CustomTouchableHighlight";
 
 // import custom functions
@@ -30,6 +29,13 @@ const MenuScreen = ({ navigation }) => {
           title={"Rate Us"}
           iconName={"star"}
           onPress={() => alert("aka")}
+        />
+        <CustomTouchableHighlight
+          title={"Icons by Icons8"}
+          iconName={"link"}
+          onPress={() =>
+            Linking.openURL("https://icons8.com/icons/set/insert-money")
+          }
         />
       </RootComponent>
     );
