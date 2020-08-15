@@ -21,12 +21,17 @@ const MunuScreen = ({ navigation }) => {
   } else {
     return (
       <RootComponent>
-        <View style={{ paddingHorizontal: 5 }}>
+        {/* <View style={{ paddingHorizontal: 5 }}>
           <HeadingText paddingTopNone heading="Uk Property Calculator" />
-        </View>
+        </View> */}
         <CustomTouchableHighlight
           title={"Feedback/ Suggestions"}
-          iconName={"home"}
+          iconName={"comment"}
+          onPress={() => alert("aka")}
+        />
+        <CustomTouchableHighlight
+          title={"Rate Us"}
+          iconName={"star"}
           onPress={() => alert("aka")}
         />
       </RootComponent>

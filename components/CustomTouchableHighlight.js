@@ -7,14 +7,13 @@ import Colors from "../constants/colors";
 const CustomTouchableHighlight = ({ onPress, iconName, title }) => {
   return (
     <TouchableHighlight
-      style={{ marginBottom: 10, borderRadius: 4 }}
+      style={{ borderRadius: 4 }}
       underlayColor={Colors.BoxContainerBorderColor}
       onPress={onPress}
     >
       <View style={styles.TouchButtonStyles}>
         <Icon
           name={iconName}
-          iconStyle={{ padding: 12 }}
           color={Colors.BodyLightColor}
           iconStyle={styles.CustomIconStyle}
         />
