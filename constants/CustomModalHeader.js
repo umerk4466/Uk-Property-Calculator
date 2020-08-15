@@ -7,6 +7,7 @@ import Colors from "../constants/colors";
 const CustomModalHeader = (navigation) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
+      gestureDirection: "horizontal-inverted",
       headerLeft: () => (
         <Icon
           name="info"
@@ -16,7 +17,7 @@ const CustomModalHeader = (navigation) => {
         />
       ),
     });
-  });
+  }, [navigation]);
 };
 
 export default CustomModalHeader;

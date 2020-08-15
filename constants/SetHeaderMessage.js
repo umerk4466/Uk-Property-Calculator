@@ -14,9 +14,9 @@ const SetHeaderMessage = (navigation, message) => {
           color={Colors.OnButtonColor}
           onPress={() => Alert.alert("Info", message)}
         />
-      )
+      ),
     });
-  });
+  }, [navigation]);
 };
 
 export default SetHeaderMessage;

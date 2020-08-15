@@ -44,13 +44,7 @@ export default function CustomStackNavigator() {
           component={MortgageBorrowScreen}
         />
         <Stack.Screen name="Area Calculator" component={AreaCalcScreen} />
-        <Stack.Screen
-          name="Menu"
-          component={MenuScreen}
-          options={{
-            gestureDirection: "horizontal-inverted",
-          }}
-        />
+        <Stack.Screen name="Menu" component={MenuScreen} />
         <Stack.Screen name="Results" component={ReslutModalScreen} />
       </Stack.Navigator>
     </NavigationContainer>
