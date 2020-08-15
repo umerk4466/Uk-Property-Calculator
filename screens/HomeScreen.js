@@ -22,14 +22,14 @@ export default function HomeScreen({ navigation }) {
         {/* ROI CALCULATOR */}
         <TouchableButton
           onPress={() => navigation.navigate("ROI Calculator")}
-          imgSource={require("../assets/HomeScreen/roi.png")}
+          imgSource={require("../assets/HomeScreen/roi_calculator.png")}
           title="ROI Calculator"
           description="Return on investment"
         ></TouchableButton>
         {/* BTL CALCULATOR */}
         <TouchableButton
           onPress={() => navigation.navigate("BTL Calculator")}
-          imgSource={require("../assets/HomeScreen/pound.png")}
+          imgSource={require("../assets/HomeScreen/btl_calculator.png")}
           title="BTL Calculator"
           description="Buy To Let Calculations"
         ></TouchableButton>
@@ -43,28 +43,21 @@ export default function HomeScreen({ navigation }) {
         {/* MORTGAGE CALCULATOR */}
         <TouchableButton
           onPress={() => navigation.navigate("Mortgage Calculator")}
-          imgSource={require("../assets/HomeScreen/mortgage.png")}
+          imgSource={require("../assets/HomeScreen/mortgage_calculator.png")}
           title="Mortgage Calculator"
           description="Find monthly mortgage payments"
         ></TouchableButton>
-        {/* AREA CALCULATOR */}
-        {/* <TouchableButton
-          onPress={() => navigation.navigate("Price Per Area")}
-          imgSource={require("../assets/HomeScreen/area.png")}
-          title="Area Calculator"
-          description="Price to Sqmetre/Sqfoot"
-        ></TouchableButton> */}
         {/* LTV CALCULATOR */}
         <TouchableButton
           onPress={() => navigation.navigate("LTV Calculator")}
-          imgSource={require("../assets/HomeScreen/affordability.png")}
+          imgSource={require("../assets/HomeScreen/loan_to_value.png")}
           title="LTV Calculator"
           description="Loan to Value you'll have to borrow"
         ></TouchableButton>
         {/* Borrowing CALCULATOR */}
         <TouchableButton
           onPress={() => navigation.navigate("Borrowing Calculator")}
-          imgSource={require("../assets/HomeScreen/mortgage.png")}
+          imgSource={require("../assets/HomeScreen/borrowing_calculator.png")}
           title="Borrowing Calculator"
           description="How much mortgage I can get"
         ></TouchableButton>
