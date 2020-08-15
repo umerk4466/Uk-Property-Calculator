@@ -16,9 +16,7 @@ import MortgageBorrowScreen from "../screens/MortgageBorrowScreen";
 import BtlCalcScreen from "../screens/BtlCalcScreen";
 import AreaCalcScreen from "../screens/AreaCalcScreen";
 import MenuScreen from "../screens/MenuScreen";
-
 import ReslutModalScreen from "../screens/ReslutModalScreen";
-import { color } from "react-native-reanimated";
 
 const Stack = createStackNavigator();
 
