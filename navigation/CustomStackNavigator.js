@@ -54,6 +54,7 @@ export default function CustomStackNavigator() {
           component={MenuScreen}
           options={{
             gestureDirection: "horizontal-inverted",
+            title: "More",
           }}
         />
         <Stack.Screen name="Results" component={ReslutModalScreen} />
