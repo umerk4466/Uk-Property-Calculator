@@ -20,6 +20,7 @@ import AreaCalcScreen from "../screens/AreaCalcScreen";
 import MenuScreen from "../screens/MenuScreen";
 
 import ReslutModalScreen from "../screens/ReslutModalScreen";
+import { color } from "react-native-reanimated";
 
 const Stack = createStackNavigator();
 
@@ -31,7 +32,13 @@ export default function CustomStackNavigator() {
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
       >
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            headerTitle: "Dashboard",
+          }}
+        />
         <Stack.Screen name="BTL Calculator" component={BtlCalcScreen} />
         <Stack.Screen name="ROI Calculator" component={RoiScreen} />
         <Stack.Screen
