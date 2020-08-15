@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "react-native";
+
 // import stack Navigator
 import {
   createStackNavigator,
@@ -46,8 +48,7 @@ export default function CustomStackNavigator() {
           name="Menu"
           component={MenuScreen}
           options={{
-            cardStyleInterpolator:
-              CardStyleInterpolators.forFadeFromBottomAndroid,
+            gestureDirection: "horizontal-inverted",
           }}
         />
         <Stack.Screen name="Results" component={ReslutModalScreen} />
