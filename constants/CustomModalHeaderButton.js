@@ -1,10 +1,10 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Icon } from "react-native-elements";
-import Colors from "../constants/colors";
+import Colors from "./colors";
 
 // component for modal header.
-const CustomModalHeader = (navigation) => {
+const CustomModalHeaderButton = (navigation) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
@@ -20,4 +20,4 @@ const CustomModalHeader = (navigation) => {
   }, [navigation]);
 };
 
-export default CustomModalHeader;
+export default CustomModalHeaderButton;

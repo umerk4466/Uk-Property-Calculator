@@ -4,13 +4,12 @@ import { InteractionManager, Linking } from "react-native";
 import RootComponent from "../components/RootComponent";
 import CustomLoader from "../components/CustomLoader";
 import CustomTouchableHighlight from "../components/CustomTouchableHighlight";
-
-// import custom functions
-import CustomModalHeader from "../constants/CustomModalHeader";
+// import custom header button functions
+import CustomModalHeaderButton from "../constants/CustomModalHeaderButton";
 
 const MenuScreen = ({ navigation }) => {
   // set header like modals
-  CustomModalHeader(navigation);
+  CustomModalHeaderButton(navigation);
   // state for loader gif
   const [isLoading, setIsLoading] = React.useState(true);
   InteractionManager.runAfterInteractions(() => setIsLoading(false));
