@@ -17,6 +17,7 @@ import BtlCalcScreen from "../screens/BtlCalcScreen";
 import AreaCalcScreen from "../screens/AreaCalcScreen";
 import MoreScreen from "../screens/MoreScreen";
 import ReslutModalScreen from "../screens/ReslutModalScreen";
+import InAppBrowser from "../screens/InAppBrowser";
 
 const Stack = createStackNavigator();
 
@@ -55,6 +56,7 @@ export default function CustomStackNavigator() {
           }}
         />
         <Stack.Screen name="Results" component={ReslutModalScreen} />
+        <Stack.Screen name="InAppBrowser" component={InAppBrowser} />
       </Stack.Navigator>
     </NavigationContainer>
   );
