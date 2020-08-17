@@ -8,7 +8,7 @@ const homeScreenHeaderButton = (navigation) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.navigate("Menu")}>
+        <TouchableOpacity onPress={() => navigation.navigate("More")}>
           <Icon
             name="menu"
             iconStyle={{ padding: 12 }}

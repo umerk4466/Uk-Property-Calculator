@@ -7,7 +7,7 @@ import CustomTouchableHighlight from "../components/CustomTouchableHighlight";
 // import custom header button functions
 import CustomModalHeaderButton from "../constants/CustomModalHeaderButton";
 
-const MenuScreen = ({ navigation }) => {
+const MoreScreen = ({ navigation }) => {
   // set header like modals
   CustomModalHeaderButton(navigation);
   // state for loader gif
@@ -41,4 +41,4 @@ const MenuScreen = ({ navigation }) => {
   }
 };
 
-export default MenuScreen;
+export default MoreScreen;

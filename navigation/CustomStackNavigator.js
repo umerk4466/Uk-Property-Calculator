@@ -15,7 +15,7 @@ import LoanToValueScreen from "../screens/LoanToValueScreen";
 import MortgageBorrowScreen from "../screens/MortgageBorrowScreen";
 import BtlCalcScreen from "../screens/BtlCalcScreen";
 import AreaCalcScreen from "../screens/AreaCalcScreen";
-import MenuScreen from "../screens/MenuScreen";
+import MoreScreen from "../screens/MoreScreen";
 import ReslutModalScreen from "../screens/ReslutModalScreen";
 
 const Stack = createStackNavigator();
@@ -48,11 +48,10 @@ export default function CustomStackNavigator() {
         />
         <Stack.Screen name="Area Calculator" component={AreaCalcScreen} />
         <Stack.Screen
-          name="Menu"
-          component={MenuScreen}
+          name="More"
+          component={MoreScreen}
           options={{
             gestureDirection: "horizontal-inverted",
-            title: "More",
           }}
         />
         <Stack.Screen name="Results" component={ReslutModalScreen} />
