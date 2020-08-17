@@ -6,13 +6,9 @@ import CustomLoader from "../components/CustomLoader";
 import CustomTouchableHighlight from "../components/CustomTouchableHighlight";
 // import custom header button functions
 import CustomModalHeaderButton from "../constants/CustomModalHeaderButton";
+import appInfo from "../constants/appInfo";
 
 const MoreScreen = ({ navigation }) => {
-  // define app id for rating
-  const os_url =
-    Platform.OS === "android"
-      ? "market://details?id=com.whatsapp&hl=en_GB"
-      : "market://details?id=com.whatsapp&hl=en_GB";
   // set header like modals
   CustomModalHeaderButton(navigation);
   // state for loader gif
@@ -27,12 +23,16 @@ const MoreScreen = ({ navigation }) => {
         <CustomTouchableHighlight
           title={"Feedback/ Suggestions"}
           iconName={"comment"}
-          onPress={() => Linking.openURL("mailto:email@email.com")}
+          onPress={() => Linking.openURL("mailto:" + appInfo.email)}
         />
         <CustomTouchableHighlight
           title={"Rate Us"}
           iconName={"star"}
-          onPress={() => Linking.openURL(os_url)}
+          onPress={() =>
+            Linking.openURL(
+              Platform.OS === "android" ? appInfo.androidUrl : appInfo.isoUrl
+            )
+          }
         />
         <CustomTouchableHighlight
           title={"Icons by Icons8"}
