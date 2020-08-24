@@ -108,7 +108,7 @@ const RoiScreen = ({ navigation }) => {
                 error={props.errors.other_monthly_costs}
                 touched={props.touched.other_monthly_costs}
               />
-              {/* Initial investment field */}
+              {/* Initial investment fields */}
               <CustomMoneyInput
                 title={"Initial investment (deposit)"}
                 placeholder={"£10,000"}
