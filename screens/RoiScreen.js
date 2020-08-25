@@ -19,7 +19,7 @@ import {
 import scrollToTop from "../constants/scroll-up";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
-// Import formik and yup for calculation and validations
+// Import formik and yup for calculations and validations
 import * as yup from "yup";
 import { Formik } from "formik";
 
