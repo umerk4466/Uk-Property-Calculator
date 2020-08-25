@@ -15,7 +15,7 @@ import {
   RoiScreenFunction,
   ScreenMessage,
 } from "../screen_functions/RoiScreenFunction";
-// import function for scrolling to top
+// import function for scrolling to to
 import scrollToTop from "../constants/scroll-up";
 // import function to set message on the header button
 import SetHeaderMessage from "../constants/SetHeaderMessage";
