@@ -2,7 +2,6 @@ git push https://github.com/umerk4466/Uk-Property-Calculator.git
 
 git remote add origin https://github.com/umerk4466/Uk-Property-Calculator.git
 git push -u origin master
-C
 
 
 
